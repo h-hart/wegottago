@@ -62,7 +62,7 @@ GottaGo::Application.configure do
   config.active_support.deprecation = :notify
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'we-gotta-go.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'wegottago.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
@@ -74,7 +74,7 @@ GottaGo::Application.configure do
     :user_name            => 'aqmandrill@gmail.com',
     :password             => 'r03O6joNFAV7H39P7wbG_A',
     :authentication       => 'plain',
-    :enable_starttls_auto => true  
+    :enable_starttls_auto => true
   }
 
 end
