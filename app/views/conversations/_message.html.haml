@@ -1,0 +1,22 @@
+.col-md-12.border-bottom.index-message
+  .row.no-margin-top
+    .col-md-10
+      .row
+        .col-md-1.online
+          .message-user-status{rel: "#{message.sender.id}"}
+        .col-md-11
+          .row
+            .col-md-2
+              = image_tag message.sender.avatar.url(:thumb)
+            .col-md-10
+              .row
+                %p.sender= message.sender.fullname
+              .row.message
+                %p= message.body
+    .col-md-2
+      .row
+        .col-md-12
+          .created_at.text-right
+            %p= l message.created_at, format: :message
+            %p= l message.created_at, format: :time
+    .col-md-12

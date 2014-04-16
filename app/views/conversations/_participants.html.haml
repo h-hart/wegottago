@@ -1,0 +1,12 @@
+.col-md-2
+  %h4.chat-participants In this chat:
+.col-md-10.participants
+  - conversation.participants.compact.uniq.each do |user|
+    .col-md-2
+      .row
+        = link_to profile_path(user) do
+          .col-md-3.paddingles.user-profile-blok-link
+            = image_tag user.avatar.url(:thumb)
+          .col-md-9.paddingles
+            %p.sender= user.fullname
+            %p.sender-location= truncate(user.location, length: 15)

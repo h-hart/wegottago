@@ -1,0 +1,7 @@
+.col-md-12.top-nav-header
+  %div.text-center
+    = link_to 'Explore Activities ▼', activity_categories_path
+    - if user_signed_in?
+      = link_to 'Discover Friends', explore_friends_path(:id => current_user.id)
+    - else
+      = link_to 'Discover Friends', explore_friends_path

@@ -1,0 +1,33 @@
+.col-md-12
+  %h3 My Interests
+  %br
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name, tab: 'interests'), html: { method: :put}) do |f|
+    = display_base_errors resource
+
+    .control-group.user_interest_list
+      .controls
+        #current_user_interest_list
+          - f.object.interest_list.each do |interest|
+            %span.interest.current
+              %span.cval= interest
+              %button.close.ui-dr-inline{ type: "button" } &#215
+
+    = f.hidden_field :interest_list
+
+    .avaliable-interests
+      %div.avaliables
+        - if !@interests.nil?
+          - @interests.each do |interest|
+            - unless f.object.interest_list.include?( interest.name )
+              %span.interest.draggable
+                %span.cval= interest.name
+        - else
+          .row.text-center
+            - if @user.id == current_user.id
+              %h2.grey-msg You have no Interests
+            - else
+              %h2.grey-msg #{ @user.name} have no Interests
+
+    %button.btn.btn-pink.arrowed.pull-right{type: 'submit'} Update
+.clearfix
+%br

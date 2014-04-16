@@ -1,0 +1,11 @@
+.page-header.text-center
+  %h1
+    %b
+      New friends. Common interests.
+      %br Endless Possibilities...
+= link_to omniauth_authorize_path(:user, :facebook) do
+  = image_tag 'sign-up-facebook.png'
+%br
+.quote.text-center
+  WeGottaGo will never post to Facebook without your permission
+%br

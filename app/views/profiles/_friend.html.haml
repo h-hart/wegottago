@@ -1,0 +1,23 @@
+.col-md-3 
+  =link_to profile_path(friend) do
+    .col-md-12.friend-avatar
+      = image_tag friend.avatar_url(:thumb), class: ''
+    .col-md-12
+      .friend-name
+        = friend.name
+      .friend-city
+        = friend.name
+    .col-md-12.action-buttons
+      - if signed_in_and_not_current? friend.id
+        - if friends?(friend.id)!=true
+          = link_to friendships_path(:friend_id => friend.id), :method => :post, title: "Add to friends", class: 'add-to-friend-button' do
+            %button.btn.btn-lg.btn-grey.btn-default{:type => "button"}
+              %span.glyphicon.glyphicon-plus
+        - else
+          - if current_user.get_friendship(friend_id: friend.id)[0].id == true
+            =link_to friendship_path(id: current_user.get_friendship(friend_id: friend.id)[0].id, friend_id: friend.id), :method => :delete, title: "Remove from friend", class: 'remove-from-friend-button' do
+              %button.btn.btn-lg.btn-grey.btn-default{:type => "button"}
+                %span.glyphicon.glyphicon-remove
+      =link_to new_conversation_path(:receiver_id => friend.id), class: 'send-message-button' do
+        %button.btn.btn-lg.btn-grey.btn-default{:type => "button", :title => "Send message"}
+          %span.glyphicon.glyphicon-envelope

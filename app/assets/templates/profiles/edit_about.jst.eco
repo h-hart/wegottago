@@ -1,0 +1,5 @@
+
+  <textarea class='form-control edit-area'>
+    <%= @about %>
+  </textarea>
+  <button class='btn btn-pink save'>Save</button>

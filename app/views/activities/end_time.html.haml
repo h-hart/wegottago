@@ -1,0 +1,1 @@
+= select_tag( 'activity[time]', options_for_select(timeArr(@time), Time.new.in_time_zone('America/Los_Angeles').strftime("%k").to_i), id: 'activity_time', class: "select optional")

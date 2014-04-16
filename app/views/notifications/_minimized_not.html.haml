@@ -1,0 +1,13 @@
+.col-md-12.margin-top5
+  %div{ class: "#{ last ? '' : 'border-bottom'}"}
+    .col-md-2.paddingles.borderize.roundize3
+      = link_to profile_path(notification.owner) do
+        = image_tag notification.owner.avatar.url(:thumb)
+    .col-md-10
+      %p
+        = notification.key
+        - if notification.trackable_type == 'User'
+          = link_to "View #{notification.owner.accost} profile", profile_path(notification.owner), class:"view-back"
+        - if notification.trackable_type == 'Activity'
+          = link_to notification.trackable.title, activity_path(notification.trackable)
+    %div{style: 'clear: both'}

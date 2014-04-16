@@ -1,0 +1,44 @@
+
+.col-md-6.homepage-block
+  .col-md-10.col-md-offset-1.backgroundize.choose-interests.roundize3.border-white
+    .interests-wizard-block.make-dark
+    .block-footer
+      .page-header.remove-margin-top.interests-wizard
+        %h1.text-center.interests-header Go for it!
+        %h1.text-center.interests-header Find things that Interest you!
+        %p.interests-text These will help us connect you with people who share your interests.
+        %p.interests-text Please select at least 6 ...but, the more you add the better!
+      .col-md-12.categories-list
+        .row
+          - @activity_categories.each do |category|
+            .col-md-4.category
+              .category-image.sign-up
+                = image_tag category.small_image_url, class: ''
+            .interests-list
+              %button.close.close-interests ×
+              - category.interests.each_with_index do |i, index|
+                - if index == category.interests.size-1 && index%3 == 2
+                  .col-md-4.interest-item.new.last-line-and-row
+                    %span.glyphicon.glyphicon-plus
+                    = i.name
+                - elsif index%3 == 2
+                  .col-md-4.interest-item.new.last-in-row
+                    %span.glyphicon.glyphicon-plus
+                    = i.name
+                - elsif ((category.interests.size%3 == 0 || category.interests.size%3 == 2) && (category.interests.size-3..category.interests.size-1).include?(index)) || (index == category.interests.size-1 && category.interests.size%3 == 1)
+                  .col-md-4.interest-item.new.last-line
+                    %span.glyphicon.glyphicon-plus
+                    = i.name
+                - else
+                  .col-md-4.interest-item.new
+                    %span.glyphicon.glyphicon-plus
+                    = i.name
+
+      = simple_form_for(@user, :url => wizard_path, :method => :put, :html => {:class => 'form-vertical', :multipart => true  }) do |f|
+        = f.error_notification
+        = display_base_errors @user
+        .col-md-12
+          .row
+            .col-md-12
+              = f.hidden_field :interest_list
+              = f.button :submit, 'Next!', :class => 'btn-pink set-interests', :style=> 'width: 100px;', disabled: true

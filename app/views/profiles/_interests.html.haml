@@ -1,0 +1,19 @@
+.col-md-6.profile-title
+  - if signed_in_and_is_current? @user.id
+    %span.name My Interests 
+  - else
+    %span.name #{@user.name}'s Interests 
+  %span.count 
+    = @user.interests.count 
+
+.col-md-12.interests-view
+  - if @user.interests.uniq.size > 0
+    - @user.interests.uniq.each do |interest|
+      %span.interest
+        %span.cval= interest.name
+  -else
+    .row
+    - if @user.id == current_user.id
+      %h2.grey-msg You have no Interests
+    - else
+      %h2.grey-msg #{ @user.name} have no Interests

@@ -1,0 +1,5 @@
+%section.all-friends
+  .container
+    .col-md-12.friends-list.all
+      - @users.each do |friend|
+        = render 'friends/friend_item', friend: friend

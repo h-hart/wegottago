@@ -1,0 +1,17 @@
+.col-md-12
+  %h3 My Notifications
+  %p
+    %b Select what type of notifications you would like to recieve to your email.
+  %br
+  = simple_form_for(resource, as: resource_name, wrapper: :horizontal_table, url: registration_path(resource_name, tab: 'notifications'), html: { method: :put, class: 'form-horizontal horizontal-table'}) do |f|
+    = display_base_errors resource
+
+    = f.simple_fields_for :user_notification do |not_f|
+
+      = not_f.input :friend_requests, as: :boolean, label: 'Someone sends me a friend request of accepts mine'
+      / = not_f.input :messages, as: :boolean, label: 'Someone sends me a message'
+      = not_f.input :social_organised, as: :boolean, label: 'New socials organised that match my interests'
+
+    %button.btn.btn-pink.arrowed.pull-right{type: 'submit'} Update
+.clearfix
+%br

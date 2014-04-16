@@ -1,0 +1,18 @@
+- if user_signed_in?
+  - if @user.id == current_user.id
+    %ul.nav.nav-pills.friends-navigation.explore-friends-navigation.decored.btn.btn-grey
+
+      - path = explore_friends_path(id: @user.id, all: 't')
+      %li.show-all-friends{ class: request.fullpath == path ? 'active' : ''}
+        =link_to "All", path
+
+      - path = explore_friends_path(id: @user.id, search:{ created_at_gt: (Time.now - 7.days) })
+      %li.show-new-friends{ class: request.fullpath == path ? 'active' : '' }
+        =link_to "Newest", path
+
+      - path = explore_friends_path(:id => @user.id, search: { activity_join_user_id_is_not_null: true, activity_join_created_at_gt: (Time.now - 14.days) })
+      %li.show-going-places{ class: request.fullpath == path ? 'active' : '' }
+        =link_to "Going Places", path
+  - else
+    .row.text-center
+      %h2.decored All of #{ @user.name}'s Friends

@@ -1,0 +1,23 @@
+.col-md-12.border-bottom.index-message
+  .row.no-margin-top
+    .col-md-5
+      .row.notifications
+        .col-md-3
+          = link_to profile_path(notification.owner) do
+            = image_tag notification.owner.avatar.url(:thumb)
+        .col-md-9
+          %p.sender= notification.owner.fullname_initials
+          %p.sender-location= notification.owner.location_short
+    .col-md-4.extra-padding
+      %p
+        = notification.key
+        - if notification.trackable_type == 'User'
+          = link_to "View #{notification.owner.accost} profile", profile_path(notification.owner), class:"view-back"
+        - if notification.trackable_type == 'Activity'
+          = link_to notification.trackable.title, activity_path(notification.trackable)
+    .col-md-3
+      .row.text-right
+        .col-md-12
+          .created_at
+            %p= l notification.created_at, format: :message
+            %p= l notification.created_at, format: :time

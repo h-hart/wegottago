@@ -1,0 +1,6 @@
+Hi <%= @friendship_record.friend.fullname %> 
+========================================================================
+
+You have new friend request from <%= @friendship_record.user.fullname %>
+
+Go to <%= link_to 'WeGottaGo', root_url %> to accept it.

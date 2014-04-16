@@ -1,0 +1,9 @@
+.row
+  .col-md-12
+    %p.margin-bottom In this conversation:
+  .col-md-6.col-md-offset-2.participants
+    - conversation.participants.compact.uniq[0..3].each do |user|
+      .halfling
+        = link_to profile_path(user) do
+          .col-md-12.paddingles.user-profile-blok-link
+            = image_tag user.avatar.url(:thumb)

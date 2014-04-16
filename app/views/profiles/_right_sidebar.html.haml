@@ -1,0 +1,68 @@
+.col-md-12.about
+  %h2.sidebar-title
+    My blurb:
+    - if signed_in_and_is_current?( @user.id )
+      %a.edit.text-right{href: "#"}  Edit
+  #user-blur
+    %p= @user.about
+.col-md-12.lowdown
+  %h2.sidebar-title
+    My Lowdown:
+    - if signed_in_and_is_current?( @user.id )
+      %a.edit-lowdown.text-right{href: "#"}  Edit
+  #user-lowdown
+    .row
+      .col-md-12
+        .row
+          .col-md-5
+            %h5 Relations
+          .col-md-7
+            %h5#relation-value= @user.relationship_status
+      .col-md-12
+        .row
+          .col-md-5
+            %h5 Have Kids
+          .col-md-7
+            %h5#have-kids-value= @user.have_kids
+      .col-md-12
+        .row
+          .col-md-5
+            %h5 Wants Kids
+          .col-md-7
+            %h5#wants-kids-value= @user.wants_kids
+      .col-md-12
+        .row
+          .col-md-5
+            %h5 Ethnicity
+          .col-md-7
+            %h5#ethnicity-value= @user.ethnicity
+      .col-md-12
+        .row
+          .col-md-5
+            %h5 Body Type
+          .col-md-7
+            %h5#body-type-value= @user.body_type
+      .col-md-12
+        .row
+          .col-md-5
+            %h5 Height
+          .col-md-7
+            %h5#height-value= @user.height
+      .col-md-12
+        .row
+          .col-md-5
+            %h5 Faith
+          .col-md-7
+            %h5#faith-value= @user.faith
+      .col-md-12
+        .row
+          .col-md-5
+            %h5 Smoke
+          .col-md-7
+            %h5#smoke-value= @user.smoke
+      .col-md-12
+        .row
+          .col-md-5
+            %h5 Drink
+          .col-md-7
+            %h5#drink-value= @user.drink

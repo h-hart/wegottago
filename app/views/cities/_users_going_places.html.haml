@@ -1,0 +1,15 @@
+- user_curiosities_activity = user.activities.last
+
+.col-md-3
+  .row
+    .col-md-12
+      = image_tag user_curiosities_activity.theme.image.url(:list_small)
+  .row
+    .bottom
+      = link_to profile_path(user) do 
+        =image_tag user.avatar.url(:thumb)
+      %h4.text-center
+        = user.name 
+        wants you to go to...
+      %h4.text-center
+        = link_to user_curiosities_activity.title, user_curiosities_activity

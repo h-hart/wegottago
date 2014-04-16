@@ -1,0 +1,73 @@
+- if user_signed_in?
+  
+- else
+  %li= link_to 'Login', new_user_session_path
+  %li= link_to 'Sign Up', authenticate_path
+- if user_signed_in?
+  %li
+    =link_to requests_friend_path(:id => current_user.id) do
+      = image_tag '/assets/Friend_requests.png', class: 'new_friends'
+      %sup.count-of-reguest 
+        - if current_user.get_friend_request.size > 0
+          =current_user.get_friend_request.size
+  %li.dropdown
+    %a{"data-toggle" => "dropdown", href: "#"}
+      %span.glyphicon.glyphicon-globe
+      %sup.count-of-reguest= @unread_notifications_count
+    %ul.dropdown-menu.custom{"aria-labelledby" => "dLabel", role: "menu"}
+      - if @last_notifications.blank?
+        .col-md-12.extra-margin-top
+          %li You have no notifications
+      - else
+        - @last_notifications.each do |n|
+          - t = (@last_notifications.last == n)
+          %li= render 'notifications/minimized_not', notification: n, last: t
+          - if t
+            .col-md-12
+              %li= link_to 'View all', notifications_path, class: 'pull-right'
+   
+  %li.dropdown
+    %a{"data-toggle" => "dropdown", href: "#"}
+      %span.glyphicon.glyphicon-envelope
+      %sup.count-of-reguest= @unread_messages_count
+    %ul.dropdown-menu.custom{"aria-labelledby" => "dLabel", role: "menu"}
+      - if @last_messages.blank?
+        .col-md-12.extra-margin-top
+          %li You have no messages
+      - else
+        - @last_messages.each do |m|
+          - t = (@last_messages.last == m)
+          %li= render 'conversations/minimized_mes', receipt: m, last: t
+          - if t
+            .col-md-12
+              %li= link_to 'View all', conversations_path, class: 'pull-right'
+
+  %li.dropdown
+    %a{"data-toggle" => "dropdown", href: "#"}
+      %span.glyphicon.glyphicon-chevron-down
+    %ul.dropdown-menu.custom-navs{"aria-labelledby" => "dLabel", role: "menu"}
+      .col-md-12.border-bottom
+        %li= link_to 'Basics', edit_user_profile_path(tab: "basic")
+      .col-md-12.border-bottom
+        %li= link_to 'About Me', edit_user_profile_path(tab: "about")
+      .col-md-12.border-bottom
+        %li= link_to 'Interests', edit_user_profile_path(tab: "interests")
+      .col-md-12.border-bottom
+        %li= link_to 'Friend Preferences', edit_user_profile_path(tab: "preferences")
+      .col-md-12.border-bottom
+        %li= link_to 'My Account', edit_user_profile_path(tab: "my-account")
+      .col-md-12.border-bottom
+        %li= link_to 'My Notifications', edit_user_profile_path(tab: "notifications")
+      .col-md-12
+        %li= link_to 'Logout', destroy_user_session_path, :method=>'delete', class: 'pull-right'
+
+- if user_signed_in?
+  %li.profile-li
+    = link_to profile_path(current_user.id), class: 'innav-img' do
+      = image_tag current_user.avatar_url(:thumb), class: 'img-circle'
+
+  %li
+    .button.btn.btn-pink.marginButton{"data-target" => "#PostActivity", "data-toggle" => "modal"} Post Activity
+
+    = render "activities/modal"
+

@@ -1,0 +1,11 @@
+%h1 In Admin
+= semantic_form_for [:admin, @activity_category] do |f|
+  = f.inputs "Admin Details" do
+    = f.input :name
+    = f.input :small_image, as: :file, :hint => f.template.image_tag(f.object.small_image_url)
+    = f.input :wide_image, as: :file, :hint => f.template.image_tag(f.object.wide_image_url)
+    %br
+    %h4{style: 'margin-left: 20.5%; margin-bottom: 5px ; color: red;'} Separate tags with ",". 
+    %h4{style: 'margin-left: 20.5%; margin-bottom: 5px ; color: red;'} For example "futbol, baseball, tenis".
+    = f.input :interest_list
+  = f.actions

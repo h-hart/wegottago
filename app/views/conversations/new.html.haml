@@ -1,0 +1,13 @@
+:coffee
+  $ ->
+    new GottaGo.Views.Message()
+= render 'profiles/header', user: current_user
+%section.no-margin-top
+  .col-md-12.whitebg.fix.border-bottom
+    .container
+      = render 'messages_head'
+%section
+  .container.borderize.roundize.white
+    .row
+      .col-md-12.extra-padding
+        = render 'form'

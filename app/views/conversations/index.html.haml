@@ -1,0 +1,15 @@
+= render 'profiles/header', user: current_user
+%section.no-margin-top
+  .col-md-12.whitebg.fix.border-bottom
+    .container
+      = render 'messages_head'
+%section
+  - if !@conversations.blank?
+    - @conversations.each do |conversation|
+      .container.borderize.roundize.white
+        .row
+          = render 'conversations', conversation: conversation
+  - else
+    .container  
+      .row
+        %h2.col-md-12.text-center.grey-msg You have no conversations

@@ -1,0 +1,43 @@
+.col-md-6.profile-title
+  - if signed_in_and_is_current? @user.id
+    %span.name My Activities 
+  - else
+    %span.name #{@user.name}'s Activities 
+  %span.count
+    = activitiesNum
+.col-md-6.all-items
+  - if signed_in_and_is_current? @user.id
+    =link_to "View All of my Activities", activities_path
+  - else
+    =link_to "View All of #{ @user.name}'s Activities", user_activities_path(@user.id)
+.row
+  .col-md-12.user-activities
+    - activities = lastFourActivities
+    - if activities && activities.count > 0
+      - activities.each do |activity|
+        .col-md-6.activity
+          = link_to activity_path(activity) do                  
+            .activity-main-info
+              = image_tag activity.theme.image_url(:list_small), class: 'activity-img'
+              - if activity.user_id == current_user.id
+                .activity-button.host host
+              - else 
+                - if activity.if_user_joined current_user.id
+                  .activity-button going
+                - else 
+                  -if activity.if_all_spots_occupied
+                    .activity-button full
+                  - else
+                    .activity-button 
+                      =activity.free_spot_num
+                      spots
+              .activity-name= activity.title
+          .date-time-info
+            %span.date-info= activity.end_datetime.strftime("%A, %b %eth")
+            %span.time-info= activity.end_datetime.strftime("%k:00 %p")
+    - else
+      .col-md-12
+        - if @user.id == current_user.id
+          %h2.grey-msg You have no activities
+        - else
+          %h2.grey-msg #{ @user.name} have no activities

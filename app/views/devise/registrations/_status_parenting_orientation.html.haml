@@ -1,0 +1,13 @@
+.col-md-12
+  = simple_form_for(resource, as: resource_name, wrapper: :horizontal_radios, url: registration_path(resource_name, tab: 'about-me'), html: { method: :put, class: 'form-horizontal'}) do |f|
+    = display_base_errors resource
+
+    = f.input :relationship_status, collection: [['Single', 'Single'], ['Married', 'Married'], ['In a relationship', 'In a relationship']], label_method: :last, value_method: :first, as: :radio, label: 'Status'
+
+    = f.input :have_kids, collection: [['Have Kids', 'Have Kids'], ['No kids', 'No kids'], ['Expecting', 'Expecting']], label_method: :last, value_method: :first, as: :radio, label: 'Parenting'
+
+    = f.input :orientation, collection: [['Straight', 'Straight'], ['Gay', 'Gay'], ['Bisexual', 'Bisexual']], label_method: :last, value_method: :first, as: :radio
+
+    %button.btn.btn-pink.arrowed.pull-right{type: 'submit'} Update
+.clearfix
+%br

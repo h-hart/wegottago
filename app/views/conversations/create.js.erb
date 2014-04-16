@@ -1,0 +1,9 @@
+$("#messages-list").append("<%= j render 'message', message: @message %>");
+// alert($("#messages-list").height());
+var height = 0;
+$("#messages-list").children().each(function(index, e){
+   height += $(e).height();
+});
+$("#messages-list").scrollTop(parseInt(height) * 2);
+$('#body').val('');
+$('.index-message').removeClass('unread');

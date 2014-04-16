@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    = render 'layouts/head'
+  %body
+    = render 'layouts/hidden_html_helpers'
+    %header
+      = render 'layouts/navigation'
+    - style = ''
+    - if request.fullpath != activity_categories_path
+      - style = "background: url( #{asset_path('background.jpg')}) repeat-y;"
+    %main{:role => "main", style: style}
+      = render 'layouts/messages'
+      = yield

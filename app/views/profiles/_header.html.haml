@@ -1,0 +1,31 @@
+%section
+  = render 'shared/top-nav'
+  .col-md-12.photo-body
+    .darken-bg
+    .container
+      .row
+        .col-md-2
+          = image_tag user.avatar_url(:thumb), class: 'img-circle'
+        .col-md-10
+          .user-name
+            %h3
+              ="#{ user.fullname}"
+              - unless user.show_age? 
+                %span.user-age=", #{ user.age}"
+          .member-info
+            %h4 Member Since
+            %h4= l user.created_at, :format => :month_year
+          .edit-profile-button{ data: { toggle: "tooltip"} }
+            - if signed_in_and_not_current? user.id
+              - if friends?(user.id)!=true
+                = link_to friendships_path(:friend_id => user.id), :method => :post, title: "Add to friends", :class => "btn btn-transparent" do
+                  %span.glyphicon.glyphicon-plus
+              - else
+                =link_to friendship_path(id: current_user.get_friendship(friend_id: user.id)[0].id, friend_id: user.id), :method => :delete, title: "Remove from friends", class: 'btn btn-transparent' do
+                  %span.glyphicon.glyphicon-remove
+
+              =link_to new_conversation_path(:receiver_id => user.id),:title=> "Send message", class: 'btn btn-transparent' do
+                %span.glyphicon.glyphicon-envelope
+            - if user_signed_in?
+              = link_to edit_user_profile_path(tab: "basic"),:title=> "Edit profile", :class => "btn btn-transparent" do
+                %span.glyphicon.glyphicon-cog
