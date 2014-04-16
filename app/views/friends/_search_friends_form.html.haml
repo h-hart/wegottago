@@ -1,0 +1,22 @@
+.container
+  .row
+    .search-form-wrap.col-sm-8.col-sm-offset-2
+      = form_for @search, url: friends_path() do |f|
+        .row
+          .form-group
+            .col-sm-4
+              = f.text_field :name_or_interests_name_contains, placeholder: "Search by name or interest", class: 'form-control'
+            .col-sm-3
+              = f.text_field :location_contains, placeholder: "Near?", class: 'form-control', value: @location_contains
+              = f.hidden_field :loc_lat_gt, required: false, value: ''
+              = f.hidden_field :loc_lng_gt, required: false, value: ''
+              = f.hidden_field :loc_lat_lt, required: false, value: ''
+              = f.hidden_field :loc_lng_lt, required: false, value: ''
+            .col-sm-3
+              = f.select :sex_equals , [['Men', 'Male'], ['Women', 'Female'], ['Both', 'Both']], :selected => @searched_sex, class: 'form-control'
+            .col-sm-2
+              = f.submit "Search", class: 'btn btn-pink', style: 'width: 100%; padding: 6px 0;'
+
+
+
+     

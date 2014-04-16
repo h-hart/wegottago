@@ -1,0 +1,48 @@
+
+= simple_form_for(resource, :as => resource_name, wrapper: :horizontal_radios,  :url => registration_path(resource_name, tab: 'about'), :html => { :method => :put, :class => 'form-vertical', :multipart => true  }) do |f|
+  .col-md-12
+    = display_base_errors resource
+    - if @user.avatar_url
+      %h3 About Me
+      %br
+      .control-group.string.optional.user_photo        
+        .row
+          .col-md-12#image-container
+            .controls#image
+              - if @user.avatar.default?
+              - else
+                :coffee
+                  $ ->
+                    initializeJcrop()
+              = render 'image', image: @user.avatar_url
+
+    = f.hidden_field :crop_x
+    = f.hidden_field :crop_y
+    = f.hidden_field :crop_h
+    = f.hidden_field :crop_w
+
+    / **
+    / Initial data from avatar preview
+    / **
+    #inivals.hidden{ data: { x: f.object.crop_x, y: f.object.crop_y, w: f.object.crop_w, h: f.object.crop_h }}
+    %br
+    %br
+    .control-group.string.optional.user_photo
+      .controls.pull-right.text-right
+        %div.relative
+          %div{style: 'opacity: 0;'}
+            = f.file_field :avatar, class: 'jupload', style: 'opacity: 0;'
+          %label.btn.btn-pink{for: 'user_avatar',type: "button", style: 'position: absolute; right: 0; bottom: 0; width: 124px;'} Upload Photo
+        = link_to 'Delete Photo', remove_avatar_path(tab: 'about'), method: :post, class: "#{ 'hidden' if @user.avatar.default?}", style:'text-align: left;margin-top: 5px;width: 120px;display: inline-block;'
+  .clearfix
+  %hr
+  .col-md-12
+    = f.input :relationship_status, collection: [['Single', 'Single'], ['Married', 'Married'], ['In a relationship', 'In a relationship']], label_method: :last, value_method: :first, as: :radio, label: 'Status'
+
+    = f.input :have_kids, collection: [['Have Kids', 'Have Kids'], ['No kids', 'No kids'], ['Expecting', 'Expecting']], label_method: :last, value_method: :first, as: :radio, label: 'Parenting'
+
+    = f.input :orientation, collection: [['Straight', 'Straight'], ['Gay', 'Gay'], ['Bisexual', 'Bisexual']], label_method: :last, value_method: :first, as: :radio
+
+    %button.btn.btn-pink.arrowed.pull-right{type: 'submit'} Update
+  .clearfix
+  %br

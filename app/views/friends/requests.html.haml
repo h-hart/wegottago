@@ -1,0 +1,38 @@
+%section
+  = render 'shared/top-nav'
+  .col-md-12.photo-body.discover-friends
+    .col-md-12.discover-title Discover... New Friends
+    .friend-search
+      =render 'search_friends_form'
+
+%section.all-friends
+  .container
+    =render 'friends_nav'
+    .col-md-12.friends-list.new
+      - if @user.inverse_friendships.any?
+        - if @requested_friends.size > 0
+          - @requested_friends.each do |friend|
+            .clearfix.friend-list-single-item 
+              .col-md-12.friend-avatar
+                = image_tag friend.avatar_url(:thumb), class: ''
+              .friend-item-wrap
+                .friend-name
+                  = friend.fullname.try(:truncate, 19)
+                .friend-city
+                  = friend.location.try(:truncate, 25)
+              .col-md-12.action-buttons
+                - if signed_in_and_not_current? friend.id
+                  =link_to friendship_path(id: @user.get_friendship(friend_id: friend.id)[0].id, friend_id: friend.id), :method => :put, title: "Confirm request", class: 'add-to-friend-button' do
+                    %button.btn.btn-lg.btn-grey.btn-default{:type => "button"}
+                      %span.glyphicon.glyphicon-plus
+                =link_to new_conversation_path(:receiver_id => friend.id), class: 'send-message-button' do
+                  %button.btn.btn-lg.btn-grey.btn-default{:type => "button", :title => "Send message"}
+                    %span.glyphicon.glyphicon-envelope
+          .col-md-12.text-center
+            =will_paginate @requested_friends
+        - else
+          .row.text-center
+            %h2.grey-msg You have no friends request
+      - else
+        .row.text-center
+          %h2.grey-msg You have no friends request

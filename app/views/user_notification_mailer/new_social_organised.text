@@ -1,0 +1,8 @@
+Hi.
+
+There is new social that match your interests on WeGottaGo.
+
+<%= @activity_record.title %>
+
+
+Go to <%= link_to 'WeGottaGo', activities_url+"/#{@activity_record.id}" %> to see it.

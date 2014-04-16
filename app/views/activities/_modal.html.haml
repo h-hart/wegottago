@@ -1,0 +1,60 @@
+/ Modal
+#PostActivity.modal.fade.postActivity{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      %h4#myModalLabel.modal-title Post Activity ...
+      .modal-body
+        .activityFormPart1
+          = image_tag '1px.jpg'
+          .butPanel
+            .arrow-left 
+              .shape
+              .title 
+                %span.glyphicon.glyphicon-chevron-left
+            .arrow-right
+              .shape
+              .title
+                %span.glyphicon.glyphicon-chevron-right
+            .button-change{"data-target" => "#ChooseTheme", "data-toggle" => "modal"}
+              .shape
+              .title Change theme
+        = render 'activities/form'
+      .modal-footer
+        %button.btn.btn-pink.activityFormPart1#activityStep2{type: "button"} Post Activity
+        %button.btn.btn-grey.activityFormPart2#activityStep1{type: "button", style:'width: 113px;'} Back
+        %button.btn.btn-pink.activityFormPart2#activitySave{type: "button"} Post Activity
+
+#ChooseTheme.modal.fade.chooseTheme{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#myModalLabel.modal-title Select a theme
+      .modal-body
+        .themeCatList
+
+        .themeList
+      .modal-footer
+        .row
+          .col-sm-3
+            .loader-img.pull-right
+              = image_tag "ajax-loader.gif", style: "visibility:hidden;"
+            %div.relative
+              %div{style: 'opacity: 0;'}
+                = render 'theme/form'
+              %label.btn.btn-blue{for: 'theme_image',type: "button", style: 'position: absolute; left: 0;'} Upload Your Own
+          .col-sm-9
+            %button.btn.btn-pink{"data-dismiss" => "modal", type: "button"} Set Theme
+            %button.btn.btn-grey{"data-dismiss" => "modal", type: "button"} Close
+
+#ChooseLocation.modal.fade.chooseLocation{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#myModalLabel.modal-title Select a Location
+      .modal-body
+        %input.controls#pac-input{type: "text", placeholder: "Enter a location"}
+        #location-map-canvas
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} SetLocation

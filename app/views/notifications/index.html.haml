@@ -1,0 +1,18 @@
+= render 'profiles/header', user: current_user, bottom_nav: false
+%section.no-margin-top
+  .col-md-12.whitebg.fix.border-bottom
+    .container
+      = render 'conversations/messages_head'
+%section
+  - if !@notifications.blank?
+    .container.borderize.roundize.white
+      .row.margin-bottom
+        - @notifications.each do |notification|
+          - if notification.owner
+            = render 'notification', notification: notification
+        .col-md-12.text-center
+          =will_paginate @discovered_friends
+  - else
+    .container
+      .row.margin-bottom
+        %h2.col-md-12.text-center.grey-msg You have no notifications

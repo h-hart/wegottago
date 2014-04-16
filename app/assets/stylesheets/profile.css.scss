@@ -1,0 +1,307 @@
+
+/*
+ * !! Variables !!
+ * $'name'_color => some color;
+ *
+ */
+
+$greybg-color: #F8F8F8;
+$border-color: #E7E7E7;
+
+
+/* Apply these styles only when #preview-pane has
+   been placed within the Jcrop widget */
+.jcrop-holder #preview-pane {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  top: 10px;
+  right: -280px;
+  padding: 6px;
+  border: 1px rgba(0, 0, 0, .4) solid;
+  background-color: white;
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+
+  -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* The Javascript code will set the aspect ratio of the crop
+   area based on the size of the thumbnail preview,
+   specified here */
+#preview-pane{
+  margin-top: -10px;
+  .preview-container {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    margin-top: -5px;
+  }
+}
+
+#progress{
+  max-width: 300px;
+  .bar {
+    height: 18px;
+    background: green;
+  }
+}
+
+.top-nav-header{
+  background-color: white;
+  border-bottom: 2px solid $border-color;
+  padding: 10px;
+  p{
+    a{
+      padding:0 20px;
+    }
+  }
+}
+
+.user-info-section{
+  margin-top: 30px;
+}
+
+.img-circle {
+    height: 200px;
+    width: 200px;
+}
+.photo-body{
+  position: relative;
+  height: 190px;
+  background: url(/assets/default-theme.jpg) no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  .img-circle{
+    border: 3px solid #FFFFFF;
+    bottom: -68px;
+    left: 15px;
+    position: absolute;
+    width: 170px;
+    height: auto;
+    z-index: 2;
+  }
+  .user-name{
+    left: 40px;
+    position: absolute;
+    color: white;
+    bottom: 5px;
+    .user-age{
+      margin-left: -5px;
+    }
+  }
+  .member-info{
+    right: 15px;
+    position: absolute;
+    color: white;
+    bottom: 0;
+  }
+  .edit-profile-button{
+    right: 15px;
+    position: absolute;
+    top: 15px;
+  }
+
+  .edit-profile-button a {
+    margin: 0 5px;
+  }
+}
+.save{
+  margin: 10px 0;
+}
+.bottom-nav{
+  margin-top: 0px;
+} 
+.bottom-nav .container a{
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+}
+.user-friends{
+  margin-top: 20px;
+}
+.short-friend-list{
+  margin: 20px 0 40px;
+}
+.profile-title{
+  color: #5A5A5A;
+  font-size: 20px;
+}
+span.name{
+  font-weight: bold;
+  text-decoration: underline;
+}
+span.count{
+  text-decoration: none;
+  font-weight: bold;
+}
+.all-items{
+  float: right;
+  font-size: 15px;
+  text-align: right;
+  color: #428bca;
+}
+.friend-list{
+  float: left;
+  width: 100%;
+  padding: 15px;
+}
+.friend-info{
+  position: relative;
+}
+.friend-info .friend-name{
+  position: absolute;
+  bottom: 0;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: #fff;
+}
+.form-horizontal{
+  .boolean{
+    label.boolean.control-label{
+      display: none;
+    }
+    label.checkbox{
+      width: 100%;
+      white-space: nowrap;
+    }
+  }
+}
+
+.horizontal-table {
+  .boolean label.boolean.control-label {
+    display: block !important;
+    text-align: left;
+  }
+  .control-label{
+    padding-top: 0;
+  }
+  .checkbox{
+    padding-top: 0;
+  }
+  .form-group{
+    border-bottom: 1px solid #DDDDDD;
+  }
+}
+
+.date{
+  .inline-radions{
+    select{
+      width: 32.3%;
+    }
+  }
+}
+
+
+span.interest{
+  background-color: #7e7e7e;
+  color: #fff;
+  display: inline-block;
+  width: auto;
+  padding: 5px 15px;
+  line-height: 15px;
+  margin: 5px;
+  border-radius: 5px;
+  .cval {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+span.interest.draggable{
+  cursor: move;
+}
+span.interest.current{
+  position: static !important;
+  .close{
+    float: none;
+    vertical-align: middle;
+  }
+}
+.interests-view{
+  padding: 15px;
+}
+
+#current_user_interest_list{
+  min-height: 44px;
+  width: 100%;
+  border: 2px solid $border-color;
+  padding: 5px;
+}
+
+.ui-dr-inline{
+  display: inline;
+  margin-left: 5px;
+  height: 20px;
+}
+
+.user-activities .activity{
+  width: 45%;
+  margin: 10px 15px;
+  padding: 0;
+}
+.activity .activity-main-info{
+  position: relative;
+}
+.activity .activity-img{
+  width: 100%;
+  height: 200px;
+}
+.activity-main-info .activity-button{
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  padding: 5px 10px 3px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #428bca;
+  border: 1px solid $border-color;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 5px rgba(0,0,0, 0.5);
+  text-transform: uppercase;
+}
+.activity-button.host{
+  color: #fff;
+  background-color: #428bca;
+  opacity: 0.8;
+}
+.activity-main-info .activity-name{
+  position: absolute;
+  bottom: 0;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+.activity .date-time-info{
+  border: 1px solid #b2b2b2;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px;
+  position: relative;
+}
+.activity .date-time-info .time-info{
+  float: right;
+  font-weight: bold;
+}
+.age-select{
+  width: 100px!important;
+}
+.col-md-5.age.from-age .col-sm-3.control-label{
+  width: 50%;
+  margin-left: 8%;
+}
+.col-md-5.age.to-age .col-sm-3.control-label{
+  width: 10%;
+  margin-left: 0;
+}
+.col-md-5.age .col-sm-9{
+  width: 26%;
+}
+

@@ -1,0 +1,33 @@
+.col-md-12.border-bottom.index-message.conversation-item{ class: ('unread' unless conversation.is_read?( current_user )) }
+  .row.no-margin-top
+    .col-md-10
+      .row
+        .col-md-3
+          = render 'conversation_participants', conversation: conversation
+        .col-md-9
+          %p.margin-bottom Last message from this conversation:
+          = link_to conversation_path( conversation.id ) do
+            .row
+              .col-md-2
+                = image_tag conversation.last_sender.avatar.url(:thumb)
+              .col-md-10
+                .row
+                  .col-md-12
+                    %p.sender= conversation.last_sender.fullname
+                .row.message
+                  .col-md-12
+                    %p= conversation.last_message.body
+    .col-md-2
+      .row
+        .col-md-12
+          .created_at
+            %p= l conversation.created_at, format: :message
+            %p= l conversation.created_at, format: :time
+    .hover-buttons-group
+      / = link_to '#' do
+      /   %button.hover-btn.flag{type: "button"} Flag
+      = link_to conversation_path(conversation.id), method: :delete do
+        %button.hover-btn.delete{type: "button"} Delete
+      - if conversation.is_read?( current_user )
+        = link_to conversation_path(conversation.id), method: :put do
+          %button.hover-btn.unread{type: "button"} Unread

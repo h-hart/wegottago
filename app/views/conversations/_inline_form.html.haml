@@ -1,0 +1,19 @@
+= simple_form_for @message ||= Message.new, url: conversations_path, method: :post, html: { class: 'ajax-message'} do |f|
+  - if @receipt and @receipt.errors.any?
+    .error
+      %h2
+        = pluralize(@receipt.errors.count, "error")
+        prohibited this message from being sent:
+      %ul
+        - @receipt.errors.full_messages.each do |msg|
+          %li
+            = msg
+  .control-group.text.required.conversation_message_body
+    %label.text.required.control-label{ for: 'body'} New Message:
+    .controls
+      = text_area_tag :body, nil
+  = hidden_field_tag 'recipients[]', @conversation.participants.last.id
+
+  = f.button :submit, class: 'btn btn-pink pull-right', value: 'Send'
+  %button{type: 'button', id: 'cancel-conversation', class: 'btn btn-grey pull-right', value: 'Cancel'} Cancel
+  

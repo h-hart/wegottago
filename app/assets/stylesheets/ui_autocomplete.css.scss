@@ -1,0 +1,14 @@
+.ui-autocomplete{
+  border: 1px solid black;
+  background: white;
+  border-top: none;
+  z-index: 10;
+  padding: none !important;
+  margin: none !important;
+  width: 200px;
+  li{
+    text-decoration: none;
+    list-style: none;
+    border-bottom: 1px solid black;
+  }
+}

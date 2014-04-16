@@ -1,0 +1,32 @@
+%section.search
+  = render 'shared/top-nav'
+  .col-md-12.photo-explore-activities
+    = image_tag @activity_category.wide_image_url, style: "margin-top: 20px; width: 100%; max-width: 808px;"
+  .activities-search-form.explore-search
+    = render 'search'
+%section.search
+  .container
+    .row.text-center
+      %h3.decored Our Suggestions
+    .row
+      .col-md-10.col-md-offset-1{style:'padding: 0;'}
+        - if @four_suggested_activities.count > 0
+          - @four_suggested_activities.each do |activity|
+            = render 'activity', activity: activity
+        - else
+          .row.text-center
+            %h2.grey-msg No activities exist
+
+    .row.text-center
+      %h3.decored What's going on ...
+    .row
+      - if @grouped_activities.count > 0
+        - @grouped_activities.each do |activity_group_title, activities|
+          .col-md-10.col-md-offset-1.activities-list.user-activities.borderize.whitebg.roundize
+            .row
+              %h2= activity_group_title
+              - activities.each do |activity|
+                =render 'full_list', activity: activity
+      - else
+        .row.text-center
+          %h2.grey-msg No activities exist

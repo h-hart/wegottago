@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <h5>Relations</h5>
+      </div>
+      <div class="col-md-7">
+        <h5 id="relation-value"><%= @relation %></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <h5>Have Kids</h5>
+      </div>
+      <div class="col-md-7">
+        <h5 id="have-kids-value"><%= @have_kids %></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <h5>Wants Kids</h5>
+      </div>
+      <div class="col-md-7">
+        <h5 id="wants-kids-value"><%= @wants_kids %></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <h5>Ethnicity</h5>
+      </div>
+      <div class="col-md-7">
+        <h5 id="ethnicity-value"><%= @ethnicity %></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <h5>Body Type</h5>
+      </div>
+      <div class="col-md-7">
+        <h5 id="body-type-value"><%= @body_type %></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <h5>Height</h5>
+      </div>
+      <div class="col-md-7">
+        <h5 id="height-value"><%= @height %></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <h5>Faith</h5>
+      </div>
+      <div class="col-md-7">
+        <h5 id="faith-value"><%= @faith %></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <h5>Smoke</h5>
+      </div>
+      <div class="col-md-7">
+        <h5 id="smoke-value"><%= @smoke %></h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-5">
+        <h5>Drink</h5>
+      </div>
+      <div class="col-md-7">
+        <h5 id="drink-value"><%= @drink %></h5>
+      </div>
+    </div>
+  </div>
+</div>

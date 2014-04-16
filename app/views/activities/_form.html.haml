@@ -1,0 +1,115 @@
+= simple_form_for(Activity.new, wrapper: :horizontal_radios, :html => {name: "create_activity"}) do |f|
+  = f.error_notification
+  .row
+    .row
+      .form-inputs
+        .activityFormPart1
+          = f.input :theme_id, :as => :hidden
+          = f.input :lat, :as => :hidden
+          = f.input :lng, :as => :hidden
+          = f.input :title, placeholder: 'title', label: false, input_html: { maxlength: 25, class: "form-control"}
+          .field_title 25 characters
+          = f.input :personal_quote, placeholder: 'Personal quote about your activity', label: false, input_html: { maxlength: 125, class: "form-control"}
+          .field_title 125 characters
+          .form-group
+            .col-sm-9
+              .inline-radione
+                = select_tag( 'activity[interest_tag_list]', options_for_select(ActivityCategory.tag_counts_on(:interests).select("name").map{|ac| [{name: ac.name}.to_json, ac.name]}), id: 'activity_interest_tag_list', multiple: true, style: 'width: 100%;', placeholder: 'Interest Tags')
+
+          .field_title 10 tags
+          .group
+            = f.input :date, label: false, input_html: {data: { format: "yyyy-MM-dd" }, class: "form-control", style: "width: 330px !important;"}
+            = f.input :time, :as => :select, :collection => timeArr, :selected => Time.new.in_time_zone('America/Los_Angeles').strftime("%k").to_i, label: false
+            .field_title Add end time
+          = f.input :location, placeholder: 'Location', label: false, input_html: {class: "form-control"}
+          = f.input :details, placeholder: 'Details', label: false, input_html: {class: "form-control"}
+        .activityFormPart2
+          .col-md-12
+            .col-md-12
+              .col-md-12
+                .row
+                  .col-md-12
+                    .field_title
+                      How many people can go?
+                    .pull-left
+                      = f.input :people_number, label: false, input_html: {class: "form-control"}
+                .row.clearfix.form-header
+                  .col-md-12
+                    %i Or ...
+                .row.margin-bottom
+                  .col-md-12
+                    .clearfix
+                      .field_title
+                        = f.label :people_ask_others, label: "Ask others if they are interested.", style: 'font-weight: normal;'
+                      .pull-left
+                        = f.input :people_ask_others, label: false
+                .row.clearfix.form-header.margin-top
+                  .col-md-12
+                    Who should be able to join?
+
+                .clearfix.derp
+                  .pull-left
+                    = f.input :gender_male, label: false
+                  .field_title
+                    = f.label :gender_male, label: "Male"
+                  .pull-left
+                    = f.input :gender_female, label: false
+                  .field_title
+                    = f.label :gender_female, label: "Female"
+
+                .clearfix.derp
+                  .pull-left
+                    = f.input :status_single, label: false
+                  .field_title
+                    = f.label :status_single, label: "Single"
+                  .pull-left
+                    = f.input :status_married, label: false
+                  .field_title
+                    = f.label :status_married, label: "Married"
+                  .pull-left
+                    = f.input :status_in_relationship, label: false
+                  .field_title
+                    = f.label :status_in_relationship, label: "In a relationship"
+
+                .clearfix.derp
+                  .pull-left  
+                    = f.input :kids, label: false
+                  .field_title
+                    = f.label :kids, label: "Parents"
+                  .pull-left
+                    = f.input :no_kids, label: false
+                  .field_title
+                    = f.label :no_kids, label: "No children"
+                  .pull-left
+                    = f.input :expecting_kids, label: false
+                  .field_title
+                    = f.label :expecting_kids, label: "Expecting"
+
+                .clearfix.derp
+                  .pull-left  
+                    = f.input :orientation_straight, label: false
+                  .field_title
+                    = f.label :orientation_straight, label: "Straight"
+                  .pull-left
+                    = f.input :orientation_gay, label: false
+                  .field_title
+                    = f.label :orientation_gay, label: "Gay"
+                  .pull-left
+                    = f.input :orientation_bisexual, label: false
+                  .field_title
+                    = f.label :orientation_bisexual, label: "Bisexual"
+                .clearfix{style: 'margin-top: 10px; margin-left: -15px;'}
+                  .age
+                    .pull-left
+                      = f.input :age_all, :collection => [[false, '']], :label_method => :last, :value_method => :first, :as => :radio, label: false, input_html: {:checked => "checked"}
+                    .pull-left{style:'margin-left: -25px; margin-right: 0px;'}
+                      = f.input :age_from, :as => :select, :collection => 16..90, label: false
+                    .field_title 
+                      to
+                    .pull-left
+                      = f.input :age_to, :as => :select, :collection => 16..90, label: false
+                    %label
+                      .pull-left
+                        = f.input :age_all, :collection => [[true, '']], :label_method => :last, :value_method => :first, :as => :radio, label: false
+                      .field_title
+                        All ages

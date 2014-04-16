@@ -1,0 +1,24 @@
+.clearfix.friend-list-single-item 
+  =link_to profile_path(friend) do
+    .col-md-12.friend-avatar
+      = image_tag friend.avatar_url(:thumb), class: ''
+    .friend-item-wrap
+      .friend-name
+        = friend.fullname.try(:truncate, 19)
+      .friend-city
+        = friend.location.try(:truncate, 25)
+  .col-md-12.action-buttons
+    .row
+      - if signed_in_and_not_current? friend.id
+        - if friends?(friend.id) != true
+          =link_to friendships_path(:friend_id => friend.id), :method => :post, title: "Add to friends", class: 'add-to-friend-button' do
+            %button.btn.btn-lg.btn-default{:type => "button", :class=>"btn-grey"}
+              %span.glyphicon.glyphicon-plus
+        - else
+          =link_to friendship_path(id: @user.get_friendship(friend_id: friend.id)[0].id, friend_id: friend.id), :method => :delete, title: "Remove from friend", class: 'remove-from-friend-button' do
+            %button.btn.btn-lg.btn-default{:type => "button", :class=>"btn-grey"}
+              %span.glyphicon.glyphicon-remove
+      - if user_signed_in?
+        =link_to new_conversation_path(:receiver_id => friend.id), class: 'send-message-button' do
+          %button.btn.btn-lg.btn-default{:type => "button", :title => "Send message", :class=>"btn-grey"}
+            %span.glyphicon.glyphicon-envelope

@@ -1,0 +1,33 @@
+.row.activity-item
+  .col-md-4
+    .activity-main-info
+      = link_to activity_path(activity) do
+        = image_tag activity.theme.image_url(:list_small), class: 'activity-img' 
+        - if activity.user_id == current_user.id
+          .activity-button.host host
+        - else 
+          - if activity.if_user_joined current_user.id
+            .activity-button going
+          - else 
+            -if activity.if_all_spots_occupied
+              .activity-button full
+            - else
+              .activity-button 
+                =activity.free_spot_num
+                spots
+      = image_tag activity.user.avatar_url(:thumb), class: 'img-circle'
+  .col-md-8.activity-padding
+    %h3= "#{activity.user.name} Wants you to go..."
+    .activity-title= link_to activity.title, activity_path(activity)
+    .date-time-info
+      %div.date-info= activity.end_datetime.strftime("%A, %b %eth, %Y")
+      %div.time-info= activity.end_datetime.strftime("%k:00 %p")
+    .activity-personal-quote= "\"#{activity.personal_quote}\""
+    .div{style:'margin-left: -30px;'}
+      .list-of-joined 
+        - activity.get_five_occupied_spots.each do |join|
+          = link_to profile_path(join.user) do 
+            = image_tag join.user.avatar_url(:thumb)
+      - if activity.joins_count > 0
+        .activity-joined-user-link= "#{activity.joins_count} Friends plan on going"
+      %button.btn.btn-blue.view-activity{type: "button", data: "#{activity_path(activity)}"} Get the Scoop

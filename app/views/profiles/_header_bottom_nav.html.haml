@@ -1,0 +1,22 @@
+%section.bottom-nav
+  .container
+    .row
+      .col-md-10.col-md-offset-2.bottom-nav-items
+        - if user_signed_in?
+          = link_to friends_path(:id => user.id), class: link_class((user.id == current_user.id)? 'friends': 'friends') do
+            %span.emphasis
+              =user.count_of_friends
+            Friends
+        = link_to interest_path(id: user.id) do
+          %span.emphasis= user.interests.count
+          Interests
+        - if user_signed_in?
+          = link_to (user.id == current_user.id)? activities_path : user_activities_path(user.id), class: link_class('activities') do
+            %span.emphasis
+              =activitiesNum
+            Activities
+        -if signed_in_and_is_current? user.id
+          = link_to curiosities_path, class: link_class('curiosity') do
+            %span.emphasis
+              =current_user.curious_activities_num
+            I'm curious

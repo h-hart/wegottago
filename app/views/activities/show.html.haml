@@ -1,0 +1,95 @@
+%section
+  = render 'shared/top-nav'
+%section.all-activities
+  .container.activity-info
+    .row
+      .col-md-7.borderize.roundize.shadowed
+        .activity-header-top= "#{@activity.user.name} says We GottaGo..."
+        %h1.activity-header-title= @activity.title
+        .activity-header-datetime
+          .date-left= @activity.end_datetime.strftime("%A, %B %eth, %Y")
+          .date-right= @activity.end_datetime.strftime("%l:00 %P")
+        .main-img.relative
+          = image_tag @activity.theme.image
+          .personal_quote= "\"#{@activity.personal_quote}\""
+          .user-avatar= image_tag @activity.user.avatar_url(:thumb), class: 'img-circle'
+        .share-buttons
+          .comment-ico
+            = image_tag "comment.png"
+            = @activity.comments.count
+          .fb-root
+          .fb-like{"data-action" => "like", "data-href" => "https://developers.facebook.com/docs/plugins/", "data-layout" => "button_count", "data-share" => "false", "data-show-faces" => "true"}
+          %a.twitter-share-button{href: "https://twitter.com/share"} Tweet
+          %script{src: "//platform.linkedin.com/in.js", type: "text/javascript"}
+            :cdata
+              lang: en_US
+          %script{"data-counter" => "right", type: "IN/Share"}
+        .line
+        %h2 Here's the details:
+        .details= @activity.details
+        .row
+          .activity-tabs
+            %ul.nav.nav-tabs.darker
+              %li.active
+                %a{"data-toggle" => "tab", href: "#activity-tab"} Activity
+              %li
+                %a{"data-toggle" => "tab", href: "#guests-tab"} Guests
+            .tab-content
+              #activity-tab.tab-pane.active
+                .comment-form
+                  .send-form-avatar= image_tag current_user.avatar_url(:thumb), class: 'img-circle'
+                  .comment-field
+                    %textarea{placeholder: "Hi #{current_user.name}, Go for it and say hello!", rel: @activity.id}
+                .comments-list
+              #guests-tab.tab-pane
+                - @activity.guest_views.each do |guest_view|
+                  - if guest_view.owner
+                    = render 'guest_view', guest_view: guest_view
+
+      .col-md-5
+        - unless current_user.id == @activity.user.id
+          .button-bar.text-center
+            - if !@activity.if_user_joined current_user.id
+              - if @activity.if_all_spots_occupied
+                %h2 This Activity is Full :(
+                %button.btn.btn-pink.btn-lg#activity-join{type: "button", rel: @activity.id, data: '1'} Waitlist
+              - else
+                %button.btn.btn-pink.btn-lg#activity-join{type: "button", rel: @activity.id, data: '1'} Join
+            - else
+              %button.btn.btn-pink.btn-lg#activity-join{type: "button", rel: @activity.id, data: '2'} I’m going
+
+            - if !@activity.if_user_curious current_user.id  
+              %button.btn.btn-pink.btn-lg#activity-curious{type: "button", rel: @activity.id, data: '1'} Curious?
+            - else
+              %button.btn.btn-pink.btn-lg#activity-curious{type: "button", rel: @activity.id, data: '2'} I’m Curious
+        .people-list
+          %h3
+            =@activity.show_joins_count
+          .list-of-joined      
+            - @activity.all_occupied_spots.each do |join|
+              = link_to profile_path(join.user) do
+                = image_tag join.user.avatar_url(:thumb)
+        .location.borderize.roundize
+          #map-canvas{data: @activity.location}
+        .user-block
+          .user-avatar
+            = link_to profile_path(@activity.user) do
+              = image_tag @activity.user.avatar_url(:thumb), class: 'img-circle'
+          .user-info
+            .user-name
+              = @activity.user.fullname
+            .info= @activity.user.location
+            .info Member Since
+            .info= @activity.user.created_at.strftime("%B, %Y")
+            .statistics
+              .row
+                .col-md-12
+                  .col-md-4
+                    Friends
+                    %div= @activity.user.count_of_friends
+                  .col-md-4
+                    Joined
+                    %div= @activity.joins_count
+                  .col-md-4
+                    Hosted
+                    %div= activitiesNum @activity.user.id

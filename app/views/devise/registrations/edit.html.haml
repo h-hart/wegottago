@@ -1,0 +1,74 @@
+/ Backbone logic is located in:
+/ app/assets/javascripts/views/profile/edit_profile.js.coffee
+:coffee
+  $ ->
+    m = new GottaGo.Models.User({ id: "#{@user.id}" })
+    new GottaGo.Views.EditProfile({ model: m })
+
+%section
+  =render 'shared/top-nav'
+%br
+%br
+%br
+.container
+  / Hidden froms.
+  .row.edit-forms
+    .hidden{data: { show: params[:tab]}}
+
+    #basic.form-container.col-md-8.col-md-offset-1.borderize.roundize.white
+      .row
+        = render 'basic'
+
+    #about-me.form-container.col-md-8.col-md-offset-1.borderize.roundize.white.hidden
+      .row
+        = render 'photo_status_parenting_orientation'
+
+    #notifications.form-container.col-md-8.col-md-offset-1.borderize.roundize.white.hidden
+      .row
+        = render 'notifications'
+
+    #preferences.form-container.col-md-8.col-md-offset-1.borderize.roundize.white.hidden
+      .row
+        = render 'preferences'
+
+    #my-account.form-container.col-md-8.col-md-offset-1.borderize.roundize.white.hidden 
+      .row
+        = render 'my_account'
+
+    #interests.form-container.col-md-8.col-md-offset-1.borderize.roundize.white.hidden
+      .row
+        = render 'interests'
+
+
+    .col-md-3
+      .col-md-12.borderize.roundize.white.paddingles.bordered-table
+        %table.table.table-hover.table-no-margin.bordered
+          %thead
+            %tr
+              %th.text-center.active 
+                %span.glyphicon.glyphicon-user
+                Profile
+          %tbody
+            %tr
+              %td.nav-td.basic-nav.active= link_to 'Basics', '#'
+            %tr
+              / This form is shown for default
+              %td.nav-td.about-nav= link_to 'About Me', edit_user_registration_path
+            %tr
+              %td.nav-td.interests-nav= link_to 'Interests', '#'
+            %tr
+              %td.nav-td.preferences-nav= link_to 'Friend Preferences', '#'
+
+      .col-md-12.borderize.roundize.white.paddingles.margin-top.bordered-table
+        %table.table.table-hover.table-no-margin.bordered
+          %thead
+            %tr
+              %th.text-center.active
+                %span.glyphicon.glyphicon-cog
+                Settings
+          %tbody
+            %tr
+              %td.nav-td.my-account-nav= link_to 'My Account', '#'
+            %tr
+              %td.nav-td.notifications-nav= link_to 'My Notifications', '#'
+

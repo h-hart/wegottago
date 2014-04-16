@@ -1,0 +1,9 @@
+.col-md-12.margin-top5
+  %div{ class: "#{ last ? '' : 'border-bottom'}"}
+    .col-md-2.paddingles.borderize.roundize3
+      = link_to profile_path(receipt.message.sender) do
+        = image_tag receipt.message.sender.avatar.url(:thumb)
+    .col-md-10
+      = link_to conversation_path(receipt.conversation) do
+        %p= truncate( receipt.message.body, length: 30)
+    %div{style: 'clear: both'}

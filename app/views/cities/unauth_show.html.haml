@@ -1,0 +1,33 @@
+%section.search
+  / Slider 
+  #carousel.carousel.slide{ data: { ride: "carousel"}}
+    / Wrapper for slides
+    .carousel-inner
+      - HomePageSliderPhotos.all.each_with_index do |hpsp, index|
+        - klas = 'active' if index == 0
+        .item{ class: klas }
+          .carousel-caption.top
+            %h1 Discover Unique Activities 
+            %p and meet someone new to go along
+          = image_tag hpsp.image_url
+          .carousel-caption= hpsp.caption
+            
+
+    / Controls
+    %a.left.carousel-control{ href: "#carousel", data: { slide: "prev"}}
+      %span= image_tag 'arrow1.png', size: '40x55'
+    %a.right.carousel-control{ href: "#carousel", data: { slide: "next"}}
+      %span= image_tag 'arrow2.png', size: '40x55'
+
+  .container
+    .row
+      .col-md-12.user-activities
+        .city-page
+          .row
+            - if @activities.blank?
+              %h2.grey-msg.text-center= "There are currently no activities in #{@city.name}." 
+            -else
+              - @activities.uniq.each do |activity|
+                = render 'activities/activity', activity: activity
+              .col-md-12.text-center
+                =will_paginate @activities

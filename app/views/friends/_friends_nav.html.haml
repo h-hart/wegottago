@@ -1,0 +1,10 @@
+- if user_signed_in?
+  - if @user.id == current_user.id
+    %ul.nav.nav-pills.friends-navigation.decored.btn.btn-grey
+      %li.show-all-friends{ class: request.fullpath == friends_path(:id => @user.id) ? 'active' : ''}
+        =link_to "All Friends", friends_path(:id => @user.id)
+        %li.show-new-friends{ class: request.fullpath == requests_friend_path(:id => @user.id) ? 'active' : '' }
+          =link_to "Friend request", requests_friend_path(:id => @user.id)
+  - else
+    .row.text-center
+      %h2.decored All of #{ @user.name}'s Friends

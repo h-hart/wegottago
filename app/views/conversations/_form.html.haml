@@ -1,0 +1,27 @@
+#messages 
+  = simple_form_for @message ||= Message.new, url: conversations_path, method: :post do |f|
+    - if @receipt and @receipt.errors.any?
+      .error
+        %h2
+          = pluralize(@receipt.errors.count, "error")
+          prohibited this message from being sent:
+        %ul
+          - @receipt.errors.full_messages.each do |msg|
+            %li
+              = msg
+    .control-group.text.required.conversation_message_body
+      %label.text.required.control-label{ for: 'body'} New Message:
+      .controls
+        = text_area_tag :body, nil, required: true
+
+    .control-group.text.required.conversation_message_body
+      %label.text.required.control-label{ for: 'to'} Add:
+      .controls
+        = select_tag(:recipients, options_for_select(User.select("name, last_name, avatar, id, show_initials").map{|u| [{name: u.fullname, image: u.avatar.url(:thumb)}.to_json, u.id]}), id: 'mult_select', multiple: true, style: 'width: 100%;')
+
+
+    = hidden_field_tag :to, nil, id: 'conversation_message_to'
+
+    = f.button :submit, class: 'btn btn-pink pull-right', value: 'Send'
+    = link_to conversations_path do
+      %button#cancel-new-message.btn.btn-grey.pull-right{ type: "button"} Cancel

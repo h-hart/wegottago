@@ -1,0 +1,18 @@
+.col-md-12.border-bottom.index-message
+  .row.no-margin-top
+    .col-md-3
+      .row
+        .col-md-5
+          = image_tag guest_view.owner.avatar.url(:thumb)
+        .col-md-7
+          .row
+            %p= link_to guest_view.owner.fullname, profile_path(guest_view.owner)
+            %p= #guest_view.owner.location
+    .col-md-3
+      = guest_view.key
+    .col-md-6
+      .row
+        .col-md-8
+          = l guest_view.created_at, format: :message
+        .col-md-4
+          = l guest_view.created_at, format: :time

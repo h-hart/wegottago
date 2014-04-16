@@ -1,0 +1,15 @@
+!!!
+%html.unauth-home
+  %head
+    = render 'layouts/head'
+  %body
+    = render 'layouts/hidden_html_helpers'
+    %header
+      = render 'layouts/navigation'
+    %main{:role => "main"}
+      = render 'layouts/messages'
+      .container
+        %section
+          .col-md-6
+            = image_tag 'balloon.png'
+          = yield

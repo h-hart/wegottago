@@ -1,0 +1,39 @@
+:coffee
+  $ ->
+    new GottaGo.Views.Message()
+
+= render 'profiles/header', user: current_user
+%section.no-margin-top
+  .col-md-12.whitebg.fix.border-bottom
+    .container
+      = render 'messages_head'
+%section#messages
+  .container.borderize.roundize.white
+    .row.margin-bottom
+      .col-md-12.extra-padding.border-bottom= render 'participants', conversation: @conversation
+      #messages-list
+        - @conversation.messages.compact.reverse.each do |message|
+          = render 'message', message: message
+
+
+    .row
+      .col-md-12.border-bottom.index-message.nobg
+        .row.no-margin-top
+          .col-md-10
+            .row
+              .col-md-1.online
+              .col-md-11
+                .row
+                  .col-md-2
+                    = image_tag current_user.avatar.url(:thumb)
+                  .col-md-10
+                    .row
+                      %p Your Message:
+                    .row.no-label
+                      = render 'inline_form'                
+          .col-md-2.text-right
+            .row
+              .col-md-12
+                .created_at
+                  %p= l Time.now, format: :message
+                  %p= l Time.now, format: :time
