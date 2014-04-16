@@ -14,9 +14,9 @@ class CitiesController < ApplicationController
 
   private
     def get_activities
-      search = { "lat_gt"    => (@city.loc_lat - 1), 
-                 "lng_gt"    => (@city.loc_lng - 1), 
-                 "lat_lt"    => (@city.loc_lat + 1), 
+      search = { "lat_gt"    => (@city.loc_lat - 1),
+                 "lng_gt"    => (@city.loc_lng - 1),
+                 "lat_lt"    => (@city.loc_lat + 1),
                  "lng_lt"    => (@city.loc_lng + 2) }
       users_search = Hash[search.map { |k, v| ["loc_#{k}", v] }]
 

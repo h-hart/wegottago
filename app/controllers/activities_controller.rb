@@ -22,14 +22,14 @@ class ActivitiesController < ApplicationController
       .order('activities.end_datetime ASC')
     end
 
-    @grouped_activities = activities.group_by do |r| 
+    @grouped_activities = activities.group_by do |r|
       if r.end_datetime.beginning_of_day == Date.today.beginning_of_day
         'Today'
       elsif r.end_datetime.beginning_of_day == Date.tomorrow.beginning_of_day
        'Tomorrow'
       else
         r.end_datetime.strftime("%A, %b. %eth, %Y")
-      end 
+      end
     end
   end
 
@@ -70,14 +70,14 @@ class ActivitiesController < ApplicationController
 
     activities = @search.all
 
-    @grouped_activities = activities.group_by do |r| 
+    @grouped_activities = activities.group_by do |r|
       if r.end_datetime.beginning_of_day == Date.today.beginning_of_day
         'Today'
       elsif r.end_datetime.beginning_of_day == Date.tomorrow.beginning_of_day
        'Tomorrow'
       else
         r.end_datetime.strftime("%A, %b. %eth, %Y")
-      end 
+      end
     end
 
     @four_suggested_activities = Activity.joins(:activity_categories)

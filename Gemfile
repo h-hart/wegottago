@@ -42,6 +42,9 @@ gem 'public_activity',            '1.4.1'
 gem 'jqBootstrapValidation',      '1.3.6'
 gem 'will_paginate',              '3.0.5'
 
+gem 'heroku'
+gem 'rails_12factor', group: :production
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
