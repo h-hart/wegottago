@@ -10,6 +10,44 @@
       %sup.count-of-reguest 
         - if current_user.get_friend_request.size > 0
           =current_user.get_friend_request.size
+
+
+  %li.dropdown
+    %a{"data-toggle" => "dropdown", href: "#"}
+      %span.glyphicon.glyphicon-user
+      %sup.count-of-reguest
+        - if current_user.get_friend_request.size > 0
+          =current_user.get_friend_request.size
+    %ul.dropdown-menu.custom{"aria-labelledby" => "dLabel", role: "menu"}
+      - if !@last_notifications.blank?
+        .col-md-12.extra-margin-top
+          %li You have no notifications
+      - else
+        - @last_notifications.each do |n|
+          - t = (@last_notifications.last == n)
+          %li= render 'notifications/minimized_not', notification: n, last: t
+          - if t
+            .col-md-12
+              %li.menu
+                %a{:href => "/Home/Item01"}
+                  %img{:src => "http://lorempixel.com/48/48"}/
+                  %span.name Sandeep Chauhan
+                  %span.time 1 day ago
+              %li
+                %a{:href => "/Home/Item02"}
+                  %img{:src => "http://lorempixel.com/48/48"}/
+                  %span.name Sahil Grover
+                  %span.time 3 days ago
+              %li
+                %a{:href => "/Home/Item03"}
+                  %img{:src => "http://lorempixel.com/48/48"}/
+                  %span.name Mark Ryan
+                  %span.time 4 days ago
+              %li.dropdown-footer.last-child
+                %a{:href => "#"} View All
+
+
+
   %li.dropdown
     %a{"data-toggle" => "dropdown", href: "#"}
       %span.glyphicon.glyphicon-globe
@@ -47,24 +85,40 @@
       %span.glyphicon.glyphicon-chevron-down
     %ul.dropdown-menu.custom-navs{"aria-labelledby" => "dLabel", role: "menu"}
       .col-md-12.border-bottom
-        %li= link_to 'Basics', edit_user_profile_path(tab: "basic")
+        %li= link_to 'My Curiosity Board', edit_user_profile_path(tab: "basic")
       .col-md-12.border-bottom
-        %li= link_to 'About Me', edit_user_profile_path(tab: "about")
+        %li= link_to 'My Activities', edit_user_profile_path(tab: "notifications")
       .col-md-12.border-bottom
-        %li= link_to 'Interests', edit_user_profile_path(tab: "interests")
+        %li= link_to 'My Friends', edit_user_profile_path(tab: "preferences")
       .col-md-12.border-bottom
-        %li= link_to 'Friend Preferences', edit_user_profile_path(tab: "preferences")
+        %li= link_to 'Edit Profile', edit_user_profile_path(tab: "about")
       .col-md-12.border-bottom
-        %li= link_to 'My Account', edit_user_profile_path(tab: "my-account")
-      .col-md-12.border-bottom
-        %li= link_to 'My Notifications', edit_user_profile_path(tab: "notifications")
+        %li= link_to 'Settings', edit_user_profile_path(tab: "my-account") 
       .col-md-12
-        %li= link_to 'Logout', destroy_user_session_path, :method=>'delete', class: 'pull-right'
+        %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
+
+      / .col-md-12.border-bottom
+      /   %li= link_to 'Basics', edit_user_profile_path(tab: "basic")
+      / .col-md-12.border-bottom
+      /   %li= link_to 'About Me', edit_user_profile_path(tab: "about")
+      / .col-md-12.border-bottom
+      /   %li= link_to 'Interests', edit_user_profile_path(tab: "interests")
+      / .col-md-12.border-bottom
+      /   %li= link_to 'Friend Preferences', edit_user_profile_path(tab: "preferences")
+      / .col-md-12.border-bottom
+      /   %li= link_to 'My Account', edit_user_profile_path(tab: "my-account")
+      / .col-md-12.border-bottom
+      /   %li= link_to 'My Notifications', edit_user_profile_path(tab: "notifications")
+      / .col-md-12
+      /   %li= link_to 'Logout', destroy_user_session_path, :method=>'delete', class: 'pull-right'
 
 - if user_signed_in?
   %li.profile-li
     = link_to profile_path(current_user.id), class: 'innav-img' do
       = image_tag current_user.avatar_url(:thumb), class: 'img-circle'
+
+
+    
 
   %li
     .button.btn.btn-pink.marginButton{"data-target" => "#PostActivity", "data-toggle" => "modal"} Post Activity

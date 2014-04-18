@@ -19,6 +19,7 @@
  *= require activity_categories
  */
 
+
 .col-md-10.col-md-offset-1.backgroundize.choose-interests {
   width: 150%;
   position: relative;
@@ -91,7 +92,7 @@ p.interests-text {
 }
 
 span.glyphicon {
-  padding-right: 5px;
+  padding-right: 0px;
 }
 
 button.close.close-interests {
@@ -139,4 +140,66 @@ button.close.close-interests {
 
 .navbar.navbar-default.navbar-fixed-top .container-wide {
   max-width: 1400px;
+}
+
+ /* Latest added scss */
+
+  .filter {
+    padding:8px;
+    float:right;
+    margin-right:50px;
+    border-radius:5px;  
+  }
+
+  .menu {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  li {
+    display: inline-block;
+    list-style: none;
+    padding: 10px;
+    width: 230px;
+    border-bottom: 1px solid #ccc;
+    a {
+      background: none;
+      color: #999;
+      text-decoration: none;
+      margin: 10px;
+      &:hover {
+        color: #333;
+        text-decoration: none;
+      }
+    }
+  }
+  img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.name {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 3px;
+}
+
+.time {
+  font-size: 10px;
+  float: right;
+}
+
+.dropdown-header, .dropdown-footer {
+  text-align: center;
+}
+
+.last-child {
+  border-bottom: 0;
 }
