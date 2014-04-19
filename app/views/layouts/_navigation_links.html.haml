@@ -5,46 +5,53 @@
   %li= link_to 'Sign Up', authenticate_path
 - if user_signed_in?
   %li
-    =link_to requests_friend_path(:id => current_user.id) do
-      = image_tag '/assets/Friend_requests.png', class: 'new_friends'
-      %sup.count-of-reguest 
-        - if current_user.get_friend_request.size > 0
-          =current_user.get_friend_request.size
+    / =link_to requests_friend_path(:id => current_user.id) do
+    /   = image_tag '/assets/Friend_requests.png', class: 'new_friends'
+    /   %sup.count-of-reguest 
+    /     - if current_user.get_friend_request.size > 0
+    /       =current_user.get_friend_request.size
+
 
 
   %li.dropdown
     %a{"data-toggle" => "dropdown", href: "#"}
-      %span.glyphicon.glyphicon-user
+      %span.space.fa.fa-users
       %sup.count-of-reguest
         - if current_user.get_friend_request.size > 0
           =current_user.get_friend_request.size
+          
     %ul.dropdown-menu.custom{"aria-labelledby" => "dLabel", role: "menu"}
       - if !@last_notifications.blank?
         .col-md-12.extra-margin-top
           %li You have no notifications
       - else
-        - @last_notifications.each do |n|
-          - t = (@last_notifications.last == n)
-          %li= render 'notifications/minimized_not', notification: n, last: t
-          - if t
-            .col-md-12
-              %li.menu
-                %a{:href => "/Home/Item01"}
-                  %img{:src => "http://lorempixel.com/48/48"}/
-                  %span.name Sandeep Chauhan
-                  %span.time 1 day ago
-              %li
-                %a{:href => "/Home/Item02"}
-                  %img{:src => "http://lorempixel.com/48/48"}/
-                  %span.name Sahil Grover
-                  %span.time 3 days ago
-              %li
-                %a{:href => "/Home/Item03"}
-                  %img{:src => "http://lorempixel.com/48/48"}/
-                  %span.name Mark Ryan
-                  %span.time 4 days ago
-              %li.dropdown-footer.last-child
-                %a{:href => "#"} View All
+        .col-md-12
+          %li.menu
+            %a{:href => "/Home/Item01"}
+              %span.left_block
+                %img{:src => "http://lorempixel.com/48/48"}/
+              %span.right_block
+                %span.name Sandeep Chauhan
+                %span.time 1 day ago
+            .divider
+          %li
+            %a{:href => "/Home/Item02"}
+              %span.left_block
+                %img{:src => "http://lorempixel.com/48/48"}/
+              %span.right_block
+                %span.name Sahil Grover
+                %span.time 3 days ago
+            .divider
+          %li
+            %a{:href => "/Home/Item03"}
+              %span.left_block
+                %img{:src => "http://lorempixel.com/48/48"}/
+              %span.right_block
+                %span.name Mark Ryan
+                %span.time 4 days ago
+            .divider
+          %li.dropdown-footer.last-child
+            %a{:href => "#"} View All
 
 
 
