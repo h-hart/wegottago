@@ -27,7 +27,7 @@ GottaGo::Application.routes.draw do
   resources :activities, only: [:index, :show, :create]
 
   get "activity-join/:id", to: 'activity_join#join'
-  
+
   get "curiosities", to: 'curiosity#index', :as => :curiosities
   get "curiosity/:id", to: 'curiosity#curious'
 
@@ -62,13 +62,13 @@ GottaGo::Application.routes.draw do
     :passwords          => "passwords",
     :confirmations      => "confirmations"
   }
-  as :user do 
+  as :user do
     get "/profile/edit" => "registrations#edit", as: :edit_user_profile
     get "/users"             => "registrations#edit"
   end
   devise_scope :user do #custom devise controller actions
-    post :remove_avatar, 
-         to: 'registrations#remove_avatar', 
+    post :remove_avatar,
+         to: 'registrations#remove_avatar',
          as: :remove_avatar
   end
 

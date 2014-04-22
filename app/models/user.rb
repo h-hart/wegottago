@@ -6,22 +6,22 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :omniauthable, 
-         :recoverable, :rememberable, :trackable, :validatable, 
-         :confirmable
+  devise :database_authenticatable, :registerable, :omniauthable,
+  :recoverable, :rememberable, :trackable, :validatable,
+  :confirmable
 
   # Setup accessible (or protected) attributes for your model
   # age - is a virtual attribute
-  attr_accessible :name, :email, :password, :password_confirmation, 
-                  :remember_me, :confirmed_at, :uid, :provider, :avatar,
-                  :crop_x, :crop_y, :crop_h, :crop_w, :last_name, :sex,
-                  :zipcode, :occupation, :relationship_status, :loc_lng,
-                  :looking_for, :about, :have_kids, :wants_kids, :ethnicity,  
-                  :body_type, :height, :faith, :smoke, :drink, :orientation,
-                  :show_initials, :age_private, :visible_for_registered,
-                  :birthdate, :user_notification_attributes, :location, :age,
-                  :interest_list, :friend_preference_attributes, :loc_lat,
-                  :last_activity_datatime
+  attr_accessible :name, :email, :password, :password_confirmation,
+  :remember_me, :confirmed_at, :uid, :provider, :avatar,
+  :crop_x, :crop_y, :crop_h, :crop_w, :last_name, :sex,
+  :zipcode, :occupation, :relationship_status, :loc_lng,
+  :looking_for, :about, :have_kids, :wants_kids, :ethnicity,
+  :body_type, :height, :faith, :smoke, :drink, :orientation,
+  :show_initials, :age_private, :visible_for_registered,
+  :birthdate, :user_notification_attributes, :location, :age,
+  :interest_list, :friend_preference_attributes, :loc_lat,
+  :last_activity_datatime
 
   # relations
   has_many :friendships
@@ -47,16 +47,16 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :name, presence: true
-  validates :name, :last_name, :occupation, :email,:relationship_status , 
-            :last_name, :looking_for, :sex, :have_kids, :wants_kids, 
-            :ethnicity, :body_type, :height, :faith, :smoke, :drink, 
-            :orientation, :location,
-            length: { maximum: 256 }
+  validates :name, :last_name, :occupation, :email,:relationship_status ,
+  :last_name, :looking_for, :sex, :have_kids, :wants_kids,
+  :ethnicity, :body_type, :height, :faith, :smoke, :drink,
+  :orientation, :location,
+  length: { maximum: 256 }
   validates :about, length: { maximum: 1000 }
   validates :age, numericality: { greater_than: 0, less_than_or_equal_to: 100 },
-            on: :update, :if => lambda { self.age }
-  validates :zipcode, numericality: { greater_than: 0 }, 
-            on: :update, :if => lambda { self.zipcode }
+  on: :update, :if => lambda { self.age }
+  validates :zipcode, numericality: { greater_than: 0 },
+  on: :update, :if => lambda { self.zipcode }
 
   mount_uploader :avatar, AvatarUploader
 
@@ -205,6 +205,19 @@ class User < ActiveRecord::Base
     .where("friendships.friend_id = ? and friendships.approved = ?", id, false)
   end
 
+  def pending_friend_requests
+    Friendship.where("(friend_id = ?) and approved = ?", id, false)
+  end
+
+  def pending_friend(pending_user_friend_request)
+    if pending_user_friend_request.user_id == self.id
+      pending_user_friend_request.friend
+    else
+      pending_user_friend_request.user
+    end
+  end
+
+
   def get_friendship(params)
     friendship = Friendship.where("(user_id = ? and friend_id = ?) or (user_id = ? and friend_id = ?)", id, params[:friend_id], params[:friend_id], id)
   end
@@ -256,7 +269,7 @@ class User < ActiveRecord::Base
     query += " OR ( #{tabl}.status_single is TRUE )"          if relationship_status == 'Single'
     query += " OR ( #{tabl}.status_married is TRUE )"         if relationship_status == 'Married'
     query += " OR ( #{tabl}.status_in_relationship is TRUE )" if relationship_status == 'In a relationship'
-    query    
+    query
   end
 
   def orientation_query tabl
@@ -279,28 +292,28 @@ class User < ActiveRecord::Base
   end
 
   private
-    def add_password_confirmation
-      password_confirmation = password
-    end
+  def add_password_confirmation
+    password_confirmation = password
+  end
 
-    def add_default_role
-      add_role :user
-    end
+  def add_default_role
+    add_role :user
+  end
 
-    def create_friend_preference
-      self.friend_preference = FriendPreference.create(
-        :gender_male => false, 
-        :gender_female => false,
-        :status_single => false,
-        :status_married => false,
-        :status_in_relationship => false,
-        :orientation_straight => false,
-        :orientation_gay => false,
-        :orientation_bisexual => false,
-        :kids => false,
-        :no_kids => false,
-        :expecting_kids => false
+  def create_friend_preference
+    self.friend_preference = FriendPreference.create(
+      :gender_male => false,
+      :gender_female => false,
+      :status_single => false,
+      :status_married => false,
+      :status_in_relationship => false,
+      :orientation_straight => false,
+      :orientation_gay => false,
+      :orientation_bisexual => false,
+      :kids => false,
+      :no_kids => false,
+      :expecting_kids => false
       )
-    end
+  end
 
 end
