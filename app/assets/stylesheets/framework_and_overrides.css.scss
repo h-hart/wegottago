@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import the CSS framework
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
@@ -11,7 +12,15 @@ $border-color: #E7E7E7;
 img {
   @extend .img-responsive;
   margin: 0 auto;
+  display:inline-block;
   }
+.image {
+  margin:0 auto;
+  display:block;
+}
+a:hover, a:focus{
+  text-decoration:none;
+}
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
@@ -131,7 +140,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .navbar-nav > li > a.innav-img{
   padding: 0 10px;
-  margin-top: 8px;
+  margin-top: 0px;
   img{
     width: 35px;
     height: 35px;
@@ -325,7 +334,7 @@ section {
       margin-left: 8px;
       font-size: 15px;
       .shape {
-        width: 116px;        
+        width: 116px;
       }
       .title {
         top: -29px;
@@ -656,7 +665,7 @@ $max-height: 490px;
       }
       .comment{
         margin: 10px -5px;
-        padding-bottom:10px; 
+        padding-bottom:10px;
         border-bottom: 1px solid #ccc;
         &:last-child{
           border-bottom: none;
@@ -700,7 +709,7 @@ $max-height: 490px;
       -moz-box-sizing: border-box;
       height: 32px;
       outline: none;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); 
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       position: relative !important;
       left: 5px !important;
       top: 5px !important;
@@ -971,7 +980,7 @@ hr {
 
 .controls, .form-group{
   margin-bottom: 10px;
-  input[type="text"], input[type="password"], input[type="email"], 
+  input[type="text"], input[type="password"], input[type="email"],
   input[type="number"], input[type="url"], input[type="tel"], textarea,
   select {
     width: 100%;
@@ -1191,7 +1200,7 @@ button#cancel-conversation, button#cancel-new-message{
 }
 
 .btn-transparent:hover {
-    color: #3179A3; 
+    color: #3179A3;
     }
 
 .btn.btn-transparent span {
@@ -2149,8 +2158,8 @@ h1.Lily_font {
       height: auto;
       img{ height: auto; width: 100%; }
       .carousel-caption{ font-size: 130%; }
-      .carousel-caption.top{ 
-        top: -20px; 
+      .carousel-caption.top{
+        top: -20px;
         h1{
           font-size: 4em;
         }

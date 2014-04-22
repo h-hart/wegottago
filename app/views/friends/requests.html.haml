@@ -12,7 +12,7 @@
       - if @user.inverse_friendships.any?
         - if @requested_friends.size > 0
           - @requested_friends.each do |friend|
-            .clearfix.friend-list-single-item 
+            .clearfix.friend-list-single-item
               .col-md-12.friend-avatar
                 = image_tag friend.avatar_url(:thumb), class: ''
               .friend-item-wrap

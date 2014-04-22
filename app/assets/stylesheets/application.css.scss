@@ -91,7 +91,7 @@ p.interests-text {
 }
 
 span.glyphicon {
-  padding-right: 5px;
+  padding-right: 0px;
 }
 
 button.close.close-interests {
@@ -139,4 +139,81 @@ button.close.close-interests {
 
 .navbar.navbar-default.navbar-fixed-top .container-wide {
   max-width: 1400px;
+}
+
+ /* Latest added scss */
+
+  .filter {
+    padding:8px;
+    float:right;
+    margin-right:50px;
+    border-radius:5px;  
+  }
+
+.menu {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 5px;
+  font-size: 14px;
+  clear:both;
+  width:100%;
+  li {
+    display: inline-block;
+    list-style: none;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #ccc;
+    a {
+      background: none;
+      color: #999;
+      text-decoration: none;
+      margin: 10px;
+      &:hover {
+        color: #333;
+        background:red;
+        text-decoration: none;
+      }
+    }
+  }
+  img {
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration:none;
+  }
+  .left_block {
+  width:25%;
+  }
+  .right_block{
+  width:70%;
+  }
+}
+.name {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 3px;
+}
+
+.time {
+  font-size: 10px;
+  float: right;
+  color:#000
+}
+
+.dropdown-header, .dropdown-footer {
+  text-align: center;
+}
+
+.last-child {
+  border-bottom: 0;
+}
+.space {
+  display:block;
+  vertical-align:middle;
+}
+
+.last-child {
+  border-bottom: 0;
 }

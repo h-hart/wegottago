@@ -205,6 +205,19 @@ class User < ActiveRecord::Base
     .where("friendships.friend_id = ? and friendships.approved = ?", id, false)
   end
 
+  def pending_friend_requests
+    Friendship.where("(friend_id = ?) and approved = ?", id, false)
+  end
+
+  def pending_friend(pending_user_friend_request)
+    if pending_user_friend_request.user_id == self.id
+      pending_user_friend_request.friend
+    else
+      pending_user_friend_request.user
+    end
+  end
+
+
   def get_friendship(params)
     friendship = Friendship.where("(user_id = ? and friend_id = ?) or (user_id = ? and friend_id = ?)", id, params[:friend_id], params[:friend_id], id)
   end
@@ -256,7 +269,7 @@ class User < ActiveRecord::Base
     query += " OR ( #{tabl}.status_single is TRUE )"          if relationship_status == 'Single'
     query += " OR ( #{tabl}.status_married is TRUE )"         if relationship_status == 'Married'
     query += " OR ( #{tabl}.status_in_relationship is TRUE )" if relationship_status == 'In a relationship'
-    query    
+    query
   end
 
   def orientation_query tabl

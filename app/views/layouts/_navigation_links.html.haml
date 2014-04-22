@@ -1,15 +1,47 @@
 - if user_signed_in?
-  
+
 - else
   %li= link_to 'Login', new_user_session_path
   %li= link_to 'Sign Up', authenticate_path
 - if user_signed_in?
   %li
-    =link_to requests_friend_path(:id => current_user.id) do
-      = image_tag '/assets/Friend_requests.png', class: 'new_friends'
-      %sup.count-of-reguest 
-        - if current_user.get_friend_request.size > 0
-          =current_user.get_friend_request.size
+    / =link_to requests_friend_path(:id => current_user.id) do
+    /   = image_tag '/assets/Friend_requests.png', class: 'new_friends'
+    /   %sup.count-of-reguest
+    /     - if current_user.get_friend_request.size > 0
+    /       =current_user.get_friend_request.size
+
+
+
+  %li.dropdown
+    %a{"data-toggle" => "dropdown", href: "#"}
+      %span.space.fa.fa-users
+      %sup.count-of-reguest
+        - if current_user.pending_friend_requests.size > 0
+          = current_user.pending_friend_requests.size
+
+    %ul.dropdown-menu.custom{"aria-labelledby" => "dLabel", role: "menu"}
+      - if !@last_notifications.blank?
+        .col-md-12.extra-margin-top
+          %li You have no friend requests.
+      - else
+        .col-md-12
+          - current_user.pending_friend_requests.each do |pending_friend_request|
+            - pending_friend = current_user.pending_friend(pending_friend_request)
+            %li
+              %a{:href => profile_path(pending_friend)}
+                %span.left_block
+                  %img{:src => "http://lorempixel.com/48/48"}/
+                %span.right_block
+                  %span.name
+                    = pending_friend.name
+                  / %span.time 4 days ago
+              .divider
+
+
+          %li.dropdown-footer.last-child
+            = link_to 'View All', requests_friend_path(:id => current_user.id)
+
   %li.dropdown
     %a{"data-toggle" => "dropdown", href: "#"}
       %span.glyphicon.glyphicon-globe
@@ -25,7 +57,7 @@
           - if t
             .col-md-12
               %li= link_to 'View all', notifications_path, class: 'pull-right'
-   
+
   %li.dropdown
     %a{"data-toggle" => "dropdown", href: "#"}
       %span.glyphicon.glyphicon-envelope
@@ -47,27 +79,36 @@
       %span.glyphicon.glyphicon-chevron-down
     %ul.dropdown-menu.custom-navs{"aria-labelledby" => "dLabel", role: "menu"}
       .col-md-12.border-bottom
-        %li= link_to 'Basics', edit_user_profile_path(tab: "basic")
+        %li= link_to 'My Curiosity Board', "#"
       .col-md-12.border-bottom
-        %li= link_to 'About Me', edit_user_profile_path(tab: "about")
+        %li= link_to 'My Activities', edit_user_profile_path(tab: "notifications")
       .col-md-12.border-bottom
-        %li= link_to 'Interests', edit_user_profile_path(tab: "interests")
+        %li= link_to 'My Friends', friends_path(current_user)
       .col-md-12.border-bottom
-        %li= link_to 'Friend Preferences', edit_user_profile_path(tab: "preferences")
+        %li= link_to 'Edit Profile', edit_user_profile_path(tab: "about")
       .col-md-12.border-bottom
-        %li= link_to 'My Account', edit_user_profile_path(tab: "my-account")
-      .col-md-12.border-bottom
-        %li= link_to 'My Notifications', edit_user_profile_path(tab: "notifications")
+        %li= link_to 'Settings', edit_user_profile_path(tab: "my-account")
       .col-md-12
-        %li= link_to 'Logout', destroy_user_session_path, :method=>'delete', class: 'pull-right'
+        %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
+
+      / .col-md-12.border-bottom
+      /   %li= link_to 'Basics', edit_user_profile_path(tab: "basic")
+      / .col-md-12.border-bottom
+      /   %li= link_to 'About Me', edit_user_profile_path(tab: "about")
+      / .col-md-12.border-bottom
+      /   %li= link_to 'Interests', edit_user_profile_path(tab: "interests")
+      / .col-md-12.border-bottom
+      /   %li= link_to 'Friend Preferences', edit_user_profile_path(tab: "preferences")
+      / .col-md-12.border-bottom
+      /   %li= link_to 'My Account', edit_user_profile_path(tab: "my-account")
+      / .col-md-12.border-bottom
+      /   %li= link_to 'My Notifications', edit_user_profile_path(tab: "notifications")
+      / .col-md-12
+      /   %li= link_to 'Logout', destroy_user_session_path, :method=>'delete', class: 'pull-right'
 
 - if user_signed_in?
   %li.profile-li
     = link_to profile_path(current_user.id), class: 'innav-img' do
       = image_tag current_user.avatar_url(:thumb), class: 'img-circle'
 
-  %li
-    .button.btn.btn-pink.marginButton{"data-target" => "#PostActivity", "data-toggle" => "modal"} Post Activity
-
-    = render "activities/modal"
 
