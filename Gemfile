@@ -8,7 +8,7 @@ group :assets do
   gem 'uglifier',                 '>= 1.0.3'
 end
 
-gem 'mysql2'
+# gem 'mysql2'
 gem "jquery-rails",               "< 3.0.0"
 gem 'jquery-ui-rails',            '4.1.0'
 gem 'bootstrap-sass',             '>= 3.0.0.0'
@@ -17,7 +17,7 @@ gem 'devise',                     '3.2.2'
 gem 'omniauth-facebook',          '1.5.1'
 gem 'figaro',                     '0.7.0'
 gem 'haml-rails',                 '0.4'
-#gem 'pg',                         '0.17.1'
+gem 'pg',                         '0.17.1'
 gem 'rolify',                     '3.2.0'
 gem 'simple_form',                '2.1.1'
 gem 'thin',                       '1.6.1'
