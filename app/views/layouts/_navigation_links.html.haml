@@ -23,7 +23,7 @@
     %ul.dropdown-menu.custom{"aria-labelledby" => "dLabel", role: "menu"}
       - if !@last_notifications.blank?
         .col-md-12.extra-margin-top
-          %li You have no notifications
+          %li You have no friend requests.
       - else
         .col-md-12
           - current_user.pending_friend_requests.each do |pending_friend_request|
