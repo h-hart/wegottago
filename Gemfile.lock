@@ -236,6 +236,7 @@ GEM
       oauth2 (~> 0.9.3)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    pg (0.17.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.4)
@@ -382,6 +383,7 @@ DEPENDENCIES
   mysql2
   nifty-generators
   omniauth-facebook (= 1.5.1)
+  pg (= 0.17.1)
   public_activity (= 1.4.1)
   quiet_assets
   rack-mini-profiler
