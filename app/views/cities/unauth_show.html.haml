@@ -1,33 +1,77 @@
-%section.search
-  / Slider 
-  #carousel.carousel.slide{ data: { ride: "carousel"}}
-    / Wrapper for slides
-    .carousel-inner
-      - HomePageSliderPhotos.all.each_with_index do |hpsp, index|
-        - klas = 'active' if index == 0
-        .item{ class: klas }
-          .carousel-caption.top
-            %h1 Discover Unique Activities 
-            %p and meet someone new to go along
-          = image_tag hpsp.image_url
-          .carousel-caption= hpsp.caption
+#carousel.carousel.slide{"data-ride" => "carousel"}
+  / Wrapper for slides
+  .carousel-inner
+    .item
+      .carousel-caption.top
+        %h1 Discover Unique Activities
+        %p and meet someone new to go along
+      %img{:alt => "Nslide1", :src => "https://wegottago-staging.s3.amazonaws.com/uploads/home_page_slider_photos/image/5/nslide1.jpg"}
+        .carousel-caption Meet new friends locally and worldwide who share your goals, interests and passions.
+    .item
+      .carousel-caption.top
+        %h1 Discover Unique Activities
+        %p and meet someone new to go along
+      %img{:alt => "Nslide2", :src => "https://wegottago-staging.s3.amazonaws.com/uploads/home_page_slider_photos/image/4/nslide2.jpg"}
+        .carousel-caption New to town? Newly single? Or just want to meet some new friends to network, socialize, volunteer or just hang out with?
+    .item
+      .carousel-caption.top
+        %h1 Discover Unique Activities
+        %p and meet someone new to go along
+      %img{:alt => "Nslide3", :src => "https://wegottago-staging.s3.amazonaws.com/uploads/home_page_slider_photos/image/3/nslide3.jpg"}
+        .carousel-caption Get offline and Get Going today! You donít always have to wait for your group to "meet up".
+    .item
+      .carousel-caption.top
+        %h1 Discover Unique Activities
+        %p and meet someone new to go along
+      %img{:alt => "Nslide4", :src => "https://wegottago-staging.s3.amazonaws.com/uploads/home_page_slider_photos/image/2/nslide4.jpg"}
+        .carousel-caption Got a bucket list? Meet your new fitness partner, travel buddy or that extra team player here
+    .item.active
+      .carousel-caption.top
+        %h1 Discover Unique Activities
+        %p and meet someone new to go along
+      %img{:alt => "Nslide5", :src => "https://wegottago-staging.s3.amazonaws.com/uploads/home_page_slider_photos/image/1/nslide5.jpg"}
+        .carousel-caption Do something you love with someone new and you never know where life might take you.
+  / Controls
+  %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel"}
+    %span
+      %img{:alt => "Arrow1", :height => "55", :src => "/assets/arrow1-c80e8e3241968fae167fe801d4014fec.png", :width => "40"}/
+  %a.right.carousel-control{"data-slide" => "next", :href => "#carousel"}
+    %span
+      %img{:alt => "Arrow2", :height => "55", :src => "/assets/arrow2-411284a117c101593d7e1ac999fd2f67.png", :width => "40"}/
+
+
+
+
+/ %section.search
+/   / Slider 
+/   #carousel.carousel.slide{ data: { ride: "carousel"}}
+/     / Wrapper for slides
+/     .carousel-inner
+/       - HomePageSliderPhotos.all.each_with_index do |hpsp, index|
+/         - klas = 'active' if index == 0
+/         .item{ class: klas }
+/           .carousel-caption.top
+/             %h1 Discover Unique Activities 
+/             %p and meet someone new to go along
+/           = image_tag hpsp.image_url
+/           .carousel-caption= hpsp.caption
             
 
-    / Controls
-    %a.left.carousel-control{ href: "#carousel", data: { slide: "prev"}}
-      %span= image_tag 'arrow1.png', size: '40x55'
-    %a.right.carousel-control{ href: "#carousel", data: { slide: "next"}}
-      %span= image_tag 'arrow2.png', size: '40x55'
+/     / Controls
+/     %a.left.carousel-control{ href: "#carousel", data: { slide: "prev"}}
+/       %span= image_tag 'arrow1.png', size: '40x55'
+/     %a.right.carousel-control{ href: "#carousel", data: { slide: "next"}}
+/       %span= image_tag 'arrow2.png', size: '40x55'
 
-  .container
-    .row
-      .col-md-12.user-activities
-        .city-page
-          .row
-            - if @activities.blank?
-              %h2.grey-msg.text-center= "There are currently no activities in #{@city.name}." 
-            -else
-              - @activities.uniq.each do |activity|
-                = render 'activities/activity', activity: activity
-              .col-md-12.text-center
-                =will_paginate @activities
+/   .container
+/     .row
+/       .col-md-12.user-activities
+/         .city-page
+/           .row
+/             - if @activities.blank?
+/               %h2.grey-msg.text-center= "There are currently no activities in #{@city.name}." 
+/             -else
+/               - @activities.uniq.each do |activity|
+/                 = render 'activities/activity', activity: activity
+/               .col-md-12.text-center
+/                 =will_paginate @activities
