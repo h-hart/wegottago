@@ -8,7 +8,6 @@ group :assets do
   gem 'uglifier',                 '>= 1.0.3'
 end
 
-# gem 'mysql2'
 gem "jquery-rails",               "< 3.0.0"
 gem 'jquery-ui-rails',            '4.1.0'
 gem 'bootstrap-sass',             '>= 3.0.0.0'
@@ -46,6 +45,7 @@ gem 'heroku'
 gem 'rails_12factor', group: :production
 
 group :development do
+  gem 'mysql2'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'html2haml'
