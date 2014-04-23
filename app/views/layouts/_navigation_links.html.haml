@@ -16,12 +16,12 @@
   %li.dropdown
     %a{"data-toggle" => "dropdown", href: "#"}
       %span.space.fa.fa-users
-      %sup.count-of-reguest
-        - if current_user.pending_friend_requests.size > 0
+      - if current_user.pending_friend_requests.size > 0
+        %sup.count-of-reguest
           = current_user.pending_friend_requests.size
 
     %ul.dropdown-menu.custom{"aria-labelledby" => "dLabel", role: "menu"}
-      - if !@last_notifications.blank?
+      - unless current_user.pending_friend_requests.size > 0
         .col-md-12.extra-margin-top
           %li You have no friend requests.
       - else
@@ -45,7 +45,9 @@
   %li.dropdown
     %a{"data-toggle" => "dropdown", href: "#"}
       %span.glyphicon.glyphicon-globe
-      %sup.count-of-reguest= @unread_notifications_count
+      - if @unread_notifications_count.present?
+        %sup.count-of-reguest
+          = @unread_notifications_count
     %ul.dropdown-menu.custom{"aria-labelledby" => "dLabel", role: "menu"}
       - if @last_notifications.blank?
         .col-md-12.extra-margin-top
@@ -61,7 +63,9 @@
   %li.dropdown
     %a{"data-toggle" => "dropdown", href: "#"}
       %span.glyphicon.glyphicon-envelope
-      %sup.count-of-reguest= @unread_messages_count
+      - if @unread_messages_count.present?
+        %sup.count-of-reguest
+          = @unread_messages_count
     %ul.dropdown-menu.custom{"aria-labelledby" => "dLabel", role: "menu"}
       - if @last_messages.blank?
         .col-md-12.extra-margin-top
