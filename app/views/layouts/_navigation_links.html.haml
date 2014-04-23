@@ -85,7 +85,7 @@
       .col-md-12.border-bottom
         %li= link_to 'My Curiosity Board', "#"
       .col-md-12.border-bottom
-        %li= link_to 'My Activities', edit_user_profile_path(tab: "notifications")
+        %li= link_to 'My Activities', activities_path
       .col-md-12.border-bottom
         %li= link_to 'My Friends', friends_path(current_user)
       .col-md-12.border-bottom
@@ -95,7 +95,7 @@
       .col-md-12
         %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
 
-      / .col-md-12.border-bottom
+      / .col-md-12.borderi-bottom
       /   %li= link_to 'Basics', edit_user_profile_path(tab: "basic")
       / .col-md-12.border-bottom
       /   %li= link_to 'About Me', edit_user_profile_path(tab: "about")
