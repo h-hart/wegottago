@@ -18,3 +18,7 @@
                 .category-followers
                   = User.tagged_with( category.interest_list, :any => true).uniq.count
                   Followers
+                  %p.back-top
+                    %a{:href => ".top"}
+                      %span>
+                      Back to Top
