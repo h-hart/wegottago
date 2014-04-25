@@ -31,3 +31,7 @@
       - if activity.joins_count > 0
         .activity-joined-user-link= "#{activity.joins_count} Friends plan on going"
       %button.btn.btn-blue.view-activity{type: "button", data: "#{activity_path(activity)}"} Get the Scoop
+      %p.back-top
+        %a{:href => ".top"}
+          %span>
+          Back to Top
