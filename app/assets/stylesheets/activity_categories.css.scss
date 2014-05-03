@@ -1,0 +1,96 @@
+// Place all the styles related to the ActivityCategories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$border-color: #E7E7E7;
+
+.main-category{
+    height: 324px;
+  background: url(/assets/main-category.png) no-repeat center center;
+}
+.categories-list{
+    margin-top: 2%;
+}
+.catbackground{
+  background:url(/assets/Sky_blue.jpg) repeat center center;
+  display: block;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+}
+.category{
+    margin-top: 30px;
+}
+.category-image{
+    position: relative;
+    width: 100%;
+    height: 185px;
+  background-color: #fff;
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+.rotate{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+.rotate:hover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+  border: 1px solid #df1878 ;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+.span1{
+  z-index: 1;
+  transform: rotate(4deg);
+  -ms-transform: rotate(4deg); /* IE 9 */
+  -webkit-transform: rotate(4deg); /* Safari and Chrome */
+}
+.span2{
+    z-index: 2;
+  transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg); /* IE 9 */
+  -webkit-transform: rotate(-4deg); /* Safari and Chrome */
+}
+.category-image img{
+    z-index: 3;
+    position: absolute;
+
+}
+.category-info{
+    /*border: 1px solid #c1c1c1;*/
+    border-top: none;
+    margin: 0 12.5%;
+    /*border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;*/
+    padding: 10px;
+    z-index: 0;
+ /* background-color: white;*/
+}
+.category-name{
+    color: #428bca;
+    font-size: 16px;
+    font-weight: bold;
+}
+.category-followers{
+    color: #777777;
+    font-size: 16px;
+    padding-top: 5px;
+}
+.glyphiuser{
+  width:35px;
+  height:35px;
+}

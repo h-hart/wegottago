@@ -80,7 +80,8 @@
 
   %li.dropdown
     %a{"data-toggle" => "dropdown", href: "#"}
-      %span.glyphicon.glyphicon-chevron-down
+      %span.glyphicon
+      = image_tag current_user.avatar_url(:thumb), class: 'img-circle glyphiuser'
     %ul.dropdown-menu.custom-navs{"aria-labelledby" => "dLabel", role: "menu"}
       .col-md-12.border-bottom
         %li= link_to 'My Curiosity Board', "#"
@@ -112,8 +113,8 @@
 
 - if user_signed_in?
   %li.profile-li
-    = link_to profile_path(current_user.id), class: 'innav-img' do
-      = image_tag current_user.avatar_url(:thumb), class: 'img-circle'
+    / = link_to profile_path(current_user.id), class: 'innav-img' do
+    /   = image_tag current_user.avatar_url(:thumb), class: 'img-circle'
    
 
 

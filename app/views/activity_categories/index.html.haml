@@ -1,0 +1,24 @@
+%section
+  = render 'shared/top-nav'
+%section.categories.catbackground
+  .container
+    = link_to activity_category_activities_explore_path(activity_category_id: @main.id) do
+      .col-md-12.main-category{style: "background: url(#{ @main.wide_image_url }) no-repeat center center"}
+    .col-md-12.categories-list
+      .row
+        - @activity_categories.each do |category|
+          =link_to activity_category_activities_explore_path(activity_category_id: category.id) do
+            .col-md-4.category
+              .category-image
+                %span.rotate.span1
+                %span.rotate.span2
+                = image_tag category.small_image_url, class: ''
+              / .col-md-9.category-info
+              /   .category-name= category.name
+              /   .category-followers
+              /     = User.tagged_with( category.interest_list, :any => true).uniq.count
+              /     Followers
+      %p.back-top
+        %a{:href => ".top"}
+          %span>
+          Back to Top
