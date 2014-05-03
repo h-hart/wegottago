@@ -112,16 +112,6 @@
       /   %li= link_to 'Logout', destroy_user_session_path, :method=>'delete', class: 'pull-right'
 
 - if user_signed_in?
-  %li.profile-li
-<<<<<<< HEAD
-    / = link_to profile_path(current_user.id), class: 'innav-img' do
-    /   = image_tag current_user.avatar_url(:thumb), class: 'img-circle'
-   
-=======
-    = link_to profile_path(current_user.id), class: 'innav-img' do
-      = image_tag current_user.avatar_url(:thumb), class: 'img-circle'
->>>>>>> 1b37cfefef2b1e3f4e0a4fd69a74bedecb6016eb
-
   %li
     .button.btn.btn-pink.marginButton{"data-target" => "#PostActivity", "data-toggle" => "modal"} Post Activity
 
