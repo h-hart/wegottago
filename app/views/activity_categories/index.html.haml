@@ -13,12 +13,19 @@
                 %span.rotate.span1
                 %span.rotate.span2
                 = image_tag category.small_image_url, class: ''
-              / .col-md-9.category-info
-              /   .category-name= category.name
-              /   .category-followers
-              /     = User.tagged_with( category.interest_list, :any => true).uniq.count
-              /     Followers
+              .col-md-9.category-info
+                / .category-name= category.name
+                .category-followers
+                  / = User.tagged_with( category.interest_list, :any => true).uniq.count
+                  %span Immigrants, artists and perfect perks
+                .category-tag
+                  popular
+                .category-tag
+                  music
+                .category-tag
+                  street
       %p.back-top
         %a{:href => ".top"}
           %span>
           Back to Top
+

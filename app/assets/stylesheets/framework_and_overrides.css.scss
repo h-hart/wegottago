@@ -173,7 +173,7 @@ html{
   background-color: #F8F8F8;
 }
 main {
-  padding-bottom: 80px;
+  padding-bottom: 30px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
 }
@@ -854,6 +854,16 @@ $max-height: 490px;
     .top-part {
       img {
         width: 100%;
+      }
+      .img-circle{
+      opacity: 0;
+      }
+      .top-part:hover .img-circle{
+        opacity: 1;
+        -webkit-transition:all 0.3s ease-in-out;
+        -moz-transition:all 0.3s ease-in-out;
+        -o-transition:all 0.3s ease-in-out;
+        transition:all 0.3s ease-in-out;
       }
     }
     .bottom-part {
@@ -2177,3 +2187,5 @@ h1.Lily_font {
     }
   }
 }
+
+
