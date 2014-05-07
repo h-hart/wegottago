@@ -855,16 +855,6 @@ $max-height: 490px;
       img {
         width: 100%;
       }
-      .img-circle{
-      opacity: 0;
-      }
-      .top-part:hover .img-circle{
-        opacity: 1;
-        -webkit-transition:all 0.3s ease-in-out;
-        -moz-transition:all 0.3s ease-in-out;
-        -o-transition:all 0.3s ease-in-out;
-        transition:all 0.3s ease-in-out;
-      }
     }
     .bottom-part {
       img {
@@ -2188,4 +2178,15 @@ h1.Lily_font {
   }
 }
 
-
+.img-circle{
+  opacity: 0;
+}
+.top-part:hover{
+  .bottom-part .img-circle{
+  opacity: 1;
+  transition:All 1s ease-in-out;
+  -webkit-transition:All 1s ease-in-out;
+  -moz-transition:All 1s ease-in-out;
+  -o-transition:All 1s ease-in-out;
+ }
+} 
