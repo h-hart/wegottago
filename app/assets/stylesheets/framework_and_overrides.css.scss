@@ -2177,16 +2177,3 @@ h1.Lily_font {
     }
   }
 }
-
-.img-circle{
-  opacity: 0;
-}
-.top-part:hover{
-  .bottom-part .img-circle{
-  opacity: 1;
-  transition:All 1s ease-in-out;
-  -webkit-transition:All 1s ease-in-out;
-  -moz-transition:All 1s ease-in-out;
-  -o-transition:All 1s ease-in-out;
- }
-} 
