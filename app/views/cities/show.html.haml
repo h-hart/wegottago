@@ -15,8 +15,16 @@
               %h2.grey-msg.text-center= "There are no people going places." 
   .container
     .row.text-center
-      %h1.decored Whats going on...
-
+      %h1.decore Whats going on...
+      %select.btn.btn-grey
+        %option
+          %a{:href => "#"} All
+        %option
+          %a{:href => "#"} Popular
+        %option
+          %a{:href => "#"} Newest
+        %option
+          %a{:href => "#"} Friends are going
     .row
       .col-md-12.user-activities
         .city-page

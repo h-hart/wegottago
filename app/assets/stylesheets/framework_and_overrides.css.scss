@@ -884,7 +884,6 @@ $max-height: 490px;
 .photo-explore-activities{
   margin-top: 43px;
   position: relative;
-  height: 350px;
   width: 100%;
   overflow: hidden;
   text-align: center;
@@ -1356,7 +1355,33 @@ font-weight: bold;
   display: inline-block;
   left: -230px;
 }
-
+.decore{
+  line-height: 34px;
+  position: relative;
+  display: inline-block;
+  color: #9B9B9B;
+  font-weight: bold;
+  margin: 25px 0;
+}
+.decore:before {
+  position: absolute;
+  content: '';
+  background: url(/assets/decor_l.png) no-repeat;
+  width: 200px;
+  height: 34px;
+  display: inline-block;
+  left: -230px;
+}
+.decore:after {
+  position: absolute;
+  content: '';
+  text-align: center;
+  background: url(/assets/decor_r.png) no-repeat;
+  width: 200px;
+  height: 34px;
+  display: inline-block;
+  right: -390px;
+}
 .controls input[type="text"], .controls input[type="password"], .controls input[type="email"], .controls input[type="number"], .controls input[type="url"], .controls input[type="tel"], .controls textarea, .controls select, .form-group input[type="text"], .form-group input[type="password"], .form-group input[type="email"], .form-group input[type="number"], .form-group input[type="url"], .form-group input[type="tel"], .form-group textarea, .form-group select {
   width: 100%;
   padding: 5px;

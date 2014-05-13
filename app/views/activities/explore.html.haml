@@ -2,8 +2,8 @@
   = render 'shared/top-nav'
   .col-md-12.photo-explore-activities
     = image_tag @activity_category.wide_image_url, style: "margin-top: 20px; width: 100%; max-width: 808px;"
-  .activities-search-form.explore-search
-    = render 'search'
+  / .activities-search-form.explore-search
+  /   = render 'search'
 %section.search
   .container
     .row.text-center
@@ -18,7 +18,16 @@
             %h2.grey-msg No activities exist
 
     .row.text-center
-      %h3.decored What's going on ...
+      %h3.decore What's going on ...
+      %select.btn.btn-grey
+        %option
+          %a{:href => "#"} All
+        %option
+          %a{:href => "#"} Popular
+        %option
+          %a{:href => "#"} Newest
+        %option
+          %a{:href => "#"} Friends are going
     .row
       - if @grouped_activities.count > 0
         - @grouped_activities.each do |activity_group_title, activities|
