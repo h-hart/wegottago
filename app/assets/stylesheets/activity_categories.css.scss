@@ -7,6 +7,7 @@ $border-color: #E7E7E7;
 .main-category{
     height: 324px;
     background: url(/assets/main-category.png) no-repeat center center;
+    width:100%;
 }
 .categories-list{
     margin-top: 2%;
@@ -89,6 +90,9 @@ $border-color: #E7E7E7;
     color: #777777;
     font-size: 16px;
     padding-top: 5px;
+}
+.italic {
+  font-style:italic
 }
 .category-quote {
    color:#333;

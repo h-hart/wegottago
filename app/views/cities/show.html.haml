@@ -11,8 +11,8 @@
             - if !@users_going_places.blank?
               - @users_going_places.uniq.each do |user|
                 = render 'cities/users_going_places', user: user
-            - else 
-              %h2.grey-msg.text-center= "There are no people going places." 
+            - else
+              %h2.grey-msg.text-center= "There are no people going places."
   .container
     .row.text-center
       %h1.decore Whats going on...
@@ -30,7 +30,7 @@
         .city-page
           .row
             - if @activities.blank?
-              %h2.grey-msg.text-center= "There are currently no activities in #{@city.name}." 
+              %h2.grey-msg.text-center= "There are currently no activities in #{@city.name}."
             -else
               - @activities.uniq.each do |activity|
                 = render 'activities/activity', activity: activity

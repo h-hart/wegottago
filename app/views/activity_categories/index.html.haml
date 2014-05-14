@@ -17,7 +17,7 @@
                 / .category-name= category.name
                 .category-followers
                   / = User.tagged_with( category.interest_list, :any => true).uniq.count
-                  %span Immigrants, artists and perfect perks
+                  %span.italic Immigrants, artists and perfect perks
                 .category-tag
                   popular
                 .category-tag
@@ -28,4 +28,3 @@
         %a{:href => ".top"}
           %span>
           Back to Top
-
