@@ -1,10 +1,10 @@
 .suggested-block
   .top-part
-    = link_to activity_path(activity) do                  
+    = link_to activity_path(activity) do
       = image_tag activity.theme.image_url(:list_small), class: 'activity-img'
   .bottom-part
     = image_tag activity.user.avatar_url(:thumb), class: 'img-circle'
     .title= truncate( activity.title, length: 20 )
     %br
     %br
-    .date= activity.end_datetime.strftime("%A, %B %eth @ %k:00 %P")
+    .date= activity.end_datetime.strftime("%A, %B %eth @ %k:00 %p")
