@@ -15,7 +15,8 @@
               .activity-button
                 =activity.free_spot_num
                 spots
-      = image_tag activity.user.avatar_url(:thumb), class: 'img-circle'
+      = link_to profile_path(activity.user) do
+        = image_tag activity.user.avatar_url(:thumb), class: 'img-circle'
   .col-md-8.activity-padding
     %h3= "#{activity.user.name} Wants you to go..."
     .activity-title= link_to activity.title, activity_path(activity)
