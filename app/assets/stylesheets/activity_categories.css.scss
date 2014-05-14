@@ -5,50 +5,50 @@
 $border-color: #E7E7E7;
 
 .main-category{
-    height: 324px;
-    background: url(/assets/main-category.png) no-repeat center center;
-    width:100%;
+  height: 324px;
+  background: url(/assets/main-category.png) no-repeat center center;
+  width:100%;
 }
 .categories-list{
     margin-top: 2%;
 }
 .catbackground{
-    background:url(/assets/cloudy_background.jpg) repeat center center;
-    width: 100%;
-    min-height:100%;
-    height: auto;
-    position: relative;
+  background:url(/assets/cloudy_background.jpg) repeat center center;
+  width: 100%;
+  min-height:100%;
+  height: auto;
+  position: relative;
 }
 .category{
-    margin-top: 30px;
+  margin-top: 30px;
 }
 .category-image{
-    position: relative;
-    width: 100%;
-    height: 185px;
+  position: relative;
+  width: 100%;
+  height: 185px;
   background-color: #fff;
   border: 1px solid $border-color;
   border-radius: 2px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 .rotate{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
   border: 1px solid $border-color;
   border-radius: 2px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 .rotate:hover{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
   border: 1px solid #df1878 ;
   border-radius: 2px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
@@ -60,54 +60,54 @@ $border-color: #E7E7E7;
   -webkit-transform: rotate(4deg); /* Safari and Chrome */
 }
 .span2{
-    z-index: 2;
+  z-index: 2;
   transform: rotate(-4deg);
   -ms-transform: rotate(-4deg); /* IE 9 */
   -webkit-transform: rotate(-4deg); /* Safari and Chrome */
 }
 .category-image img{
-    z-index: 3;
-    position: absolute;
+  z-index: 3;
+  position: absolute;
 
 }
 .category-info{
-    border: 1px solid #c1c1c1;
-    border-top: none;
-    width:264px;
-    margin: 0 3.5%;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    padding: 10px;
-    z-index: 0;
-    background-color: white;
+  border: 1px solid #c1c1c1;
+  border-top: none;
+  width: 290px;
+  margin: 0 0.5%;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 10px;
+  z-index: 0;
+  background-color: white;
 }
 .category-name{
-    color: #428bca;
-    font-size: 16px;
-    font-weight: bold;
+  color: #428bca;
+  font-size: 16px;
+  font-weight: bold;
 }
 .category-followers{
-    color: #777777;
-    font-size: 16px;
-    padding-top: 5px;
+  color: #777777;
+  font-size: 16px;
+  padding-top: 5px;
 }
 .italic {
   font-style:italic
 }
 .category-quote {
-   color:#333;
-   font-size:15px;
-   padding-top:5px;
+  color:#333;
+  font-size:15px;
+  padding-top:5px;
 }
 .category-tag {
-   border:1px solid #ccc;
-   background-color:#ececec;
-   color:#333;
-   font-size:15px;
-   margin-top:5px;
-   padding:5px 2px;
-   text-align: center;
-   display:inline-block;
+  border:1px solid #ccc;
+  background-color:#ececec;
+  color:#333;
+  font-size:15px;
+  margin-top:5px;
+  padding:5px 2px;
+  text-align: center;
+  display:inline-block;
 }
 .glyphiuser{
   width:35px;

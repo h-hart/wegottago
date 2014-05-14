@@ -30,7 +30,7 @@
           = link_to profile_path(join.user) do
             = image_tag join.user.avatar_url(:thumb)
       - if activity.joins_count > 0
-        .activity-joined-user-link= "#{activity.joins_count} peoples plan on going"
+        .activity-joined-user-link= "#{activity.joins_count} person plan on going"
       -if activity.if_user_joined current_user.id
         %button.btn.btn-blue.view-activity{type: "button", data: "#{activity_path(activity)}"} I am Going
       -else
