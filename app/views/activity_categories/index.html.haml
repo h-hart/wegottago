@@ -1,12 +1,13 @@
 %section
   = render 'shared/top-nav'
-%section.categories.catbackground
+%section.categories
   .col-md-12.main-category 
-    %img{:src => "#{ @main.wide_image_url }", :class => "size"}
+    
   / .col-md-12.main-category{style: "background: url(#{ @main.wide_image_url }) no-repeat center center; width:100% !important; position:relative; z-index:999; "}
   .container
     = link_to activity_category_activities_explore_path(activity_category_id: @main.id) do
-      
+      %img{:src => "#{ @main.wide_image_url }", :class => "size"}
+
       .col-md-12.categories-list
       .row
         - @activity_categories.each do |category|
@@ -27,7 +28,7 @@
                   music
                 .category-tag
                   street
-      %p.back-top
-        %a{:href => ".top"}
-          %span>
-          Back to Top
+    %p.back-top
+      %a{:href => ".top"}
+        %span>
+        Back to Top

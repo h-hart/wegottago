@@ -15,7 +15,8 @@
 
   %li.dropdown
     %a{"data-toggle" => "dropdown", href: "#"}
-      %span.space.fa.fa-users
+      %span.space
+        %img{:src => "/assets/addfriends.png"}
       - if current_user.pending_friend_requests.size > 0
         %sup.count-of-reguest
           = current_user.pending_friend_requests.size

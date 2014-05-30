@@ -2,13 +2,11 @@
 %html
   %head
     = render 'layouts/head'
-  %body.top
+  %body.top{:class => body_background_class}
     = render 'layouts/hidden_html_helpers'
     %header
       = render 'layouts/navigation'
     - style = ''
-    - if request.fullpath != activity_categories_path
-      - style = "background: url( #{asset_path('cloudy_background.jpg')}) repeat;"
     %main{:role => "main", style: style}
       = render 'layouts/messages'
       = yield
