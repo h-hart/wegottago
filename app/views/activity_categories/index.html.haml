@@ -22,16 +22,14 @@
                 / .category-name= category.name
                 .category-followers
                   / = User.tagged_with( category.interest_list, :any => true).uniq.count
-
-                  %span.italic Immigrants, artists and perfect perks
-                .category-tag
-                  popular
-                .category-tag
-                  music
-                .category-tag
-                  street
-    %p.back-top
-      %a{:href => ".top"}
-        %span>
-        Back to Top
+          
+                  %span.italic
+                    = category.name
+                  - category.interests.each do |interest|
+                    .category-tag
+                      = interest.name
+      %p.back-top
+        %a{:href => ".top"}
+          %span>
+          Back to Top
 
