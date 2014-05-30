@@ -1,5 +1,6 @@
 %section
   = render 'shared/top-nav'
+
 %section.categories
   .col-md-12.main-category 
     
@@ -21,6 +22,7 @@
                 / .category-name= category.name
                 .category-followers
                   / = User.tagged_with( category.interest_list, :any => true).uniq.count
+
                   %span.italic Immigrants, artists and perfect perks
                 .category-tag
                   popular
@@ -32,3 +34,4 @@
       %a{:href => ".top"}
         %span>
         Back to Top
+
