@@ -24,7 +24,7 @@ module ActivitiesHelper
   def activitiesNum user_id = false
     if user_signed_in?
       user_id = @user.id if user_id == false
-  
+
       Activity.select("activities.id")
       .joins('LEFT JOIN activity_joins ON activities.id = activity_joins.activity_id')
       .where("activity_joins.user_id = ? AND activity_joins.id IS NOT NULL", user_id)

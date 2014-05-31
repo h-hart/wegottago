@@ -14,7 +14,7 @@ class ActivitiesController < ApplicationController
       activities = Activity.select("activities.*")
       .joins('LEFT JOIN activity_joins ON activities.id = activity_joins.activity_id')
       .where("activity_joins.user_id = ? AND activity_joins.id IS NOT NULL", @user.id)
-      .where('activities.end_datetime >= ?', Time.now)
+      .where('activities.end_datetime <= ?', Time.now)
       .order('activities.end_datetime ASC')
     else # Profile of anther user
       activities = Activity
