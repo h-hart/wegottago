@@ -26,7 +26,7 @@
                   %span.italic
                     = category.name
                   %br
-                  - category.interests.each do |interest|
+                  - category.interests.limit(3).each do |interest|
                     .category-tag
                       = interest.name
       %p.back-top
