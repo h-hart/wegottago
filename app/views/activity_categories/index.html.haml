@@ -2,8 +2,8 @@
   = render 'shared/top-nav'
 
 %section.categories
-  .col-md-12.main-category 
-    
+  .col-md-12.main-category
+
   / .col-md-12.main-category{style: "background: url(#{ @main.wide_image_url }) no-repeat center center; width:100% !important; position:relative; z-index:999; "}
   .container
     = link_to activity_category_activities_explore_path(activity_category_id: @main.id) do
@@ -22,9 +22,10 @@
                 / .category-name= category.name
                 .category-followers
                   / = User.tagged_with( category.interest_list, :any => true).uniq.count
-          
+
                   %span.italic
                     = category.name
+                  %br
                   - category.interests.each do |interest|
                     .category-tag
                       = interest.name
