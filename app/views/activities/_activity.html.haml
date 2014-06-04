@@ -5,6 +5,5 @@
   .bottom-part
     = image_tag activity.user.avatar_url(:thumb), class: 'img-circle'
     .title= truncate( activity.title, length: 20 )
-    %br
-    %br
+    %div
     .date= activity.end_datetime.strftime("%A, %B %eth @ %k:00 %p")

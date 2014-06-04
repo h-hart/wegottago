@@ -96,7 +96,7 @@ $border-color: #E7E7E7;
 }
 .category-followers{
   color: #777777;
-  font-size: 16px;
+  font-size: 12px;
   padding-top: 5px;
 }
 .italic {
@@ -116,7 +116,7 @@ $border-color: #E7E7E7;
   border:1px solid #ccc;
   background-color:#ececec;
   color:#333;
-  font-size:15px;
+  font-size:8.5px;
   margin-top:5px;
   padding:5px 2px;
   text-align: center;
@@ -140,6 +140,7 @@ $border-color: #E7E7E7;
     text-transform: uppercase;
     text-decoration: none;
     color: #bbb;
+    margin-left:40px;
     /* background color transition */
     -webkit-transition: 1s;
     -moz-transition: 1s;
@@ -172,6 +173,7 @@ $border-color: #E7E7E7;
     text-transform: uppercase;
     text-decoration: none;
     color: #bbb;
+    margin-left:40px;
     /* background color transition */
 /*    -webkit-transition: 1s;
     -moz-transition: 1s;
