@@ -1,20 +1,23 @@
 .suggested-block
   .top-part
-    
+
     = link_to activity_path(activity) do
       = image_tag activity.theme.image_url(:list_small), class: 'activity-img'
-    
+
   .bottom-part
     = image_tag activity.user.avatar_url(:thumb), class: 'img-circle'
     .title= truncate( activity.title, length: 20 )
     %div.right-text
-      %h5 Sara B, 33
-      %h4 Santa Monika
-    %div.text-msg 
-      %h5 
-      "I am looking for a dance partner for tuesday night classess..."
+      %h5
+      = activity.user.name
+      = ",#{activity.user.age}" if activity.user.age.present?
+      %h4
+      = activity.location
+    %div.text-msg
+      %h5
+      = activity.personal_quote
       %br
       %br
       %button{type: "button", :class => "btn btn-blue view-activity center"} Get the Scoop
     %div
-    .date= activity.end_datetime.strftime("%A, %B %eth @ %k:00 %p") 
+    .date= activity.end_datetime.strftime("%A, %B %eth @ %k:00 %p")
