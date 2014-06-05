@@ -2107,7 +2107,7 @@ select {
 
 .city-page .suggested-block:hover .top-part img {
   background-color: #000000;
-  opacity: 0.7;
+  opacity: 0.4;
   -webkit-transition: all 1s ease-in-out 0.2s;
   -moz-transition: all 1s ease-in-out 0.2s;
   -o-transition: all 1s ease-in-out 0.2s;
@@ -2127,7 +2127,7 @@ select {
       width:200px;
       color:#fff;
       display:none;
-      text-shadow: 0.1em 0.1em 0.05em #333;
+      text-shadow: 0.1em 0.1em 0.05em #222;
       }
 .city-page .suggested-block:hover .bottom-part .right-text {
       position: absolute;
@@ -2135,7 +2135,7 @@ select {
       left: 125px;
       width:200px;
       color:#fff;
-      text-shadow: 0.1em 0.1em 0.05em #333;
+      text-shadow: 0.1em 0.1em 0.05em #222;
       display:inline-block;
       }
 .city-page .suggested-block .bottom-part .text-msg {
@@ -2150,7 +2150,7 @@ select {
       color:#fff;
       display:inline-block;
       text-align: center;
-      text-shadow: 0.1em 0.1em 0.05em #333;
+      text-shadow: 0.1em 0.1em 0.05em #222;
       }
 .city-page .suggested-block .bottom-part .date {
     font-size: 11px;
