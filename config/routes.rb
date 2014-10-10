@@ -73,6 +73,7 @@ GottaGo::Application.routes.draw do
   end
 
   root :to => 'home#email_capture'
+  post 'reservation' => 'reservation#create'
 
   authenticated :user do
     root :to => "cities#show", as: :authenticated_root, defaults: { name: 'Los Angeles, CA, United States' }

@@ -11,3 +11,8 @@
       %span.activity
         %span
     New Friends. Common Interest. Infinite Possibilities...
+    .email-capture
+      =message
+      %form{ method: 'post', action: '/reservation' }
+        %input{ type: 'email', name: 'email', placeholder: 'Email Address' }
+        %input.submit.pink{ type: 'submit', value: 'Sign Up!' }

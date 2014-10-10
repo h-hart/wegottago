@@ -64,6 +64,7 @@ html, body {
       margin-left: -18px;
       font-size: 32px;
       text-transform: lowercase;
+      font-style: italic;
       
       span {
         transition: all 160ms;
@@ -71,6 +72,23 @@ html, body {
           opacity: 0
         }
       }
+    }
+  }
+  
+  .email-capture {
+    text-align: center;
+    margin-top: 160px;
+    
+    input {
+      margin: 12px auto;
+      padding: 6px 6px;
+      font-size: 14px;
+      width: 360px;
+    }
+    
+    input.submit {
+      display: block;
+      width: 120px;
     }
   }
 }

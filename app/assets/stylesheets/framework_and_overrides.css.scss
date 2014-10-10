@@ -164,6 +164,15 @@ input[type=number]::-webkit-outer-spin-button {
   @extend .btn-primary;
   @extend .btn-lg;
   }
+.submit.pink {
+  background-color: #f10064;
+  border-color: #d10044;
+  
+  &:hover {
+    background-color: #d00042;
+    border-color: #b80030;
+  }
+}
 // apply styles to HTML elements
 // to make views framework-neutral
 body {
