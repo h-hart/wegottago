@@ -72,8 +72,11 @@ GottaGo::Application.routes.draw do
          as: :remove_avatar
   end
 
+  root :to => 'home#email_capture'
+
   authenticated :user do
     root :to => "cities#show", as: :authenticated_root, defaults: { name: 'Los Angeles, CA, United States' }
   end
   root :to => "cities#show", defaults: { name: 'Los Angeles, CA, United States' }
+
 end
