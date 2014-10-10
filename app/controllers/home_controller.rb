@@ -1,7 +1,12 @@
 class HomeController < ApplicationController
   before_filter :redirect_to_root_if_authenticated
   layout 'unauthenticated'
+
   def index
+  end
+
+  def email_capture
+    render 'home/email_capture', layout: 'pre_launch'
   end
 
   private
