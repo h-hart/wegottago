@@ -21,7 +21,6 @@ html, body {
       position: absolute;
       opacity: 0;
       background-size: cover;
-      
       transition: all 400ms;
 
       &.visible {
@@ -49,19 +48,28 @@ html, body {
   .content {
     width: 1000px;
     margin: 0 auto;
+    padding: 120px 0;
+    color: #fff;
+    font-size: 18px;
   
     h1 {
-      color: #fff;
-      text-transform: uppercase;
       font-weight: bold;
+      font-size: 92px;
+      text-transform: none;
+      margin-bottom: -4px;
     }
     .activity {
       display: inline-block;
-      width: 600px;
-      transition: all 160ms;
+      width: 400px;
+      margin-left: -18px;
+      font-size: 32px;
+      text-transform: lowercase;
       
-      &.transparent {
-        opacity: 0
+      span {
+        transition: all 160ms;
+        &.transparent {
+          opacity: 0
+        }
       }
     }
   }

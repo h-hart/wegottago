@@ -19,7 +19,6 @@
         if Slideshow.current > Slideshow.last
           Slideshow.current = 0
         $(Slideshow.images[Slideshow.current]).addClass 'visible'
-    
     Slideshow.init()
     
     Activities =
@@ -57,15 +56,16 @@
         'Play volleyball'
         'Waterskiing'
       ]
-      span: $ '.email-capture .activity'
+      span: $ '.email-capture .activity span'
+      init: ->
+        Activities.next()
+        setInterval Activities.next, 3000
       next: ->
         Activities.span.addClass 'transparent'
         setTimeout ->
-          index = Math.round (Math.random() * Activities.activities.length)
-          Activities.span.text Activities.activities[index]
+          index = Math.round (Math.random() * (Activities.activities.length - 1))
+          Activities.span.text '...'+Activities.activities[index]+'!'
           Activities.span.removeClass 'transparent'
         , 160
-      
-    Activities.next()
-    setInterval Activities.next, 3000
+    Activities.init()
 ) jQuery
