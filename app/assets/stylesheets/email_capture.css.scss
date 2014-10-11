@@ -85,11 +85,15 @@ html, body {
       padding: 6px 6px;
       font-size: 14px;
       width: 360px;
-    }
-    
-    input.submit {
-      display: block;
-      width: 120px;
+
+      &[type=email] {
+        color: #000;
+      }
+      
+      &.submit {
+        display: block;
+        width: 120px;
+      }
     }
   }
 }

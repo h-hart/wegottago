@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def email_capture
-    render 'home/email_capture', layout: 'pre_launch', locals: { message: 'Get Notified When We Launch!' }
+    render 'home/email_capture', layout: 'pre_launch'
   end
 
   private

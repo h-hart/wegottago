@@ -8,7 +8,7 @@
 
   $ ->
     Slideshow = 
-      images: $('.email-capture .background .image')
+      images: $ '.email-capture .background .image'
       init: ->
         Slideshow.current = Slideshow.images.find('visible').prevAll().length
         Slideshow.last = Slideshow.images.length - 1
