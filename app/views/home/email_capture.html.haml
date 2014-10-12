@@ -10,9 +10,14 @@
       WeGottaGo
       %span.activity
         %span
-    New Friends. Common Interest. Infinite Possibilities...
+    New Friends. Common Interest. Endless Possibilities...
     .email-capture
-      = 'Get Notified When We Launch!'
-      %form{ method: 'post', action: '/reservation' }
-        %input{ type: 'email', name: 'email', placeholder: 'Email Address' }
-        %input.submit.pink{ type: 'submit', value: 'Sign Up!' }
+      - if @reservation_email.nil?
+        Get Notified When We Launch!
+        %form{ method: 'post', action: '/reservation' }
+          %input{ type: 'email', name: 'email', placeholder: 'Email Address' }
+          %input.submit.pink{ type: 'submit', value: 'Sign Up!' }
+      - else
+        Thanks, we'll drop you a line soon!
+        %form{ method: 'post', action: '/reservation' }
+          %input{ type: 'email', name: 'email', placeholder: 'Email Address', disabled: true, value: @reservation_email }

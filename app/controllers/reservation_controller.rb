@@ -2,7 +2,8 @@ class ReservationController < ApplicationController
 
   def create
     reservation = Reservation.create email: params[:email]
-    redirect_to 'home/email_capture', flash: { message: 'Thanks! We\'ll drop you a line soon.' }
+    cookies[:reservation_email] = reservation.email
+    redirect_to 'home/email_capture'
   end
 
 end

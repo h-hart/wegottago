@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   end
 
   def email_capture
+    @reservation_email = cookies[:reservation_email]
     render 'home/email_capture', layout: 'pre_launch'
   end
 
