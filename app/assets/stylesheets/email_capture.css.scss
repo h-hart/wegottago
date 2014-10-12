@@ -61,6 +61,9 @@ html, body {
       text-transform: none;
       margin-bottom: -4px;
     }
+    .tagline {
+      font-size: 24px;
+    }
     .activity {
       display: inline-block;
       width: 400px;
@@ -90,12 +93,28 @@ html, body {
 
       &[type=email] {
         color: #000;
+        
+        &:disabled {
+          opacity: .6;
+        }
       }
       
       &.submit {
         display: block;
         width: 120px;
       }
+    }
+    .checkmark {
+      position: relative;
+      top: 4px;
+      left: -37px;
+      display: inline-block;
+      height: 24px;
+      width: 24px;
+      line-height: .25;
+      border: 2px solid #fff;
+      font-size: 40px;
+      color: #f10064;
     }
   }
 }
