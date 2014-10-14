@@ -2,8 +2,8 @@ class ReservationController < ApplicationController
 
   def create
     reservation = Reservation.create email: params[:email]
-    cookies[:reservation_email] = reservation.email
-    redirect_to 'home/email_capture'
+    session[:reservation_email] = reservation.email
+    redirect_to controller: :home, action: :email_capture
   end
 
 end
