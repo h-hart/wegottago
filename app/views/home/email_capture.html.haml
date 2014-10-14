@@ -15,9 +15,9 @@
     .email-capture
       - if @reservation_email.nil?
         Get Notified When We Launch!
-        %form{ method: 'post', action: '/reservation' }
-          %input{ type: 'email', name: 'email', placeholder: 'Email Address' }
-          %input.submit.pink{ type: 'submit', value: 'Sign Up!' }
+        = form_tag 'reservation', method: 'post' do
+          = email_field 'reservation', 'email', placeholder: 'Email Address'
+          = submit_tag 'Sign Up!', class: 'submit pink'
       - else
         Thanks, we'll drop you a line soon!
         %form{ method: 'post', action: '/reservation' }
