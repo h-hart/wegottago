@@ -1,8 +1,11 @@
 class ReservationController < ApplicationController
 
   def create
-    reservation = Reservation.create email: params[:email]
-    session[:reservation_email] = reservation.email
+    reservations = Reservation.where email: params[:email]
+    if reservations.length < 1
+      reservations = Reservation.create email: params[:email]
+    end
+    session[:reservation_email] = reservations.first.email
     redirect_to controller: :home, action: :email_capture
   end
 
