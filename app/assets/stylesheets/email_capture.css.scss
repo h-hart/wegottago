@@ -1,6 +1,8 @@
 html, body {
   height: 100%;
   position: relative;
+  font-family: HelveticaNeue;
+  line-height: 1.4;
 }
 
 .email-capture {
@@ -27,7 +29,7 @@ html, body {
       transition: all 400ms;
 
       &.visible {
-        opacity: .6;
+        opacity: .5;
       }
 
       &.diving {
@@ -53,7 +55,7 @@ html, body {
     margin: 0 auto;
     padding: 120px 0;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
   
     h1 {
       font-weight: bold;
@@ -62,7 +64,8 @@ html, body {
       margin-bottom: -4px;
     }
     .tagline {
-      font-size: 24px;
+      font-size: 20px;
+      margin-left: 10px;
     }
     .activity {
       display: inline-block;
@@ -86,8 +89,8 @@ html, body {
     margin-top: 160px;
     
     input {
-      margin: 12px auto;
-      padding: 6px 6px;
+      margin: 10px auto;
+      padding: 8px 6px 4px;
       font-size: 14px;
       width: 360px;
 
@@ -96,6 +99,7 @@ html, body {
         
         &:disabled {
           opacity: .6;
+          margin-left: 26px;
         }
       }
       
@@ -107,11 +111,11 @@ html, body {
     .checkmark {
       position: relative;
       top: 4px;
-      left: -37px;
+      left: -36px;
       display: inline-block;
       height: 24px;
       width: 24px;
-      line-height: .25;
+      line-height: .5;
       border: 2px solid #fff;
       font-size: 40px;
       color: #f10064;
