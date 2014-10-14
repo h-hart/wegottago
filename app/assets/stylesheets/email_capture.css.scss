@@ -1,5 +1,17 @@
+header.pre-launch {
+  width: 1200px;
+  margin: 0 auto -70px;
+  padding: 16px 0;
+
+  .logo {
+    width: 200px;
+  }  
+}
+
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
   position: relative;
   font-family: HelveticaNeue;
   line-height: 1.4;
