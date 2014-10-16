@@ -28,6 +28,7 @@ a:hover, a:focus{
 }
 .nav-drop{
   height: 50px;
+
   .dropdown{
     height: 50px;
     &>a{
@@ -184,7 +185,7 @@ html{
 main {
   /*padding-bottom: 30px;*/
   width: 100%;
-  margin-top: 51px; // accommodate the navbar
+  margin-top: -40px; // underlay the navbar
 }
 section {
   @extend .row;
@@ -894,7 +895,6 @@ $max-height: 490px;
 }
 
 .photo-explore-activities{
-  margin-top: 43px;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -1140,6 +1140,11 @@ button#cancel-conversation, button#cancel-new-message{
 
 /* New Changes */
 
+.btn {
+  border-radius: 0;
+  padding: 6px 12px 4px;
+}
+
 .btn-blue {
   color: #ffffff;
   font-weight: bold;
@@ -1187,13 +1192,13 @@ button#cancel-conversation, button#cancel-new-message{
   font-weight: bold;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background: #ed59a3; /* Old browsers */
-  background: -moz-linear-gradient(top,  #ed59a3 0%, #e5589d 50%, #d2498d 51%, #cc4a8a 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ed59a3), color-stop(50%,#e5589d), color-stop(51%,#d2498d), color-stop(100%,#cc4a8a)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #ed59a3 0%,#e5589d 50%,#d2498d 51%,#cc4a8a 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #ed59a3 0%,#e5589d 50%,#d2498d 51%,#cc4a8a 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #ed59a3 0%,#e5589d 50%,#d2498d 51%,#cc4a8a 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #ed59a3 0%,#e5589d 50%,#d2498d 51%,#cc4a8a 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed59a3', endColorstr='#cc4a8a',GradientType=0 ); /* IE6-9 */
+/*  background: -moz-linear-gradient(top,  #ed59a3 0%, #e5589d 50%, #d2498d 51%, #cc4a8a 100%); /* FF3.6+ */
+/*  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ed59a3), color-stop(50%,#e5589d), color-stop(51%,#d2498d), color-stop(100%,#cc4a8a)); /* Chrome,Safari4+ */
+/*  background: -webkit-linear-gradient(top,  #ed59a3 0%,#e5589d 50%,#d2498d 51%,#cc4a8a 100%); /* Chrome10+,Safari5.1+ */
+/*  background: -o-linear-gradient(top,  #ed59a3 0%,#e5589d 50%,#d2498d 51%,#cc4a8a 100%); /* Opera 11.10+ */
+/*  background: -ms-linear-gradient(top,  #ed59a3 0%,#e5589d 50%,#d2498d 51%,#cc4a8a 100%); /* IE10+ */
+/*  background: linear-gradient(to bottom,  #ed59a3 0%,#e5589d 50%,#d2498d 51%,#cc4a8a 100%); /* W3C */
+/*  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed59a3', endColorstr='#cc4a8a',GradientType=0 ); /* IE6-9 */
   border-color: #cd4a8b #cd4a8b #ec61a5;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
@@ -1233,9 +1238,9 @@ button#cancel-conversation, button#cancel-new-message{
 
 .top-nav-header {
   padding: 10px 10px 8px !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.22);
   z-index: 601;
   position: fixed;
+
   a {
     margin: 0 20px;
     font-size: 1.2em;
@@ -1463,7 +1468,15 @@ select {
 }
 
 .friends-navigation.btn-grey:hover {
-    background: #e8e8e8; background: -moz-linear-gradient(top, #e8e8e8 0%, #e7e7e7 50%, #dadada 51%, #e5e5e5 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e8e8e8), color-stop(50%, #e7e7e7), color-stop(51%, #dadada), color-stop(100%, #e5e5e5)); background: -webkit-linear-gradient(top, #e8e8e8 0%, #e7e7e7 50%, #dadada 51%, #e5e5e5 100%); background: -o-linear-gradient(top, #e8e8e8 0%, #e7e7e7 50%, #dadada 51%, #e5e5e5 100%); background: -ms-linear-gradient(top, #e8e8e8 0%, #e7e7e7 50%, #dadada 51%, #e5e5e5 100%); background: linear-gradient(to bottom, #e8e8e8 0%, #e7e7e7 50%, #dadada 51%, #e5e5e5 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e8e8', endColorstr='#e5e5e5',GradientType=0 );  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    background: #e8e8e8;
+    background: -moz-linear-gradient(top, #e8e8e8 0%, #e7e7e7 50%, #dadada 51%, #e5e5e5 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e8e8e8), color-stop(50%, #e7e7e7), color-stop(51%, #dadada), color-stop(100%, #e5e5e5));
+    background: -webkit-linear-gradient(top, #e8e8e8 0%, #e7e7e7 50%, #dadada 51%, #e5e5e5 100%);
+    background: -o-linear-gradient(top, #e8e8e8 0%, #e7e7e7 50%, #dadada 51%, #e5e5e5 100%);
+    background: -ms-linear-gradient(top, #e8e8e8 0%, #e7e7e7 50%, #dadada 51%, #e5e5e5 100%);
+    background: linear-gradient(to bottom, #e8e8e8 0%, #e7e7e7 50%, #dadada 51%, #e5e5e5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e8e8', endColorstr='#e5e5e5',GradientType=0 );
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
 .friends-navigation.btn-grey li, .friends-navigation.btn-grey li a {
     background: none !important;

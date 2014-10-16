@@ -5,7 +5,6 @@
 $border-color: #E7E7E7;
 
 .main-category{
-
   /*background: url(/assets/main-category.png) no-repeat center center;*/
   width:100%;
   margin:0 auto;
@@ -21,7 +20,7 @@ $border-color: #E7E7E7;
   position: relative;
 }
 .whitebackground{
-  background:url(/assets/background.jpg) repeat center center !important;
+/*  background:url(/assets/background.jpg) repeat center center !important; */
   width: 100%;
   min-height:100%;
   min-width:100%;
@@ -123,8 +122,9 @@ $border-color: #E7E7E7;
   display:inline-block;
 }
 .glyphiuser{
-  width:35px;
-  height:35px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #fff;
 }
 .back-top {
   position: fixed;

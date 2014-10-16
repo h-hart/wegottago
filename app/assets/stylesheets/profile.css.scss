@@ -50,11 +50,16 @@ $border-color: #E7E7E7;
     background: green;
   }
 }
-
+.navbar {
+  padding-top: 14px;
+}
+.navbar-default {
+  background: transparent;
+  border: 0;
+}
 .top-nav-header{
-  background-color: white;
-  border-bottom: 2px solid $border-color;
   padding: 10px;
+
   p{
     a{
       padding:0 20px;
