@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :get_unread_messages_and_notification
+  before_filter :get_unread_messages_and_notification, except: 'email_capture'
 
   protect_from_forgery
 
