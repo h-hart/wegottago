@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :redirect_to_root_if_authenticated
+  before_filter :redirect_to_root_if_authenticated, except: 'email_capture'
   layout 'unauthenticated'
 
   def index

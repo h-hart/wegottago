@@ -1,7 +1,8 @@
 GottaGo::Application.routes.draw do
 
   show_prelaunch_splash = true
-  if Rails.env.production? && show_prelaunch_splash
+  force_prelaunch_splash = false
+  if force_prelaunch_splash ||  Rails.env.production? && show_prelaunch_splash
     root :to => 'home#email_capture'
     post 'reservation' => 'reservation#create'
   else
