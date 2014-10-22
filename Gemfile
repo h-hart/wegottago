@@ -42,7 +42,7 @@ gem 'jqBootstrapValidation',      '1.3.6'
 gem 'will_paginate',              '3.0.5'
 
 gem 'heroku'
-gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: [:production, :staging]
 
 group :development do
   gem 'mysql2'
