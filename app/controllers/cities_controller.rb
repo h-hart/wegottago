@@ -2,6 +2,10 @@ class CitiesController < ApplicationController
   layout "application"
 
   def show
+    if ENV['PRELAUNCH_EMAIL_CAPTURE'] == 'show'
+      return redirect_to '/splash'
+    end
+  
     @city = if params[:name]
       City.find_by_name(params[:name])
     else
