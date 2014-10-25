@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 gem 'rails',                      '3.2.17'
 
-
 group :assets do
   gem 'coffee-rails',             '~> 3.2.1'
   gem 'uglifier',                 '>= 1.0.3'
@@ -10,13 +9,13 @@ end
 
 gem "jquery-rails",               "< 3.0.0"
 gem 'jquery-ui-rails',            '4.1.0'
-gem 'bootstrap-sass',             '>= 3.0.0.0'
+gem 'bootstrap-sass'
 gem 'cancan',                     '1.6.10'
-gem 'devise',                     '3.2.2'
+gem 'devise'
 gem 'omniauth-facebook',          '1.5.1'
 gem 'figaro',                     '0.7.0'
-gem 'haml-rails',                 '0.4'
-gem 'pg',                         '0.17.1'
+gem 'haml-rails'
+gem 'pg'
 gem 'rolify',                     '3.2.0'
 gem 'simple_form',                '2.1.1'
 gem 'thin',                       '1.6.1'
@@ -42,7 +41,7 @@ gem 'jqBootstrapValidation',      '1.3.6'
 gem 'will_paginate',              '3.0.5'
 
 gem 'heroku'
-gem 'rails_12factor', group: [:production, :staging]
+gem 'rails_12factor'
 
 group :development do
   gem 'mysql2'
