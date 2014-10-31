@@ -41,8 +41,8 @@ class GottaGo.Views.EditProfile extends Backbone.View
         @showNotifications(@$el)
       when 'about'
         @showAbout(@$el)
-      when 'preferences'
-        @showPreferences(@$el)
+#      when 'preferences'
+#        @showPreferences(@$el)
       else
         @showBasicForm(@$el)
 

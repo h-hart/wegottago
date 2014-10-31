@@ -35,16 +35,16 @@
           %label.btn.btn-pink{for: 'user_avatar',type: "button", style: 'position: absolute; right: 0; bottom: 0; width: 124px;'} Upload Photo
         = link_to 'Delete Photo', remove_avatar_path(tab: 'about'), method: :post, class: "#{ 'hidden' if @user.avatar.default?}", style:'text-align: left;margin-top: 5px;width: 120px;display: inline-block;'
   .clearfix
-  %hr
-  .col-md-12
-    = f.input :relationship_status, collection: [['Single', 'Single'], ['Married', 'Married'], ['In a relationship', 'In a relationship']], label_method: :last, value_method: :first, as: :radio, label: 'Status'
-
-    = f.input :have_kids, collection: [['Have Kids', 'Have Kids'], ['No kids', 'No kids'], ['Expecting', 'Expecting']], label_method: :last, value_method: :first, as: :radio, label: 'Parenting'
-
-    = f.input :orientation, collection: [['Straight', 'Straight'], ['Gay', 'Gay'], ['Bisexual', 'Bisexual']], label_method: :last, value_method: :first, as: :radio
-
     %button.btn.btn-pink.arrowed.pull-right{type: 'submit'} Update
-  .clearfix
+  -#
+    %hr
+    .col-md-12
+      - f.input :relationship_status, collection: [['Single', 'Single'], ['Married', 'Married'], ['In a relationship', 'In a relationship']], label_method: :last, value_method: :first, as: :radio, label: 'Status'
+
+      - f.input :have_kids, collection: [['Have Kids', 'Have Kids'], ['No kids', 'No kids'], ['Expecting', 'Expecting']], label_method: :last, value_method: :first, as: :radio, label: 'Parenting'
+
+      - f.input :orientation, collection: [['Straight', 'Straight'], ['Gay', 'Gay'], ['Bisexual', 'Bisexual']], label_method: :last, value_method: :first, as: :radio
+
   %br
   %p.back-top
     %a{:href => ".top"}

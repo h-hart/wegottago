@@ -26,10 +26,10 @@
     #notifications.form-container.col-md-8.col-md-offset-1.borderize.roundize.white.hidden
       .row
         = render 'notifications'
-
-    #preferences.form-container.col-md-8.col-md-offset-1.borderize.roundize.white.hidden
-      .row
-        = render 'preferences'
+    -#
+      #preferences.form-container.col-md-8.col-md-offset-1.borderize.roundize.white.hidden
+        .row
+          = render 'preferences'
 
     #my-account.form-container.col-md-8.col-md-offset-1.borderize.roundize.white.hidden 
       .row
@@ -56,8 +56,9 @@
               %td.nav-td.about-nav= link_to 'About Me', edit_user_registration_path
             %tr
               %td.nav-td.interests-nav= link_to 'Interests', '#'
-            %tr
-              %td.nav-td.preferences-nav= link_to 'Friend Preferences', '#'
+            -#
+              %tr
+                %td.nav-td.preferences-nav= link_to 'Friend Preferences', '#'
 
       .col-md-12.borderize.roundize.white.paddingles.margin-top.bordered-table
         %table.table.table-hover.table-no-margin.bordered
