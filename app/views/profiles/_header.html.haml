@@ -26,6 +26,6 @@
 
               =link_to new_conversation_path(:receiver_id => user.id),:title=> "Send message", class: 'btn btn-transparent' do
                 %span.glyphicon.glyphicon-envelope
-            - if user_signed_in?
+            - if user_signed_in? && current_user[:id] == user[:id]
               = link_to edit_user_profile_path(tab: "basic"),:title=> "Edit profile", :class => "btn btn-transparent" do
                 %span.glyphicon.glyphicon-cog
