@@ -67,7 +67,7 @@ GottaGo::Application.routes.draw do
   }
   as :user do 
     get "/profile/edit" => "registrations#edit", as: :edit_user_profile
-    get "/users"             => "registrations#edit"
+    get "/users"        => "registrations#edit"
   end
   devise_scope :user do #custom devise controller actions
     post :remove_avatar, 
