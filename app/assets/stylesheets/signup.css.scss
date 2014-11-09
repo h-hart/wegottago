@@ -67,6 +67,9 @@
       margin: 0 4px 0 0;
       position: static;
     }
+    &[type=file] {
+      font-size: 10px;
+    }
   }
 
   .first-name {
