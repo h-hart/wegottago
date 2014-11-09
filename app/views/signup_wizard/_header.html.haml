@@ -2,9 +2,10 @@
   New Friends. Common Interests.
   %br
   Endless Possibilities...
+
 = link_to omniauth_authorize_path(:user, :facebook) do
-  = image_tag 'sign-up-facebook.png', :class => "space"
-%br
-.quote.text-center
-  WeGottaGo will never post to Facebook without your permission
-%br
+  = image_tag 'sign-up-facebook.png', :class => "space facebook-button"
+
+.row
+  .col-sm-8.col-sm-push-2.text-center.facebook-disclaimer
+    WeGottaGo will never post to Facebook without your permission

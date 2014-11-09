@@ -1,8 +1,108 @@
-.page-header {
-  margin: 0 -15px 40px;
-  padding: 12px 0 4px;
-  background: #65cc30;
-  color: #fff;
-  font-size: 28px;
-  line-height: 1.2;
+.signup-step {
+  margin: 80px 0 60px;
+
+  .page-header {
+    margin: 0 -15px 40px;
+    padding: 12px 0 4px;
+    background: #65cc30;
+    color: #fff;
+    font-size: 28px;
+    line-height: 1.2;
+  }
+  
+  a img.facebook-button {
+    width: 240px;
+  }
+  
+  .facebook-disclaimer {
+    margin: 16px 0 -24px;
+  }
+  
+  .or {
+    margin: -18px auto 0;
+    width: 60px;
+    text-align: center;
+    padding-bottom: 10px;
+    background: #fff;
+    position: relative;
+    top: 42px;
+    border-radius: 6px;
+    font-style: italic;
+  }
+  
+  .email-signup-header {
+    margin: 0 -15px;
+    padding: 40px 0 20px;
+    background: #ddd;
+  } 
+  
+  .row {
+    padding: 8px 0;
+    
+    &:first-child {
+      padding: 0;
+    }
+  }
+  
+  label {
+    font-weight: normal;
+    font-size: 13px;
+
+    &.radio {
+      display: inline-block;
+      font-size: 10px;
+      padding-right: 8px;
+    }
+  }
+  
+  input {
+    background: #ddd;
+    border: 0;
+    border-radius: 0;
+    
+    &[type=file] {
+      background: transparent;
+    }
+    &[type=radio] {
+      margin: 0 4px 0 0;
+      position: static;
+    }
+  }
+
+  .first-name {
+    padding-right: 5px !important;
+  }
+  .last-name {
+    padding-left: 5px !important;
+  }
+  
+  .date {
+    select.date {
+      width: 20%;
+      border: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      background: #ddd;
+      float: left;
+
+      &:first-child {
+        width: 30%;
+      }
+
+      &:nth-child(2n) {
+        width: 45%;
+      }
+    }
+    .help-block {
+      clear: both;
+    }
+  }
+  
+  input[type=submit] {
+    margin: 0 0 20px;
+    background: #cd4a8b;
+  }
+  
 }

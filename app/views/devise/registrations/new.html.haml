@@ -1,24 +1,45 @@
-.col-md-6.col-md-push-3.homepage-block.margin-top.backgroundize.roundize3
+.col-md-6.col-md-push-3.homepage-block.margin-top.backgroundize.roundize3.signup-step
   = render 'page_modals'
   = render 'signup_wizard/header'
   .block-footer
-    %p.pull-top or
+    .or or
     .wizard-block
-      %h3.text-center
+      .email-signup-header.text-center
         Sign up using your email address
       = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical', :multipart => true  }) do |f|
-        = f.error_notification
-        = display_base_errors resource
-        = f.input :name, :autofocus => true, placeholder: 'First Name', label: false
-        = f.input :last_name, placeholder: 'Last (We only show the first letter)', label: false
-        = f.input :email, :required => true, placeholder: 'Email', label: false
-        = f.input :password, :required => true, placeholder: 'Password', label: false
-        %section.sign_up-bottom
-          .row
-            .col-md-12.text-center
-              = f.button :submit, 'Join', :class => 'btn-pink', style: 'width: 80px;'
-            .col-md-12
-              By clicking, you confirm that you accept our
-              = link_to 'Terms of Service', '#', data: { target: "#terms_of_service_modal", toggle: "modal"}
-              &
-              = link_to 'Privacy Policy', '#', data: { target: "#privacy_policy_modal", toggle: "modal"}
+        .row
+          .col-sm-12
+            = f.error_notification
+            = display_base_errors resource
+        .row
+          .col-sm-3.first-name
+            = f.input :name, required: true, :autofocus => true, label: 'First Name*'
+          .col-sm-3.last-name
+            = f.input :last_name, required: true, label: 'Last Name'
+          .col-sm-6
+            = f.input :birthdate, required: true, label: 'Birthday*'
+        .row
+          .col-sm-6
+            = f.input :sex, required: true, label: 'Gender*', as: :radio_buttons, collection: [ 'Female', 'Male', 'Rather not say' ]
+          .col-sm-6
+            = f.input :avatar, required: true, label: 'Profile Photo'
+        .row
+          .col-sm-6
+            = f.input :email, required: true, label: 'Email*'
+          .col-sm-6
+            = f.input :password, required: true, label: 'Password*'
+        .row
+          .col-sm-6
+            = f.input :location, required: true, label: 'City*'
+          .col-sm-6
+            = f.input :zipcode, required: true, label: 'Zip Code*'
+        .row.text-center
+          .col-sm-12
+            = f.button :submit, 'Sign Up', :class => 'btn-pink', style: 'width: 80px;'
+          .col-sm-10.col-sm-push-1
+            By signing up, you confirm that you accept our
+            %br
+            = link_to 'Terms of Service', '#', data: { target: "#terms_of_service_modal", toggle: "modal"}
+            &
+            = link_to 'Privacy Policy', '#', data: { target: "#privacy_policy_modal", toggle: "modal"}            
+
