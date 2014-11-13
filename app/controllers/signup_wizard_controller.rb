@@ -2,8 +2,7 @@ class SignupWizardController < ApplicationController
   include Wicked::Wizard
   layout 'unauthenticated'
 
-  steps :age_and_country,
-        :user_info,
+  steps :user_info,
         :choose_interests,
         :confirm_profile
 

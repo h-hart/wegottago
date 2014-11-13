@@ -12,17 +12,16 @@
             = f.error_notification
             = display_base_errors resource
         .row
-          .col-sm-3.first-name
-            = f.input :name, required: true, :autofocus => true, label: 'First Name*'
-          .col-sm-3.last-name
-            = f.input :last_name, required: true, label: 'Last Name'
           .col-sm-6
-            = f.input :birthdate, required: true, label: 'Birthday*'
+            = f.input :name, required: true, :autofocus => true, label: 'First Name*'
+          .col-sm-6
+            = f.input :last_name, required: true, label: 'Last Name'
         .row
           .col-sm-6
             = f.input :sex, required: true, label: 'Gender*', as: :radio_buttons, collection: [ 'Female', 'Male', 'Rather not say' ]
           .col-sm-6
-            = f.input :avatar, required: true, label: 'Profile Photo'
+            = f.input :birthdate, required: true, label: 'Birthday*'
+            /= f.input :avatar, required: true, label: 'Profile Photo'
         .row
           .col-sm-6
             = f.input :email, required: true, label: 'Email*'
