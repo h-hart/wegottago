@@ -1,6 +1,8 @@
 .col-md-6.col-md-push-3.homepage-block.margin-top.backgroundize.roundize3.signup-step
   .page-header.text-center
-    Just a Couple of Things
+    Please add a photo.
+    %br
+    Everyone wants to see your smiling face.
   .block-footer
     .wizard-block
       = simple_form_for(@user, url: wizard_path, wrapper: :horizontal, :method => :put, :html => {class: 'form-horizontal upload_form', multipart: true, encoding: "multipart/form-data", enctype: "multipart/form-data" }) do |f|
@@ -18,3 +20,7 @@
         .row.text-center
           .col-sm-12
             = f.button :submit, 'Next', :class => 'btn-pink', :style=> 'width: 100px;'
+
+-#.file_upload
+  %div.file-label No File Chosen..
+  = f.input :avatar, label: 'Upload Photo', as: :file, input_html: { onchange: "readURL(this);" }

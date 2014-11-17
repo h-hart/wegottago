@@ -3,6 +3,7 @@ class SignupWizardController < ApplicationController
   layout 'unauthenticated'
 
   steps :user_info,
+        :photo,
         :choose_interests,
         :confirm_profile
 
