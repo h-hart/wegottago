@@ -29,7 +29,7 @@
             = f.input :password, required: true, label: 'Password*'
         .row
           .col-sm-6
-            = f.input :location, required: true, label: 'City*'
+            = f.input :location, as: :select, collection: ['Los Angeles'], selected: 'Los Angeles', required: true, label: 'City*'
           .col-sm-6
             = f.input :zipcode, required: true, label: 'Zip Code*'
         .row.text-center
