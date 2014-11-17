@@ -109,6 +109,14 @@
     background: #cd4a8b;
   }
   
+  .blurb-label-row {
+    padding-bottom: 0;
+
+    label {
+      margin-bottom: 0;
+    }
+  }
+  
   .word-count {
     float: right;
     display: inline-block;
