@@ -8,19 +8,27 @@
       = simple_form_for(@user, url: wizard_path, wrapper: :horizontal, :method => :put, :html => {class: 'form-horizontal upload_form', multipart: true, encoding: "multipart/form-data", enctype: "multipart/form-data" }) do |f|
         = f.error_notification
         = display_base_errors @user
-        .row.blurb-label-row
-          .col-sm-12
-            %label Just a quick blurb about yourself...
-            %small.word-count in 200 words
+        .row
+          .col-sm-6.photo-upload-choice
+            .title Upload Photo
+            .subtitle From your computer
+            .file_upload
+              %div.file-label No File Chosen..
+              = f.input :avatar, label: false, as: :file, input_html: { onchange: "readURL(this);" }
+          .col-sm-6.photo-upload-choice
+            .title Import Photo
+            .subtitle From your Facebook Profile
+            %a.facebook-photo-import{ href: 'javascript:void(0);' }
+              = image_tag 'fb-logo.png'
         .row
           .col-sm-12
-            %textarea#user_about.text.optional{ :maxlength => '1000', :name => 'user[about]', :rows => '8' }
             .text-right
-              %small ...psst, you can always revise this later
+              %small
+                Photos are required on WeGottaGo!
+                %br
+                Upload one now. You can always change it later.               
         .row.text-center
           .col-sm-12
             = f.button :submit, 'Next', :class => 'btn-pink', :style=> 'width: 100px;'
 
--#.file_upload
-  %div.file-label No File Chosen..
-  = f.input :avatar, label: 'Upload Photo', as: :file, input_html: { onchange: "readURL(this);" }
+

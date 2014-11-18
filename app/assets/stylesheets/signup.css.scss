@@ -127,5 +127,50 @@
   textarea#user_about {
     width: 100%;
   }
-  
+
+  .photo-upload-choice {
+    margin-bottom: 36px;
+
+    .title {
+      text-align: center;
+      font-size: 24px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 12px;
+    }
+    .file_upload { 
+      margin-top: 48px;
+      
+      .file-label {
+        position: static;
+        margin: 0 auto;
+        text-align: center;
+      }
+      
+      input[type=file] {
+        position: static;
+        margin: -34px 0 0 48px;
+        height: 34px;
+        width: 123px;
+        cursor: pointer;
+      }
+    }
+    
+    .facebook-photo-import {
+      display: block;
+      margin: 54px auto 0;
+      width: 24px;
+    }
+    
+    &:first-child:after {
+      display: block;
+      content: '– or –';
+      position: absolute;
+      right: -18px;
+      top: 105px;
+      font-style: italic;
+    }
+  }
+
 }
