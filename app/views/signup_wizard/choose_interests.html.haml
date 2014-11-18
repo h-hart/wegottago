@@ -1,13 +1,10 @@
-
-.col-md-6.homepage-block
-  .col-md-10.col-md-offset-1.backgroundize.choose-interests.roundize3.border-white
-    .interests-wizard-block.make-dark
-    .block-footer
-      .page-header.remove-margin-top.interests-wizard
-        %h1.text-center.interests-header Go for it!
-        %h1.text-center.interests-header Find things that Interest you!
-        %p.interests-text These will help us connect you with people who share your interests.
-        %p.interests-text Please select at least 6 ...but, the more you add the better!
+.col-md-6.col-md-push-3.homepage-block.margin-top.backgroundize.roundize3.signup-step
+  .page-header.text-center
+    %em Go for it!
+    %br
+    Find things that Interest you!
+  .block-footer
+    .wizard-block
       .col-md-12.categories-list
         .row
           - @activity_categories.each do |category|
@@ -37,8 +34,11 @@
       = simple_form_for(@user, :url => wizard_path, :method => :put, :html => {:class => 'form-vertical', :multipart => true  }) do |f|
         = f.error_notification
         = display_base_errors @user
-        .col-md-12
-          .row
-            .col-md-12
-              = f.hidden_field :interest_list
-              = f.button :submit, 'Next!', :class => 'btn-pink set-interests', :style=> 'width: 100px;', disabled: true
+        .row.text-center
+          .col-sm-12
+            = f.hidden_field :interest_list
+            = f.button :submit, 'Next!', :class => 'btn-pink set-interests', :style=> 'width: 100px;', disabled: true
+
+        These will help us connect you with people who share your interests.
+        Please select at least 6 ...but, the more you add the better!
+
