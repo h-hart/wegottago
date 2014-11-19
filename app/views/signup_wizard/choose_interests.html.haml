@@ -5,40 +5,33 @@
     Find things that Interest you!
   .block-footer
     .wizard-block
-      .col-md-12.categories-list
-        .row
-          - @activity_categories.each do |category|
-            .col-md-4.category
-              .category-image.sign-up
-                = image_tag category.small_image_url, class: ''
-            .interests-list
-              %button.close.close-interests ×
-              - category.interests.each_with_index do |i, index|
-                - if index == category.interests.size-1 && index%3 == 2
-                  .col-md-4.interest-item.new.last-line-and-row
-                    %span.glyphicon.glyphicon-plus
-                    = i.name
-                - elsif index%3 == 2
-                  .col-md-4.interest-item.new.last-in-row
-                    %span.glyphicon.glyphicon-plus
-                    = i.name
-                - elsif ((category.interests.size%3 == 0 || category.interests.size%3 == 2) && (category.interests.size-3..category.interests.size-1).include?(index)) || (index == category.interests.size-1 && category.interests.size%3 == 1)
-                  .col-md-4.interest-item.new.last-line
-                    %span.glyphicon.glyphicon-plus
-                    = i.name
-                - else
-                  .col-md-4.interest-item.new
-                    %span.glyphicon.glyphicon-plus
-                    = i.name
+      .row.categories-list
+        - @activity_categories.each do |category|
+          .col-md-4.category
+            .category-image.sign-up
+              = image_tag category.small_image_url, class: ''
+          .interests-list
+            %button.close.close-interests ×
+            - category.interests.each_with_index do |i, index|
+              .col-md-4.interest-item.new
+                %span.glyphicon.glyphicon-plus
+                = i.name
 
       = simple_form_for(@user, :url => wizard_path, :method => :put, :html => {:class => 'form-vertical', :multipart => true  }) do |f|
         = f.error_notification
         = display_base_errors @user
+        .row
+          .col-sm-12
+            .text-right
+              %small
+                These will help us connect you with people who share your interests.
+                %br
+                Please select at least 6 ...but, the more you add the better!
         .row.text-center
           .col-sm-12
             = f.hidden_field :interest_list
             = f.button :submit, 'Next!', :class => 'btn-pink set-interests', :style=> 'width: 100px;', disabled: true
 
-        These will help us connect you with people who share your interests.
-        Please select at least 6 ...but, the more you add the better!
+        
+        
 
