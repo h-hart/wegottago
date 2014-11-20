@@ -1,14 +1,23 @@
-.col-md-6.homepage-block
-  .col-md-10.col-md-offset-1.backgroundize.roundize3.border-white
-    = render 'signup_wizard/header'
-    .block-footer
-      %p.pull-top or
-      .wizard-block
-        = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
-          = flash[:sign_in_err]
-          = f.input :email, :autofocus => true
-          = f.input :password
-          = f.input :remember_me, inline_label: 'Remember me', label: false, :as => :boolean if devise_mapping.rememberable?
-          = f.button :submit, 'Sign in', :class => 'btn-pink'
-.col-md-6.pull-right.margin-top
-  = image_tag 'homepage_image1.png'
+.col-md-6.col-md-push-3.homepage-block.margin-top.backgroundize.roundize3.signup-step
+  = render 'signup_wizard/header'
+
+  .block-footer
+    .or or
+    .wizard-block
+      .email-signup-header.text-center
+        Sign in to your account
+      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
+        .row
+          .col-sm-12
+            = flash[:sign_in_err]
+        .row
+          .col-sm-6
+            = f.input :email, :autofocus => true
+          .col-sm-6
+            = f.input :password
+        .row
+          .col-sm-6.col-sm-push-6
+            = f.input :remember_me, inline_label: 'Remember me', label: false, :as => :boolean if devise_mapping.rememberable?
+        .row.text-center
+          .col-sm-12
+            = f.button :submit, 'Sign in', :class => 'btn-pink'
