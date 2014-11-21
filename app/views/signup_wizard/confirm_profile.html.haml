@@ -1,18 +1,14 @@
-.col-md-6.homepage-block
-  .col-md-10.col-md-offset-1.backgroundize.roundize3.border-white
-    .block-footer
-      .page-header.remove-margin-top
-        %h1.text-center Yay! You are ready to Go!
-      .quote.text-center
-        A confirmation email has been sent to
-        = link_to @user.email, @user.email, style: 'margin-right: -4px;'
-        \. Click on the confirmation link in the email to activate your account.
-      .wizard-block.label-fix
-        = simple_form_for(@user, url: wizard_path, wrapper: :horizontal, :method => :put, :html => {class: 'form-horizontal', multipart: true  }) do |f|
-          .text-center
-            = link_to @user.email_provider_site, target: '_blank' do
-              %button#finish-user-wizard.btn.btn-pink{type: "button"}= "Go to #{@user.email_provider}"
-
-          .clearfix
-.col-md-6.pull-right.margin-top
-  = image_tag 'homepage_image1.png'
+.col-md-6.col-md-push-3.homepage-block.margin-top.backgroundize.roundize3.signup-step
+  .page-header.text-center
+    Yay! You are ready to Go!
+  .block-footer
+    .quote.text-center
+      A confirmation email has been sent to
+      = @user.email+'.'
+      %br
+      Click on the confirmation link in the email to activate your account.
+    .wizard-block.label-fix
+      = simple_form_for(@user, url: wizard_path, wrapper: :horizontal, :method => :put, :html => {class: 'form-horizontal', multipart: true  }) do |f|
+        .text-center
+          = link_to @user.email_provider_site, target: '_blank' do
+            %button#finish-user-wizard.btn.btn-pink{type: "button"}= "Go to #{@user.email_provider}"

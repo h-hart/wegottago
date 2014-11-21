@@ -48,36 +48,53 @@ $(document).ready(function() {
   });
 });
 
+var addInterestItem = function() {
+  var element = $(this),
+      icon = element.find('.glyphicon'),
+      interestsList = $('#user_interest_list'),
+      newInterest = $(this).text(),
+      interests = interestsList.val().split(',');
+  interests.unshift(newInterest)
+  interestsList.val(interests.join(','));
+  if (interests.length > 4) {
+    $('.btn.btn-pink.set-interests').removeAttr('disabled');
+  }
+  element.removeClass('new').addClass('chosen');
+  icon.removeClass('glyphicon-plus').addClass('glyphicon-ok');
+};
+var removeInterestItem = function() {
+  var new_list = $('#user_interest_list').val().replace($(this).text()+',', '')
+  $('#user_interest_list').val(new_list)
+  $(this).removeClass('chosen').addClass('new')
+  if ($('#user_interest_list').val().split(',').length < 5) {
+    $('.btn.btn-pink.set-interests').attr('disabled', true);
+  }
+  $(this).find('.glyphicon').removeClass('glyphicon-ok').addClass('glyphicon-plus');
+};
+var hideInterestsList = function() {
+  $('.interests-list').hide();
+};
+var showWizardBlock = function() {
+  $('.interests-wizard-block').show();
+};
+
 $(function() {
-  $('.interests-list').on('click', '.interest-item.new', function(){
-    var myArr = [];
-    myArr.push($(this).text());
-    old_val = $('#user_interest_list').val();
-    $('#user_interest_list').val(myArr + ',' + old_val);
-    if ($('#user_interest_list').val().split(',').length > 4) {
-      $('.btn.btn-pink.set-interests').removeAttr('disabled');
-    }
-    $(this).removeClass('new').addClass('chosen');
-    $(this).find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-ok');
-  }).on('click', '.interest-item.chosen', function(){
-    var new_list = $('#user_interest_list').val().replace($(this).text()+',', '')
-    $('#user_interest_list').val(new_list)
-    $(this).removeClass('chosen').addClass('new')
-    if ($('#user_interest_list').val().split(',').length < 5) {
-      $('.btn.btn-pink.set-interests').attr('disabled', true);
-    }
-    $(this).find('.glyphicon').removeClass('glyphicon-ok').addClass('glyphicon-plus');
-  });
+  var interestsList = $('.interests-list');
+  interestsList.on('click', '.interest-item.new', addInterestItem);
+  interestsList.on('click', '.interest-item.chosen', removeInterestItem);
+  interestsList.on('click', '.close-interests', hideInterestsList);
+  interestsList.click(function(e){
+    e.stopPropagation();
+  })
   $('.categories-list').on('click', '.category-image.sign-up', function(e){
     e.stopPropagation();
-    $('.interests-list').hide();
-    $('.interests-wizard-block').show();
-    $(this).parent().next().show().css({top: $(this).offset().top - 185});
-  });
-  $('.interests-list').click(function(e){
-    e.stopPropagation();
-  }).on('click', '.close-interests', function(){
-    $('.interests-list').hide();
+    var item = $(this),
+        offsetTop = item.offset().top,
+        interestsList = item.parent().next();
+    hideInterestsList();
+    interestsList.css('top', offsetTop - 40);
+    interestsList.show();
+    showWizardBlock();
   });
   $(document).click(function(){
     $('.interests-list, .interests-wizard-block.make-dark').hide();
