@@ -1,5 +1,0 @@
-<h1> Hi <%= @friendship_record.friend.fullname %> </h1>
-<br/>
-<p> You have new friend request from <%= @friendship_record.user.fullname %> </p>
-
-<p> Go to <%= link_to 'WeGottaGo', root_url %> to accept it. </p>
