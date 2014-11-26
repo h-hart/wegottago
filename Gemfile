@@ -9,7 +9,6 @@ end
 
 gem "jquery-rails",               "< 3.0.0"
 gem 'jquery-ui-rails',            '4.1.0'
-gem 'bootstrap-sass'
 gem 'cancan',                     '1.6.10'
 gem 'devise'
 gem 'omniauth-facebook',          '1.5.1'
@@ -44,7 +43,6 @@ gem 'heroku'
 gem 'rails_12factor'
 
 group :development do
-  gem 'mysql2'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'html2haml'
