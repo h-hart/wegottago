@@ -3,7 +3,7 @@
     .row
       .col-md-10.col-md-offset-2.bottom-nav-items
         - if user_signed_in?
-          = link_to friends_path(:id => user.id), class: link_class((user.id == current_user.id)? 'friends': 'friends') do
+          = link_to friend_path(user.id), class: link_class((user.id == current_user.id)? 'friends': 'friends') do
             %span.emphasis
               =user.count_of_friends
             Friends

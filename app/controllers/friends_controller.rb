@@ -7,12 +7,16 @@ class FriendsController < ApplicationController
   end
 
   def index
-    @all_friends = @user.get_friends(:is_limit=>false)
-                        .paginate(:page => params[:page])
+    @all_friends = @user.get_friends(
+      is_limit: false
+    ).paginate(
+      page: params[:page]
+    )
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find params[:id]
+    @all_friends = @user.friends
   end
 
   def requests
