@@ -2,6 +2,10 @@
   $ ->
     m = new GottaGo.Models.User({ id: "#{@user.id}" })
     new GottaGo.Views.UserInline({ model: m, scroll: "#{params[:i]}" })
+
+- @is_own_profile = signed_in_and_is_current? @user.id
+- @user_display_name = @is_own_profile ? 'my' : @user.name+'\'s'
+
 .user-info-section
   = render 'header', user: @user
   = render 'header_bottom_nav', user: @user
@@ -13,17 +17,13 @@
 
         .col-md-8.user-friends
           .col-md-6.profile-title
-            - if signed_in_and_is_current? @user.id
-              %span.name My Friends 
-            - else
-              %span.name #{@user.name}'s Friends 
+            %span.name
+              = @user_display_name.capitalize!
+              Friends
             %span.count 
               = @user.count_of_friends
           .col-md-6.all-items
-            - if signed_in_and_is_current? @user.id
-              =link_to "View All of my Friends", friends_path(:id => @user.id) 
-            - else
-              =link_to "View All of #{ @user.name}'s Friends", friends_path(:id => @user.id) 
+            =link_to "View All of "+@user_display_name+" Friends", friends_path(:id => @user.id) 
           .row
             .col-md-12.short-friend-list
               .col-md-12
@@ -35,7 +35,7 @@
                         .darken-bg
                         .friend-name= friend.name
                 - else
-                  - if signed_in_and_is_current? @user.id
+                  - if @is_own_profile
                     %h2.grey-msg You have no friends
                   - else
                     %h2.grey-msg #{ @user.name} has no friends

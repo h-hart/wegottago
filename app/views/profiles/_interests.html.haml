@@ -1,8 +1,7 @@
 .col-md-6.profile-title
-  - if signed_in_and_is_current? @user.id
-    %span.name My Interests 
-  - else
-    %span.name #{@user.name}'s Interests 
+  %span.name
+    =@user_display_name
+    Interests 
   %span.count 
     = @user.interests.count 
 
@@ -13,7 +12,7 @@
         %span.cval= interest.name
   -else
     .row
-    - if @user.id == current_user.id
+    - if @is_own_profile
       %h2.grey-msg You have no Interests
     - else
       %h2.grey-msg #{ @user.name} have no Interests
