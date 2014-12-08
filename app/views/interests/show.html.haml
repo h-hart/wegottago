@@ -1,5 +1,5 @@
-%section
-  = render 'shared/top-nav'
+= render 'profiles/header', user: @user
+= render 'profiles/header_bottom_nav', user: @user, scroll_interests: true
 %section.categories
   .container
     - @activity_categories.each do |category|
@@ -11,3 +11,6 @@
             - get_duplicates(category.interests, @user.interests ).each do |i|
               %span.interest
                 %span.cval= i.name
+      .row
+        .col-md-12.text-center
+          =will_paginate @activity_categories

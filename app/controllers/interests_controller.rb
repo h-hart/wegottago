@@ -3,6 +3,10 @@ class InterestsController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @activity_categories = ActivityCategory.tagged_with(@user.interests, :any => true)
+    @activity_categories = ActivityCategory.tagged_with(@user.interests,
+      any: true
+    ).paginate(
+      page: params[:page]
+    )
   end
 end
