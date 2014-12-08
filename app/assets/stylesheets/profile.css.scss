@@ -121,12 +121,18 @@ $border-color: #E7E7E7;
 }
 .bottom-nav{
   margin-top: 0px;
+
+  .container a{
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .edit-profile-button {
+    float: right;
+    margin: 10px 0 0;
+  }
 } 
-.bottom-nav .container a{
-  color: #000;
-  text-decoration: none;
-  font-size: 18px;
-}
 .user-friends{
   margin-top: 20px;
 }
