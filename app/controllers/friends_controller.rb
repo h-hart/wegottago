@@ -16,7 +16,9 @@ class FriendsController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    @all_friends = @user.friends
+    @all_friends = @user.friends.paginate(
+      page: params[:page]
+    )
   end
 
   def requests
