@@ -1,0 +1,8 @@
+= form_for 'activities/results', method: "get" do |f|
+	.form-inline
+		= f.text_field :text, class: "form-group form-control", placeholder: "What do you want to do?"
+		= f.text_field :city, class: "form-group form-control", placeholder: "Near..."
+		= f.select :date, options_for_select(["When?", ["today",Date.today],["tomorrow",Date.tomorrow],["day after",2.days.from_now]]), {}, {class: "form-group form-control", placeholder: "When?"}
+		= f.submit 'Search!', class: 'form-control submit pink'
+
+/ [["today", Date.today], ["tomorrow", Date.tomorrow]]

@@ -51,6 +51,7 @@ GEM
       jquery-rails
       rails (>= 3.1)
     bcrypt (3.1.9)
+    bcrypt (3.1.9-x86-mingw32)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -106,6 +107,7 @@ GEM
       mail (~> 2.2)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    eventmachine (1.0.3-x86-mingw32)
     excon (0.25.0)
     execjs (2.2.2)
     factory_girl (4.5.0)
@@ -214,6 +216,8 @@ GEM
     nifty-generators (0.4.6)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
+    nokogiri (1.6.3.1-x86-mingw32)
+      mini_portile (= 0.6.0)
     oauth2 (0.9.4)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -232,6 +236,7 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.17.1)
+    pg (0.17.1-x86-mingw32)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.5)
@@ -347,6 +352,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   activeadmin (= 0.6.1)
