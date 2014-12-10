@@ -10,10 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require facebook
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.draggable
 //= require bootstrap
+//= require library
 //= require ckeditor/init
 //= require active_admin
 //= require plugins/jcrop/jquery.Jcrop
