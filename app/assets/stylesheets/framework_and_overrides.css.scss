@@ -1224,16 +1224,32 @@ button#cancel-conversation, button#cancel-new-message{
     font-size: 1.6em;
 }
 
-.navbar-nav > li > a {
-  padding: 0 15px !important;
-  line-height: 50px;
-  color: #428bca !important;
-}
 
 .navbar-default .navbar-nav > li > a span {
   color: #ccc;
   font-size: 25px;
   top: 8px;
+}
+
+.navbar-nav > li > a {
+  padding: 0 15px !important;
+  line-height: 50px;
+  font-size: 1.2em;
+  color: #428bca !important;
+}
+
+.sign-in-nav {
+  display:inline-block;
+  .green-link {
+    color: #98c954 !important;
+  }
+  .btn-pink {
+    color:white !important;
+    line-height:30px;
+    padding: 5px;
+    background-color: #f10064;
+    border: none;
+  }
 }
 
 .top-nav-header {
@@ -2266,6 +2282,7 @@ h1.Lily_font {
     top: 45%;
   }
 }
+
 #carousel.carousel.slide{
   .carousel-inner{
     .item{
