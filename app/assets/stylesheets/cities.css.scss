@@ -3,19 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #carousel.carousel.slide{
-  .carousel-inner{
-  	height:auto;
-    .item{
+  .carousel-inner {
+  	height: auto;
+    
+    .item {
       height: 650px;
-      img{ height: auto; width: 100%; }
-      .carousel-caption{ font-size: 150%; }
-      .carousel-caption.top{
-        top: 15%;
-        h1{
-          font-size: 4em;
-        }
-        p{
-        	font-size: 1.3em;
+      
+      img {
+        height: auto;
+        width: 100%;
+      }
+      .carousel-caption {
+        font-size: 150%;
+
+        &.top {
+          top: 180px;
+
+          h1 {
+            font-size: 2.7em;
+            text-transform: uppercase;
+          }
+          p {
+          	font-size: 1.3em;
+          }
         }
       }
     }

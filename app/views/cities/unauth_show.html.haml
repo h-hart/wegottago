@@ -46,20 +46,19 @@
 
   / Slider
   #carousel.carousel.slide{ data: { ride: "carousel"}}
-    / Wrapper for slides
     .carousel-inner
       - HomePageSliderPhotos.all.each_with_index do |hpsp, index|
         - klas = 'active' if index == 0
         .item{ class: klas }
 
           .carousel-caption.top
-            %h1 Discover Unique Activities
-            %p and meet someone new to go along!
-          / when uploader is working, replace below with
-          / = image_tag hpsp.image_url
-          = image_tag 'landing-page/1.jpg'
-          / commenting out to make room for search bar
-          / .carousel-caption= hpsp.caption
+            %h1 Live Life Spontaneously
+            %p
+              And meet new people while you're on the 
+              %em go
+              !
+          - img = index + 1
+          = image_tag 'landing-page/'+img.to_s+'.jpg'
 
 
     / Controls
