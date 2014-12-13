@@ -4,5 +4,5 @@
     - if user_signed_in?
       = link_to 'Discover Friends', explore_friends_path(:id => current_user.id)
     - else
-      = link_to 'Sign In', sign_in_path
+      = link_to 'Sign In', new_user_session_path
       %h2 Test Display
