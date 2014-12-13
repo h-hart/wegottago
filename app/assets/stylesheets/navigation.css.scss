@@ -1,0 +1,24 @@
+nav.navbar {
+  padding: 0;
+
+  &.authenticated {
+  
+  }
+  &.unauthenticated {
+  
+  }
+  &.internal {
+    background: #f9f9f9;
+  }
+  &.external {
+    
+  }
+  
+  .nav.navbar-nav li a {
+    padding: 7px 10px 4px;
+    
+    &.avatar {
+      padding-right: 14px;
+    }
+  }
+}

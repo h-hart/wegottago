@@ -80,7 +80,7 @@
               %li= link_to 'View all', conversations_path, class: 'pull-right'
 
   %li.dropdown
-    %a{"data-toggle" => "dropdown", href: "#"}
+    %a.avatar{"data-toggle" => "dropdown", href: "#"}
       %span.glyphicon
       = image_tag current_user.avatar_url(:thumb), class: 'img-circle glyphiuser'
     %ul.dropdown-menu.custom-navs{"aria-labelledby" => "dLabel", role: "menu"}

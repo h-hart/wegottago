@@ -1,7 +1,8 @@
 module NavigationHelper
 
   def internal_page? (url)
-    ['', '/'].include? url
+    external = ['', '/'].include? url
+    !external
   end
 
 end
