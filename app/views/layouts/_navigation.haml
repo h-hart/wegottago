@@ -1,0 +1,10 @@
+- if current_user
+  - if internal_page? request.fullpath
+    = render 'layouts/navigation/authenticated_internal'
+  - else
+    = render 'layouts/navigation/authenticated_external'
+- else
+  - if internal_page? request.fullpath
+    = render 'layouts/navigation/unauthenticated_internal'
+  - else
+    = render 'layouts/navigation/unauthenticated_external'
