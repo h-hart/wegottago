@@ -1,7 +1,7 @@
 module NavigationHelper
 
   def internal_page? (url)
-    
+    url = url.sub /\?.*/, ''
     external = [
       '/users/sign_in',
       '/users/sign_up',
