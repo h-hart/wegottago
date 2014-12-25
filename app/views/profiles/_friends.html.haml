@@ -1,0 +1,23 @@
+%h2.sidebar-title
+  .row
+    .col-sm-6
+      = @user_display_name
+      Friends
+      %span.count 
+        = @user.count_of_friends
+    %small.col-sm-6.text-right
+      = link_to "View All of "+@user_display_name+" Friends", friend_path(@user.id) 
+.row
+  .col-sm-12
+    - if @user.count_of_friends > 0
+      - @user.get_friends(6).each do |friend|
+        %a.item-friend.col-xs-6.col-sm-3.col-md-2{href: profile_path(friend)}
+          .friend-info
+            = image_tag friend.avatar_url(:thumb), class: ''
+            .darken-bg
+            .friend-name= friend.name
+    - else
+      - if @is_own_profile
+        %h2.grey-msg You have no friends
+      - else
+        %h2.grey-msg #{@user.name} has no friends

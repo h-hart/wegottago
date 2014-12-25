@@ -1325,26 +1325,6 @@ font-weight: bold;
   font-weight: bold;
 }
 
-.item-friend {
-  width: 18%;
-  display: inline-block;
-  margin-right: 2.5%;
-  outline: 2px solid #fff;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-.item-friend:last-child {
-  margin-right: 0;
-}
-
-.item-friend:hover {
-  outline: 2px solid #fff;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-}
-
 .action-buttons a:hover {
   text-decoration: none;
 }

@@ -6,39 +6,19 @@
 - @is_own_profile = signed_in_and_is_current? @user.id
 - @user_display_name = @is_own_profile ? 'my' : @user.name+'\'s'
 
-.user-info-section
+.user-info-section.profile-index
   = render 'header', user: @user
   = render 'header_bottom_nav', user: @user
   %section
     .container.borderize.roundize.whitebg
       .row
-        .col-md-4
-          = render 'right_sidebar'
-
-        .col-md-8.user-friends
-          .col-md-6.profile-title
-            %span.name
-              = @user_display_name.capitalize!
-              Friends
-            %span.count 
-              = @user.count_of_friends
-          .col-md-6.all-items
-            =link_to "View All of "+@user_display_name+" Friends", friend_path(@user.id) 
-          .row
-            .col-md-12.short-friend-list
-              .col-md-12
-                - if @user.count_of_friends > 0
-                  - @user.get_friends(:is_limit=>true).each do |friend|
-                    =link_to profile_path(friend), class: 'item-friend' do
-                      .friend-info
-                        = image_tag friend.avatar_url(:thumb), class: ''
-                        .darken-bg
-                        .friend-name= friend.name
-                - else
-                  - if @is_own_profile
-                    %h2.grey-msg You have no friends
-                  - else
-                    %h2.grey-msg #{ @user.name} has no friends
+        .col-sm-4
+          = render 'blurb'
+        .col-sm-8
+          = render 'interests'
+      .row
+        .col-sm-12
+          = render 'friends'
 
           = render 'activities/short_list'
 

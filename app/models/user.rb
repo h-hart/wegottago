@@ -187,16 +187,11 @@ class User < ActiveRecord::Base
     self.friendships + self.inverse_friendships
   end
 
-  def get_friends(params)
-    if params[:is_limit] == true
-      friends = User.joins("LEFT JOIN friendships ON (friendships.user_id = users.id OR friendships.friend_id = users.id)")
-      .where("users.id != ? ", id)
-      .where("(friendships.user_id = ? or friendships.friend_id = ?) and friendships.approved = ?", id, id, true).limit(5)
-    else
-      friends = User.joins("LEFT JOIN friendships ON (friendships.user_id = users.id OR friendships.friend_id = users.id)")
-      .where("users.id != ? ", id)
-      .where("(friendships.user_id = ? or friendships.friend_id = ?) and friendships.approved = ?", id, id, true)
-    end
+  def get_friends(limit = 0)
+    friends = User.joins("LEFT JOIN friendships ON (friendships.user_id = users.id OR friendships.friend_id = users.id)")
+                  .where("users.id != ? ", id)
+                  .where("(friendships.user_id = ? or friendships.friend_id = ?) and friendships.approved = ?", id, id, true)
+    friends = friends.limit(limit) if limit > 0
     friends
   end
 

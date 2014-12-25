@@ -8,6 +8,40 @@
 $greybg-color: #F8F8F8;
 $border-color: #E7E7E7;
 
+.profile-index,
+.profile-friends,
+.profile-interests,
+.profile-activities,
+.profile-favorites {
+  
+}
+
+.profile-index {
+
+}
+.profile-friends {
+  .item-friend {
+    outline: 2px solid #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    &:hover {
+      outline: 2px solid #fff;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+.profile-interests {
+
+}
+.profile-activities {
+
+}
+.profile-favorites {
+
+}
 
 /* Apply these styles only when #preview-pane has
    been placed within the Jcrop widget */
