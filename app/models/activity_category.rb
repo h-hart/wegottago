@@ -9,4 +9,8 @@ class ActivityCategory < ActiveRecord::Base
   has_and_belongs_to_many :activities
 
   validates :name, presence: true
+  
+  def interested_users
+    users = User.tagged_with(interest_list, any: true)
+  end
 end

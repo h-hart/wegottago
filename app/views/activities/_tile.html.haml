@@ -1,0 +1,9 @@
+=link_to activity_category_activities_explore_path(activity_category_id: category.id) do
+  .col-md-4.category
+    .category-image
+      = image_tag category.small_image_url
+    .col-md-9.category-info
+      .category-followers
+        - category.interested_users.limit(6).each do |user|
+          .posted_by
+            = image_tag user.avatar.thumb.url, class: "posted_by_pic"
