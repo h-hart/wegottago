@@ -36,7 +36,7 @@ $border-color: #E7E7E7;
   background-color: #fff;
   border: 1px solid $border-color;
   border-radius: 2px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  /*box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);*/
 }
 .rotate{
   position: absolute;
@@ -78,15 +78,10 @@ $border-color: #E7E7E7;
 
 }
 .category-info{
-  border: 1px solid #c1c1c1;
-  border-top: none;
   width: 309px;
   margin: 0 0.5%;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
   padding: 20px;
   z-index: 0;
-  background-color: white;
 }
 .category-name{
   color: #428bca;
@@ -94,9 +89,21 @@ $border-color: #E7E7E7;
   font-weight: bold;
 }
 .category-followers{
+  margin:0 auto;
   color: #777777;
   font-size: 12px;
   padding-top: 5px;
+  text-align:center;
+}
+.posted_by{
+  display:inline-block;
+}
+.posted_by_pic{
+  width:42px;
+  padding:2px;
+  background:white;
+  border:1px solid grey;
+  border-radius:21px;
 }
 .italic {
   font-style:italic

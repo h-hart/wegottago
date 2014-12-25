@@ -12,20 +12,24 @@
           =link_to activity_category_activities_explore_path(activity_category_id: category.id) do
             .col-md-4.category
               .category-image
-                %span.rotate.span1
-                %span.rotate.span2
+                
                 = image_tag category.small_image_url, class: ''
               .col-md-9.category-info
                 / .category-name= category.name
                 .category-followers
                   / = User.tagged_with( category.interest_list, :any => true).uniq.count
-
-                  %span.italic
-                    = category.tag_line
-                  %br
-                  - category.interests.limit(4).each do |interest|
-                    .category-tag
-                      = interest.name
+                  .posted_by
+                    = image_tag "profilepics/128.jpg", class: "posted_by_pic"
+                  .posted_by
+                    = image_tag "profilepics/129.jpg", class: "posted_by_pic"
+                  .posted_by
+                    = image_tag "profilepics/130.jpg", class: "posted_by_pic"
+                  .posted_by
+                    = image_tag "profilepics/131.jpg", class: "posted_by_pic"
+                  .posted_by
+                    = image_tag "profilepics/132.jpg", class: "posted_by_pic"
+                  .posted_by
+                    = image_tag "profilepics/133.jpg", class: "posted_by_pic"
       %p.back-top
         %a{:href => ".top"}
           %span>
