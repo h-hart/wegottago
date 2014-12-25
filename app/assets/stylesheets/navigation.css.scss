@@ -1,18 +1,31 @@
-nav.navbar {
-  padding: 0;
-
+.nav-holder {
   &.authenticated {
-  
+    height: 104px;
+
+    .navbar {
+    }
   }
   &.unauthenticated {
-  
+    height: 10px;
+
+    .navbar {
+    }
   }
   &.internal {
-    background: #f9f9f9;
+
+    .navbar {
+      background: #f9f9f9;
+    }
   }
   &.external {
-    
+
+    .navbar {
+    }
   }
+}
+
+nav.navbar {
+  padding: 0;
   
   .nav.navbar-nav li a {
     padding: 7px 10px 4px;

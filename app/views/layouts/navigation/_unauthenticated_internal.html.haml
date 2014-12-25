@@ -1,25 +1,26 @@
-%nav.navbar.navbar-default.navbar-fixed-top.unauthenticated.internal
-  .container-wide
-    .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to image_tag("/assets/logo.png", :style => "height: 30px;"), root_path, class: 'navbar-brand' 
-    .collapse.navbar-collapse
-      -#
-        %ul.nav.navbar-nav.nav-drop
-          %li.dropdown
-            %a.city-ul{"data-toggle" => "dropdown", href: "#"}
-              - if defined?(@city)
-                = @city.get_city_name
-              - else
-                Los Angeles
-              ▼
-            %ul.dropdown-menu.in-nav{"aria-labelledby" => "dLabel", role: "menu"}
-              - City.all.each do |city|
-                %li
-                  = link_to city.get_city_name, city
-      %ul.nav.navbar-nav.pull-right
-        = render 'layouts/navigation/links'
+.nav-holder.unauthenticated.internal
+  %nav.navbar.navbar-default.navbar-fixed-top
+    .container-wide
+      .navbar-header
+        %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to image_tag("/assets/logo.png", :style => "height: 30px;"), root_path, class: 'navbar-brand' 
+      .collapse.navbar-collapse
+        -#
+          %ul.nav.navbar-nav.nav-drop
+            %li.dropdown
+              %a.city-ul{"data-toggle" => "dropdown", href: "#"}
+                - if defined?(@city)
+                  = @city.get_city_name
+                - else
+                  Los Angeles
+                ▼
+              %ul.dropdown-menu.in-nav{"aria-labelledby" => "dLabel", role: "menu"}
+                - City.all.each do |city|
+                  %li
+                    = link_to city.get_city_name, city
+        %ul.nav.navbar-nav.pull-right
+          = render 'layouts/navigation/links'
