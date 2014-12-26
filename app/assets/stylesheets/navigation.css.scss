@@ -1,4 +1,8 @@
 .nav-holder {
+  .navbar {
+    box-shadow: 0 -5px 20px #000;
+  }
+
   &.authenticated {
     height: 104px;
 
