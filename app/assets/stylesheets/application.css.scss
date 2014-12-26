@@ -9,20 +9,22 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require fonts
- *= require framework_and_overrides
  *= require plugins/jcrop/jquery.Jcrop
- *= require profile
- *= require home
- *= require signup
- *= require navigation
- *= require bootstrap-datepicker
- *= require friends
- *= require select2
- *= require activity_categories
- *= require email_capture
- *= require cities
  */
+
+@import 'fonts';
+@import 'framework_and_overrides';
+@import 'bootstrap-datepicker';
+@import 'select2';
+
+@import 'navigation';
+@import 'home';
+@import 'profile';
+@import 'friends';
+@import 'activity_categories';
+@import 'cities';
+@import 'email_capture';
+@import 'signup';
 
 .col-md-10.col-md-offset-1.backgroundize.choose-interests {
   width: 150%;

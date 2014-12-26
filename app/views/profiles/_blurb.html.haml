@@ -7,5 +7,5 @@
       - if @is_own_profile
         %a.edit.text-right{href: "#"}
           Edit
-#user-blur
-  %p= @user.about
+.user-blurb.profile-box
+  = @user.about

@@ -6,14 +6,14 @@
     %small.col-sm-6.text-right
       = link_to "View All", interest_path(@user.id) 
 
-- if @user.interests.uniq.size > 0
-  - @user.interests.uniq.each do |interest|
-    %span.interest
-      %span.cval= interest.name
--else
-  .row
-    %h2.grey-msg
-      - if @is_own_profile
-        You have no Interests
-      - else
-        #{@user.name} has no Interests
+.profile-box
+  - if @user.interests.uniq.size > 0
+    - @user.interests.uniq.each do |interest|
+      %span.interest.cval= interest.name
+  - else
+    .row
+      %h2.grey-msg
+        - if @is_own_profile
+          You have no Interests
+        - else
+          #{@user.name} has no Interests

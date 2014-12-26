@@ -340,3 +340,13 @@ span.interest.current{
   width: 26%;
 }
 
+
+.profile-box {
+  padding: 10px 14px;
+  @extend .borderize !optional;
+  @extend .whitebg !optional;
+}
+.user-blurb {
+  color: #868686;
+}
+
