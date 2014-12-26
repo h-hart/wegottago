@@ -301,6 +301,31 @@ span.interest.current{
   background-color: #428bca;
   opacity: 0.8;
 }
+.user-info-section {
+  .profile-overlay-info {
+    height: 36px;
+    margin-top: -36px;
+    color: #fff;
+    font-size: 13px;
+
+    .profile-photo {
+      img {
+        width: 100%;
+        height: auto;
+        margin-top: -100%;
+        position: relative;
+        top: 104px;
+      }
+    }
+    .profile-name-location,
+    .profile-member-since {
+    }
+  }
+  .bottom-nav {
+    background: #fff;
+    border-bottom: 2px solid #e7e7e7;
+  }
+}
 .activity {
   .date-time-info{
     padding: 10px;

@@ -913,10 +913,6 @@ $max-height: 490px;
   }
 }
 
-.col-md-12.photo-body {
-  margin-top: 44px;
-}
-
 .message-user-status{
   position:relative;
   top:38px;
@@ -1251,10 +1247,6 @@ button#cancel-conversation, button#cancel-new-message{
   }
 }
 
-.bottom-nav-items {
-  border-bottom: 2px solid #e7e7e7;
-}
-
 .bottom-nav-items > a {
   padding: 13px 18px 12px;
   display: inline-block;
@@ -1286,10 +1278,6 @@ font-weight: bold;
 
 .whitebg.fix {
   padding-bottom: 0;
-}
-
-.photo-body .container .row .col-md-2, .photo-body .container .row .col-md-10 {
-  height: 320px;
 }
 
 .user-info-section h2 {

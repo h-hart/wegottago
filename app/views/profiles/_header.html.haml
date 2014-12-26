@@ -1,17 +1,15 @@
 %section
-  .col-md-12.photo-body
-    .darken-bg
-    .container
-      .row
-        .col-md-2
-          %a{ href: profile_url(@user) }
-            = image_tag user.avatar_url(:thumb), class: 'img-circle'
-        .col-md-10
-          .user-name
-            %h3
-              ="#{ user.fullname}"
-              - unless user.show_age? 
-                %span.user-age=", #{ user.age}"
-          .member-info
-            %h4 Member Since
-            %h4= l user.created_at, :format => :month_year
+  %img.category-banner{ src: asset_path('profile-header.jpg') }
+  .container
+    .row.profile-overlay-info
+      .col-sm-2.profile-photo
+        %a{ href: profile_url(@user) }
+          = image_tag user.avatar_url(:thumb), class: 'img-circle'
+      .col-sm-5.profile-name-location
+        ="#{ user.fullname}"
+        - unless user.show_age? 
+          %span.user-age=", #{ user.age}"
+      .col-sm-5.profile-member-since.text-right
+        Member Since
+        %br
+        = l user.created_at, :format => :month_year
