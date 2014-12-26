@@ -3,8 +3,9 @@
     .col-sm-6
       = @user_display_name
       Friends
-      %span.count 
-        = @user.count_of_friends
+      -#
+        %span.count 
+          = @user.count_of_friends
     %small.col-sm-6.text-right
       = link_to "View All of "+@user_display_name+" Friends", friend_path(@user.id) 
 .row

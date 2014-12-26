@@ -1,15 +1,17 @@
-.col-md-6.profile-title
-  - if signed_in_and_is_current? @user.id
-    %span.name My Activities 
-  - else
-    %span.name #{@user.name}'s Activities 
-  %span.count
-    = activitiesNum
-.col-md-6.all-items
-  - if signed_in_and_is_current? @user.id
-    =link_to "View All of my Activities", activities_path
-  - else
-    =link_to "View All of #{ @user.name}'s Activities", user_activities_path(@user.id)
+%h2.sidebar-title
+  .row
+    .col-sm-6
+      = @user_display_name
+      Activities 
+      -#
+        %span.count
+          = activitiesNum
+    %small.col-sm-6.text-right
+      - if @is_own_profile
+        =link_to "View All", activities_path
+      - else
+        =link_to "View All", user_activities_path(@user.id)
+
 .row
   .col-md-12.user-activities
     - activities = lastFourActivities
