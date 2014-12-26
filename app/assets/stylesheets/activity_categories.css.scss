@@ -28,6 +28,7 @@ $border-color: #E7E7E7;
 }
 .category{
   margin-top: 30px;
+  min-height: 332px;
 }
 .category-image{
   position: relative;
@@ -37,6 +38,9 @@ $border-color: #E7E7E7;
   border: 1px solid $border-color;
   border-radius: 2px;
   /*box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);*/
+}
+.category-banner {
+  width: 100%;
 }
 .rotate{
   position: absolute;

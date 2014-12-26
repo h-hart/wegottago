@@ -1,8 +1,6 @@
 %section.search
   .col-md-12.photo-explore-activities
-    = image_tag @activity_category.wide_image_url, :class => "size"
-  / .activities-search-form.explore-search
-  /   = render 'search'
+    %img.category-banner{src: @activity_category.wide_image_url}
 %section.search
   .container
     .row.text-center
