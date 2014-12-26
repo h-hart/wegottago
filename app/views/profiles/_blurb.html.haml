@@ -3,7 +3,7 @@
     .col-sm-6
       = @user_display_name
       Blurb
-    .col-sm-6.text-right
+    %small.col-sm-6.text-right
       - if @is_own_profile
         %a.edit.text-right{href: "#"}
           Edit
