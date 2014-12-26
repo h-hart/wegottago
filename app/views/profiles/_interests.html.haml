@@ -1,9 +1,10 @@
 %h2.sidebar-title
-  .col-sm-6
-    = @user_display_name
-    Interests
-  %small.col-sm-6.text-right
-    = link_to "View All of "+@user_display_name+" Interests", interest_path(@user.id) 
+  .row
+    .col-sm-6
+      = @user_display_name
+      Interests
+    %small.col-sm-6.text-right
+      = link_to "View All", interest_path(@user.id) 
 
 - if @user.interests.uniq.size > 0
   - @user.interests.uniq.each do |interest|
@@ -11,7 +12,8 @@
       %span.cval= interest.name
 -else
   .row
-    - if @is_own_profile
-      %h2.grey-msg You have no Interests
-    - else
-      %h2.grey-msg #{@user.name} has no Interests
+    %h2.grey-msg
+      - if @is_own_profile
+        You have no Interests
+      - else
+        #{@user.name} has no Interests

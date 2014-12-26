@@ -7,7 +7,7 @@
         %span.count 
           = @user.count_of_friends
     %small.col-sm-6.text-right
-      = link_to "View All of "+@user_display_name+" Friends", friend_path(@user.id) 
+      = link_to "View All", friend_path(@user.id) 
 .row
   .col-sm-12
     - if @user.count_of_friends > 0
