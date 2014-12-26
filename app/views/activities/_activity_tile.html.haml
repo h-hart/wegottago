@@ -1,0 +1,24 @@
+%a{ href: activity_path(activity) }
+  .col-md-4.activity
+    .activity-main-info
+      %img.activity-img{ src: activity.theme.image_url(:list_small) }
+      -#
+        - if activity.user_id == current_user.id
+          .activity-button.host host
+        - else 
+          - if activity.if_user_joined current_user.id
+            .activity-button going
+          - else 
+            -if activity.if_all_spots_occupied
+              .activity-button full
+            - else
+              .activity-button 
+                =activity.free_spot_num
+                spots
+    .date-time-info
+      %img.activity-host-img{ src: activity.user.avatar }
+      .activity-name.text-right= activity.title
+      = activity.end_datetime.strftime("%A, %b %eth")
+      @
+      = activity.end_datetime.strftime("%k:00 %p")
+      / add location here

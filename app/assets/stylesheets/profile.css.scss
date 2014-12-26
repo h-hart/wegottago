@@ -274,11 +274,6 @@ span.interest.current{
   height: 20px;
 }
 
-.user-activities .activity{
-  width: 45%;
-  margin: 10px 15px;
-  padding: 0;
-}
 .activity .activity-main-info{
   position: relative;
 }
@@ -306,24 +301,24 @@ span.interest.current{
   background-color: #428bca;
   opacity: 0.8;
 }
-.activity-main-info .activity-name{
-  position: absolute;
-  bottom: 0;
-  padding: 5px 10px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-}
-.activity .date-time-info{
-  border: 1px solid #b2b2b2;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  padding: 10px;
-  position: relative;
-}
-.activity .date-time-info .time-info{
-  float: right;
-  font-weight: bold;
+.activity {
+  .date-time-info{
+    padding: 10px;
+    position: relative;
+
+    .activity-name {
+      color: #000;
+      line-height: 2;
+    }
+
+    .activity-host-img {
+      width: 70px;
+      @extend .borderize;
+      border-radius: 70px;
+      position: absolute;
+      top: -35px;
+    }
+  }
 }
 .age-select{
   width: 100px!important;
