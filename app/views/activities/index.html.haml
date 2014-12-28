@@ -1,24 +1,25 @@
-= render 'profiles/header', user: @user
-= render 'profiles/header_bottom_nav', user: @user, scroll_interests: true
-%section.all-activities
-  .container
-    .row.text-center
-      %h3.decored All Activities!!!
-    - if @grouped_activities.count > 0
-      .col-md-10.col-md-offset-1.activities-list.user-activities.borderize.whitebg.roundize
-        .row
-          - @grouped_activities.each do |activity_group_title, activities|
-            %h2= activity_group_title
-            - activities.each do |activity|
-              =render 'full_list', activity: activity
-    - else
-      - if @user.id == current_user.id
-        .row.text-center
-          %h2.grey-msg You have no activities
+.user-info-section.profile-activities
+  = render 'profiles/header', user: @user
+  = render 'profiles/header_bottom_nav', user: @user, scroll_interests: true
+  %section.all-activities
+    .container
+      .row.text-center
+        %h3.decored All Activities!!!
+      - if @grouped_activities.count > 0
+        .col-md-10.col-md-offset-1.activities-list.user-activities.borderize.whitebg.roundize
+          .row
+            - @grouped_activities.each do |activity_group_title, activities|
+              %h2= activity_group_title
+              - activities.each do |activity|
+                =render 'full_list', activity: activity
       - else
-        .row.text-center
-          %h2.grey-msg #{ @user.name} have no activities
-  %p.back-top
-    %a{:href => ".top"}
-      %span>
-      Back to Top
+        - if @user.id == current_user.id
+          .row.text-center
+            %h2.grey-msg You have no activities
+        - else
+          .row.text-center
+            %h2.grey-msg #{ @user.name} have no activities
+    %p.back-top
+      %a{:href => ".top"}
+        %span>
+        Back to Top

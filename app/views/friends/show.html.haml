@@ -1,36 +1,37 @@
-= render 'profiles/header', user: @user
-= render 'profiles/header_bottom_nav', user: @user, scroll_interests: true
-%section.all-activities
-  .container
-    .row.text-center
-      %h3.decored All Friends
-    .row
-      .col-md-12
-        .row.friends-list.all
-          - if @all_friends.size > 0
-            .col-md-10.col-md-offset-1.borderize.whitebg.roundize
-              - @all_friends.each do |friend|
-                =link_to profile_path(friend) do
-                  .col-md-4.friend-list-item
-                    .row
-                      .col-md-6.friend-avatar
-                        = image_tag friend.avatar_url(:thumb), class: ''
-                      .col-md-6
-                        .friend-name
-                          = friend.name
-                        .friend-city
-                          = friend.location.try(:truncate, 25)
-            .col-md-12.text-center
-              =will_paginate @all_friends
-          - else 
-            - if @user.id == current_user.id
-              .row.text-center
-                %h2.grey-msg You have no friends
-            - else
-              .row.text-center
-                %h2.grey-msg #{ @user.name} have no friends
-            %p.back-top
-              %a{:href => ".top"}
-                %span>
-                Back to Top
-          
+.user-info-section.profile-friends
+  = render 'profiles/header', user: @user
+  = render 'profiles/header_bottom_nav', user: @user, scroll_interests: true
+  %section.all-activities
+    .container
+      .row.text-center
+        %h3.decored All Friends
+      .row
+        .col-md-12
+          .row.friends-list.all
+            - if @all_friends.size > 0
+              .col-md-10.col-md-offset-1.borderize.whitebg.roundize
+                - @all_friends.each do |friend|
+                  =link_to profile_path(friend) do
+                    .col-md-4.friend-list-item
+                      .row
+                        .col-md-6.friend-avatar
+                          = image_tag friend.avatar_url(:thumb), class: ''
+                        .col-md-6
+                          .friend-name
+                            = friend.name
+                          .friend-city
+                            = friend.location.try(:truncate, 25)
+              .col-md-12.text-center
+                =will_paginate @all_friends
+            - else 
+              - if @user.id == current_user.id
+                .row.text-center
+                  %h2.grey-msg You have no friends
+              - else
+                .row.text-center
+                  %h2.grey-msg #{ @user.name} have no friends
+              %p.back-top
+                %a{:href => ".top"}
+                  %span>
+                  Back to Top
+            

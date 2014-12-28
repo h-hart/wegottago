@@ -1,14 +1,15 @@
-= render 'profiles/header', user: @user
-= render 'profiles/header_bottom_nav', user: @user, scroll_interests: true
-%section.all-activities
-  .container
-    .row.text-center
-      %h3.decored Curiosities
-    - if @activities.count > 0
-      .col-md-10.col-md-offset-1.activities-list.user-activities.borderize.whitebg.roundize
-        .row.curiosity-item
-          - @activities.each do |activity|
-            =render 'activities/full_list', activity: activity
-    - else
+.user-info-section.profile-curiosity
+  = render 'profiles/header', user: @user
+  = render 'profiles/header_bottom_nav', user: @user, scroll_interests: true
+  %section.all-activities
+    .container
       .row.text-center
-        %h2.grey-msg You have no curiosities
+        %h3.decored Curiosities
+      - if @activities.count > 0
+        .col-md-10.col-md-offset-1.activities-list.user-activities.borderize.whitebg.roundize
+          .row.curiosity-item
+            - @activities.each do |activity|
+              =render 'activities/full_list', activity: activity
+      - else
+        .row.text-center
+          %h2.grey-msg You have no curiosities
