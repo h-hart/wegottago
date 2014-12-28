@@ -5,22 +5,19 @@
 $border-color: #E7E7E7;
 
 .main-category{
-  /*background: url(/assets/main-category.png) no-repeat center center;*/
   width:100%;
   margin:0 auto;
 }
 .categories-list{
-    margin-top: 2%;
+  margin-top: 2%;
 }
 .catbackground{
-  background:url(/assets/cloudy_background.jpg) repeat center center !important;
   width: 100%;
   min-height:100%;
   min-width:100%;
   position: relative;
 }
 .whitebackground{
-/*  background:url(/assets/background.jpg) repeat center center !important; */
   width: 100%;
   min-height:100%;
   min-width:100%;
@@ -31,11 +28,9 @@ $border-color: #E7E7E7;
   height: 265px;
 }
 .category-image{
-  position: relative;
-  background-color: #fff;
-  border: 1px solid $border-color;
   border-radius: 2px;
-  /*box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);*/
+  @extend .borderize;
+  border-bottom: 0;
 }
 .category-banner {
   width: 100%;
@@ -75,9 +70,11 @@ $border-color: #E7E7E7;
   -webkit-transform: rotate(-4deg); /* Safari and Chrome */
 }
 .category-info{
-  padding: 8px 20px 10px;
-  z-index: 0;
+  padding: 6px 20px 6px;
   background: #fff;
+  height: 61px;
+  @extend .borderize;
+  border-top: 0;
 }
 .category-name{
   color: #428bca;
@@ -156,44 +153,3 @@ $border-color: #E7E7E7;
     background-color: #777;
   }
 }
-
-/*.back-top {
-  position: fixed;
-  bottom: 30px;
-  margin-left: 950px;
-  a {
-    width: 108px;
-    display: block;
-    text-align: center;
-    font: 11px / 100% Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #bbb;
-    margin-left:40px;
-    /* background color transition */
-/*    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    transition: 1s;
-    &:hover {
-      color: #000;
-    }
-  }
-  span {
-    width: 108px;
-    height: 108px;
-    display: block;
-    margin-bottom: 7px;
-    background: #dddddd url(../assets/up-arrow.png) no-repeat center center;
-    /* rounded corners */
- /*   -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-    /* background color transition */
-    /*-webkit-transition: 1s;
-    -moz-transition: 1s;
-    transition: 1s;
-  }
-  a:hover span {
-    background-color: #777;*/
-/*  }*/
-/*}**//*/*/
