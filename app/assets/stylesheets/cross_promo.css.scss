@@ -1,0 +1,22 @@
+.cross-promo {
+  position: relative;
+  padding: 12px 0 12px;
+
+  .cross-promo-tile {
+  }
+
+  img {
+    border-radius: 500px;
+    padding: 20px;
+  }
+  .overlay {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 42px;
+    position: absolute;
+    top: 50%;
+    padding: 20px;
+    margin-top: -74px;
+  }
+}

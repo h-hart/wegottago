@@ -2,10 +2,12 @@
   %img.category-banner{ src: asset_path('explore-activities.png') }
 
   .container
-    .col-md-12.categories-list
-      .row
+    .col-md-12
+      .row.categories-list
         - @activity_categories.each do |category|
           = render partial:  'activities/tile', locals: { category: category }
+      .row
+        = render partial: 'shared/cross_promo'
       %p.back-top
         %a{:href => ".top"}
           %span>
