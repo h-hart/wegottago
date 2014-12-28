@@ -2,10 +2,8 @@
   .col-md-4.category
     .category-image
       = image_tag category.small_image_url
-    .col-md-9.category-info
-      .category-followers
+    .category-info
+      .row.category-followers
         - category.interested_users.limit(6).each do |user|
-          .posted_by
+          .col-sm-2.posted_by
             = image_tag user.avatar.thumb.url, class: "posted_by_pic"
-
-
