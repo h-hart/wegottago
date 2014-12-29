@@ -1960,23 +1960,41 @@ select {
   z-index: 2;
 }
 
-.photo-explore-activities h1 {
+.photo-explore-activities {
+   h1 {
+      position: absolute;
+      top: 80px;
+      text-align: center;
+      width: 100%;
+      color: #fff;
+      font-weight: bold;
+  }
+  .friend-search {
+      position: absolute;
+      width: 100%;
+      top: auto;
+      bottom: 20px;
+  }
+  .search-form-wrap.col-sm-4 {
+      float: none;
+      margin: 0 auto;
+  }
+}
+.photo-explore-friends {
+  position: relative;
+
+  .overlay {
     position: absolute;
-    top: 80px;
-    text-align: center;
     width: 100%;
+    top: 30%;
+    margin-top: -41px;
+  }
+  h1 {
     color: #fff;
-    font-weight: bold;
-}
-.photo-explore-activities .friend-search {
-    position: absolute;
-    width: 100%;
-    top: auto;
-    bottom: 20px;
-}
-.photo-explore-activities .search-form-wrap.col-sm-4 {
-    float: none;
-    margin: 0 auto;
+    text-transform: uppercase;
+    font-size: 52px;
+    text-align: center;
+  }
 }
 
 .grey-msg {

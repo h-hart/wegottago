@@ -102,12 +102,8 @@ $border-color: #E7E7E7;
 }
 .photo-body{
   position: relative;
-  background: url(/assets/default-theme.jpg) no-repeat center center; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  .img-circle{
+
+  .img-circle {
     border: 3px solid #FFFFFF;
     bottom: -68px;
     left: 15px;
@@ -116,7 +112,7 @@ $border-color: #E7E7E7;
     height: auto;
     z-index: 2;
   }
-  .user-name{
+  .user-name {
     left: 40px;
     position: absolute;
     color: white;

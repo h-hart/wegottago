@@ -1,38 +1,48 @@
-%section
-  .col-md-12.photo-body.discover-friends
-    .col-md-12.discover-title Discover... New Friends
-    .friend-search
-      =render 'search_friends_form'
+%section.photo-explore-friends
+  .row
+    .col-sm-12
+      %img.category-banner{ src: asset_path('discover-friends.jpg') }
+  .overlay
+    .container
+      .row
+        .col-sm-12
+          %h1 Discover Friends
+          -#
+            .friend-search
+              =render 'search_friends_form'
 
 %section.all-friends
   .container
+    -#
+      .row
+        .col-sm-12.suggestions.text-center
+          %h2.decored Our Suggestion
+          .suggestions-list.text-center
+            - if @suggestions_friends.count > 0
+              - @suggestions_friends.uniq.each do |friend|
+                =link_to profile_path(friend) do
+                  .col-sm-2.user-profile
+                    .col-sm-12.user-avatar
+                      =link_to profile_path(friend) do
+                        = image_tag friend.avatar_url(:thumb), class: ''
+                        - unless friend.about.blank?
+                          %span.suggestion-tooltip 
+                            = friend.about
+            - else 
+              .row.text-center
+                %h2.grey-msg No friends exist
+
+    -#
+      .row.text-centered
+        =render 'explore_friends_nav'
+
     .row
-      .col-md-12.suggestions.text-center
-        %h2.decored Our Suggestion
-        .suggestions-list.text-center
-          - if @suggestions_friends.count > 0
-            - @suggestions_friends.uniq.each do |friend|
-              =link_to profile_path(friend) do
-                .col-md-2.user-profile
-                  .col-md-12.user-avatar
-                    =link_to profile_path(friend) do
-                      = image_tag friend.avatar_url(:thumb), class: ''
-                      - unless friend.about.blank?
-                        %span.suggestion-tooltip 
-                          = friend.about
-          - else 
-            .row.text-center
-              %h2.grey-msg No friends exist
-    .row.text-centered
-      =render 'explore_friends_nav'
-    .row
-      .col-md-12.friends-list.all
-        .col-md-12
-          - if @discovered_friends.uniq.count > 0
-            - @discovered_friends.uniq.each do |friend|
-              =render 'friend_item', :friend=>friend
-            .col-md-12.text-center
-              =will_paginate @discovered_friends
-          - else
-            .row.text-center
-              %h2.grey-msg No friends
+      .col-sm-12.friends-list.all
+        - if @discovered_friends.uniq.count > 0
+          - @discovered_friends.uniq.each do |friend|
+            =render 'friend_item', friend: friend
+          .col-md-12.text-center
+            =will_paginate @discovered_friends
+        - else
+          .row.text-center
+            %h2.grey-msg No friends
