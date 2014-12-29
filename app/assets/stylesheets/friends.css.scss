@@ -11,82 +11,87 @@
 $border-color: #adadad;
 $icon-color: #DF01A5;
 
-.friends-navigation{
+.friends-navigation {
   width: 290px;
   margin: 0 auto;
 }
-.add-button button{
+
+.add-button button {
   margin-top: 10px;
   background-color: $icon-color;
   color: #fff;
   font-weight: bold;
 }
-.friends-list{
+
+.friends-list {
   margin-top: 1%;
   padding: 0;
-}
-.friends-list .friend-list-single-item{
-  width: 19%;
-  margin-right: 1%;
-  margin-top: 2%;
-  border: 1px solid #ADADAD;
-  border-radius: 7px;
-  padding: 10px;
-  background: #FFF;
-  float: left;
-}
 
-.friends-list .friend-list-single-item .col-md-12.friend-avatar{
-  border: 1px solid $border-color;
-  border-radius: 9px;
-  padding: 0;
-  overflow: hidden;
-}
-.friends-list .friend-list-single-item .col-md-12.friend-avatar img{
-  width: 160px;
-  height: 160px;
-}
-.friends-list .friend-name{
-  margin-top: 10px;
-  font-weight: bold;
-  font-size: 16px;
-  max-width: 150px;
-  white-space: nowrap;
-}
+  .col-sm-20 {
+    @extend .col-sm-2;
+    width: 20%;
+    padding: 0 10px;
+  }
 
-.friends-list .friend-city {
-  font-size: 12px;
-  display: inline-block;
-  max-width: 150px;
-  white-space: nowrap;
-}
+  .friend-list-single-item {
+    margin-top: 18px;
+    border: 1px solid #adadad;
+    background: #fff;
+    @extend .clearfix;
 
-.friends-list .friend-name, .friends-list .friend-city {
-  color: #555;
-  padding: 0 2px;
+    .friend-avatar {
+      position: relative;
+
+      img {
+        width: 100%;
+      }
+    }
+    
+    .friend-item-wrap {
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      font-size: 16px;
+      padding: 0 10px;
+    }
+  }
+
+  &.all, &.new {
+    .glyphicon-plus, .glyphicon-remove, .glyphicon-envelope {
+      color: #ce498a;
+    }
+  }
 }
 
 .send-message-button:hover, .remove-from-friend-button:hover, .add-from-friend-button:hover{
   text-decoration: none;
 }
-.action-buttons a button{
-  width: 45%;
-  font-size: 28px;
-  margin: 10px 1%;
-  padding: 10px 0 0;
+
+.action-buttons a {
+  display: block;
+
+  button {
+    font-size: 28px;
+    margin: 10px 0;
+    padding: 10px 0 0;
+    display: block;
+    width: 80%;
+  }
+  &:first-child {
+    button {
+      margin-left: 20%;
+    }
+  }
 }
 
-.friends-list.all .glyphicon-plus, .friends-list.all .glyphicon-remove, .friends-list.all .glyphicon-envelope, .friends-list.new .glyphicon-plus, .friends-list.new .glyphicon-remove, .friends-list.new .glyphicon-envelope{
-  color: #ce498a;
-}
-.discover-title{
+.discover-title {
   color: #fff;
   font-size: 36px;
   font-weight: bold;
   text-align: center;
   padding-top: 15px;
 }
-.discover-friends .search-block{
+.discover-friends .search-block {
   color: red;
   background-color: rgba(0, 0, 0, 0.1);
   position: absolute;
@@ -94,50 +99,56 @@ $icon-color: #DF01A5;
   margin: 0 25%;
   height: 18%;
 }
-.search-button{
+.search-button {
   width: 135px;
 }
-.suggestions{
+
+.suggestions {
   padding: 0;
   margin: 0 0 20px 0;
-}
-.suggestions h2{
-  text-align: center;
-}
-.suggestions-list{
-  margin: 20px 0 0 0;
+
+  h2 {
+    text-align: center;
+  }
 }
 
-.suggestions-list .user-profile:last-child{
-  margin-right: 0;
+.suggestions-list {
+  margin: 20px 0 0 0;
+
+  .user-profile:last-child {
+    margin-right: 0;
+  }
+  .user-avatar {
+    padding: 0;
+    height: 137px;
+
+    img {
+      max-height: 91px;
+      min-height: 90px;
+    }
+
+    &:hover span.suggestion-tooltip {
+      display: block;
+      width: 300px;
+      position: absolute;
+      left: -100px;
+      text-align: left;
+      top: 105px;
+      background-color: #2D9BBE;
+      opacity: 0.8;
+      border: 2px solid #0378b7;
+      border-radius: 5px;
+      color: #fff;
+      font-style: italic;
+      padding: 5px;
+      text-shadow: 1px 1px rgba(0, 0, 0, 0.55);
+      font-size: 13px;
+      z-index: 3;
+      box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.21);
+    }
+  }
 }
-.suggestions-list .user-avatar{
-  padding: 0;
-  height: 137px;
-}
-.suggestions-list .user-avatar img{
-  max-height: 91px;
-  min-height: 90px;
-}
-.suggestions-list .user-avatar:hover span.suggestion-tooltip {
-  display: block;
-  width: 300px;
-  position: absolute;
-  left: -100px;
-  text-align: left;
-  top: 105px;
-  background-color: #2D9BBE;
-  opacity: 0.8;
-  border: 2px solid #0378b7;
-  border-radius: 5px;
-  color: #fff;
-  font-style: italic;
-  padding: 5px;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.55);
-  font-size: 13px;
-  z-index: 3;
-  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.21);
-}
-.col-md-2.user-profile span.suggestion-tooltip{
+
+.col-md-2.user-profile span.suggestion-tooltip {
   display: none;
 }
