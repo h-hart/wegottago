@@ -6,4 +6,5 @@
       .row.category-followers
         - category.interested_users.limit(6).each do |user|
           .col-sm-2.posted_by
-            = image_tag user.avatar.thumb.url, class: "posted_by_pic"
+            %a{ href: profile_path(user.id) }
+              = image_tag user.avatar.thumb.url, class: "posted_by_pic"
