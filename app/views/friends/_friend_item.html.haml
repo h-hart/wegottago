@@ -12,6 +12,12 @@
             = name + age
           .friend-city
             = friend.location.try(:truncate, 25)
+    .interests.col-sm-12
+      .row
+        - if friend.interests.uniq.size > 0
+          - friend.interests.limit(4).uniq.each do |interest|
+            .col-sm-6.interest-tag
+              %div= interest.name.try(:truncate, 9)
     .action-buttons
       .row
         - if signed_in_and_not_current? friend.id

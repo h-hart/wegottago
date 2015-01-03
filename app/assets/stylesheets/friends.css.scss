@@ -54,6 +54,27 @@ $icon-color: #DF01A5;
       font-size: 16px;
       padding: 0 10px;
     }
+    
+    .col-sm-6.interest-tag {
+      padding: 0 8px;
+
+      &:nth-child(2n) {
+        padding-left: 4px;
+      }
+      &:nth-child(2n+1) {
+        padding-right: 4px;
+      }
+
+      div {
+        padding: 7px 5px 3px;
+        margin: 9px 0 0;
+        background-color: #7e7e7e;
+        text-align: center;
+        white-space: nowrap;
+        color: #fff;
+        border-radius: 4px;
+      }
+    }
   }
 
   &.all, &.new {
