@@ -334,7 +334,7 @@ span.interest.current{
 
     .activity-host-img {
       width: 70px;
-      @extend .borderize;
+      @extend .borderize !optional;
       border-radius: 70px;
       position: absolute;
       top: -35px;

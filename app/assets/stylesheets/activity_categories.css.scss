@@ -29,7 +29,7 @@ $border-color: #E7E7E7;
 }
 .category-image{
   border-radius: 2px;
-  @extend .borderize;
+  @extend .borderize !optional;
   border-bottom: 0;
 }
 .category-banner {
@@ -73,7 +73,7 @@ $border-color: #E7E7E7;
   padding: 6px 20px 6px;
   background: #fff;
   height: 61px;
-  @extend .borderize;
+  @extend .borderize !optional;
   border-top: 0;
 }
 .category-name{

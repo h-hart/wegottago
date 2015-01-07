@@ -28,7 +28,7 @@ $icon-color: #DF01A5;
   padding: 0;
 
   .col-sm-20 {
-    @extend .col-sm-2;
+    @extend .col-sm-2 !optional;
     width: 20%;
     padding: 0 10px;
   }
@@ -37,7 +37,7 @@ $icon-color: #DF01A5;
     margin-top: 18px;
     border: 1px solid #adadad;
     background: #fff;
-    @extend .clearfix;
+    @extend .clearfix !optional;
 
     .friend-avatar {
       position: relative;
